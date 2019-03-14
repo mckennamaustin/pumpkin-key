@@ -30,31 +30,31 @@ const targets: Target[] = [
     name: 'dock',
     tl: [1098, 1438],
     br: [1520, 1642],
-    src: '/dock.jpg'
+    src: 'dock.jpg'
   },
   {
     name: 'beach',
     tl: [1886, 1384],
     br: [2310, 1466],
-    src: '/beach.jpg'
+    src: 'beach.jpg'
   },
   {
     name: 'house',
     tl: [1592, 1224],
     br: [1774, 1338],
-    src: '/house.jpg'
+    src: 'house.jpg'
   },
   {
     name: 'court',
     tl: [1667, 980],
     br: [1828, 1068],
-    src: '/quarters.jpg'
+    src: 'quarters.jpg'
   },
   {
     name: 'quarters',
     tl: [678, 980],
     br: [860, 1052],
-    src: '/quarters.jpg'
+    src: 'quarters.jpg'
   }
 ];
 
@@ -145,7 +145,7 @@ export default class LandingPage extends Component<Props, State> {
               width={`${this.state.width}px`}
               height={`${this.state.height}px`}
               preserveAspectRatio="none">
-              <image xlinkHref="/pumpkin_key.jpg" width="100%" height="100%" />
+              <image xlinkHref="pumpkin_key.jpg" width="100%" height="100%" />
               {targets.map(target => (
                 <rect
                   x={target.tl[0]}
