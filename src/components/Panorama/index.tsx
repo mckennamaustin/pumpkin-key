@@ -31,6 +31,7 @@ export default class Panorama extends Component<Props, State> {
   private _renderer: THREE.WebGLRenderer;
   private _camera: THREE.PerspectiveCamera;
   private _scene: THREE.Scene;
+  private _mesh: THREE.Mesh;
   private _fov: number;
   private _isInteracting: boolean;
   private _rotateStart: THREE.Vector2;
@@ -71,6 +72,8 @@ export default class Panorama extends Component<Props, State> {
     this._renderer = renderer;
     this._camera = camera;
     this._scene = scene;
+    this._mesh = mesh;
+
     this._rotateDelta = new THREE.Vector2(0, 0);
     this._rotationSpeed = 0.25;
     this._phi = Math.PI / 2;
@@ -81,6 +84,13 @@ export default class Panorama extends Component<Props, State> {
 
   componentWillUnmount = (): void => {
     this.releaseListeners();
+
+    this._scene.remove(this._mesh);
+    this._renderer.dispose();
+    this._mesh = null;
+    this._scene = null;
+    this._camera = null;
+    this._renderer = null;
   };
 
   acquireListeners = (): void => {
