@@ -141,11 +141,17 @@ export default class LandingPage extends Component<Props, State> {
               </VideoButton>
             </VideoButtonList>
             <svg
-              viewBox={`0 0 3672 2058`}
+              viewBox={` 0 0 3300 2175`}
               width={`${this.state.width}px`}
               height={`${this.state.height}px`}
-              preserveAspectRatio="none">
-              <image xlinkHref="pumpkin_key.jpg" width="100%" height="100%" />
+              preserveAspectRatio="xMidYMin slice">
+              <image
+                xlinkHref="https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg"
+                width="100%"
+                height="100%"
+                y="-300"
+                x="0"
+              />
               {targets.map(target => (
                 <rect
                   x={target.tl[0]}
