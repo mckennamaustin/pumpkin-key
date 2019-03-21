@@ -17,11 +17,42 @@ class App extends Component<Props, State> {
 }
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Srisakdi');
 * {
   font-family: sans-serif;
-
 }
+
+@font-face {
+    font-family: 'Bodoni Sans Text';
+    src: url('jason_vandenberg_-_bodoni_sans_text_bold-webfont.woff2') format('woff2'),
+         url('jason_vandenberg_-_bodoni_sans_text_bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bodoni Sans';
+    src: url('jason_vandenberg_-_bodoni_sans_display_light-webfont.woff2') format('woff2'),
+         url('jason_vandenberg_-_bodoni_sans_display_light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bodoni Sans';
+    src: url('jason_vandenberg_-_bodoni_sans_bold-webfont.woff2') format('woff2'),
+         url('jason_vandenberg_-_bodoni_sans_bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bodoni Sans';
+    src: url('jason_vandenberg_-_bodoni_sans-webfont.woff2') format('woff2'),
+         url('jason_vandenberg_-_bodoni_sans-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -31,6 +62,8 @@ html, body {
   * { 
     overflow: hidden;
   }
+
+  font-family: 'Bodoni Sans'
 }
 `;
 

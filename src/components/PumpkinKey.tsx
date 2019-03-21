@@ -6,12 +6,17 @@ const PumpkinKey: React.SFC<{}> = props => (
 );
 
 const Header = styled.h1`
-  font-family: 'Srisakdi', cursive;
-  color: black;
-  font-size: 3rem;
-  width: 300px;
-  height: 100px;
-  font-weight: 700;
+  width: auto;
+  height: auto;
+  color: white;
+  text-transform: uppercase;
+  height: auto;
+  width: auto;
+  color: #ffffff;
+  font-family: 'Bodoni Sans';
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 24.38px;
 `;
 
 export default PumpkinKey;
