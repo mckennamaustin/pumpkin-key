@@ -10,6 +10,8 @@ import HotspotIndicator from './HotspotIndicator';
 import targets, { Target, Vector2 } from './targets';
 import Footer from './Footer';
 import VideoGallery from '../VideoGallery';
+import PhotoGallery from '../PhotoGallery';
+import Renderer from '../../state/renderer';
 
 interface Props {}
 
@@ -21,6 +23,7 @@ interface State {
   zoom: number;
   zoomDelta: number;
   isShowingVideoGallery: boolean;
+  isShowingPhotoGallery: boolean;
 }
 
 const WIDTH = 3300;
@@ -32,10 +35,63 @@ const ZOOM_DAMP = 0.75;
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 3.0;
 
+const panoramaGraph = [
+  {
+    id: 0,
+    floor: 1,
+    position: { x: 0, y: 0 },
+    edges: [],
+    name: '0'
+  },
+  {
+    id: 1,
+    floor: 1,
+    position: { x: 0, y: 0 },
+    edges: [],
+    name: '1'
+  },
+  {
+    id: 2,
+    floor: 1,
+    position: { x: 0, y: 0 },
+    edges: [],
+    name: '2'
+  },
+  {
+    id: 3,
+    floor: 1,
+    position: { x: 0, y: 0 },
+    edges: [],
+    name: '3'
+  },
+  {
+    id: 4,
+    floor: 1,
+    position: { x: 0, y: 0 },
+    edges: [],
+    name: '4'
+  },
+  {
+    id: 5,
+    floor: 1,
+    position: { x: 0, y: 0 },
+    edges: [],
+    name: '5'
+  },
+  {
+    id: 6,
+    floor: 1,
+    position: { x: 0, y: 0 },
+    edges: [],
+    name: '6'
+  }
+];
+
 export default class LandingPage extends Component<Props, State> {
   private container: HTMLDivElement;
   private transformGroup: SVGGElement;
   private svg: SVGElement;
+  private canvasContainer: HTMLDivElement;
 
   state = {
     width: 0,
@@ -44,13 +100,26 @@ export default class LandingPage extends Component<Props, State> {
     activePanorama: undefined,
     zoomDelta: 0.0,
     zoom: MIN_ZOOM,
-    isShowingVideoGallery: false
+    isShowingVideoGallery: false,
+    isShowingPhotoGallery: false
   };
 
   componentDidMount = (): void => {
     this.resize();
-
+    //this.state.renderer.preload(targets);
     window.addEventListener('resize', this.resize, false);
+
+    const opts = {
+      imagePathRoot: `https://s3.amazonaws.com/sage.pumpkin-key/panoramas`,
+      disableControls: false
+    };
+
+    // this.tour = new SageTourInternal(
+    //   this.canvasContainer,
+    //   panoramaGraph,
+    //   () => {},
+    //   opts
+    // );
   };
 
   componentWillUnmount = (): void => {
@@ -80,7 +149,31 @@ export default class LandingPage extends Component<Props, State> {
   };
 
   openVideoGallery = () => {
-    this.setState({ isShowingVideoGallery: true });
+    this.setState({
+      isShowingVideoGallery: true,
+      isShowingPhotoGallery: false
+    });
+  };
+
+  closeVideoGallery = () => {
+    this.setState({
+      isShowingVideoGallery: false,
+      isShowingPhotoGallery: false
+    });
+  };
+
+  openPhotoGallery = () => {
+    this.setState({
+      isShowingVideoGallery: false,
+      isShowingPhotoGallery: true
+    });
+  };
+
+  closePhotoGallery = () => {
+    this.setState({
+      isShowingVideoGallery: false,
+      isShowingPhotoGallery: false
+    });
   };
 
   render() {
@@ -92,8 +185,8 @@ export default class LandingPage extends Component<Props, State> {
         key="ev-container">
         {this.state.isPanoramaActive ? (
           <Panorama
-            src={this.state.activePanorama.src}
             goBack={this.deactivatePanorama}
+            src={this.state.activePanorama.src}
           />
         ) : (
           <>
@@ -120,6 +213,7 @@ export default class LandingPage extends Component<Props, State> {
                   text={target.name}
                   x={target.tl[0]}
                   y={target.tl[1]}
+                  onClick={() => this.activatePanorama(target)}
                 />
                 // <rect
                 //   x={target.tl[0]}
@@ -133,12 +227,39 @@ export default class LandingPage extends Component<Props, State> {
             </svg>
           </>
         )}
-        {this.state.isShowingVideoGallery && <VideoGallery />}
-        <Footer openVideoGallery={this.openVideoGallery} />
+        {this.state.isShowingVideoGallery && (
+          <VideoGallery closeVideoGallery={this.closeVideoGallery} />
+        )}
+        {this.state.isShowingPhotoGallery && (
+          <PhotoGallery closePhotoGallery={this.closePhotoGallery} />
+        )}
+        {!this.state.isPanoramaActive && (
+          <Footer
+            isPhotoGalleryFocused={this.state.isShowingPhotoGallery}
+            isVideoGalleryFocused={this.state.isShowingVideoGallery}
+            openVideoGallery={this.openVideoGallery}
+            openPhotoGallery={this.openPhotoGallery}
+          />
+        )}
+        <Canvas
+          ref={container => {
+            this.canvasContainer = container;
+          }}
+        />
       </Container>
     );
   }
 }
+
+const Canvas = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed !important;
+  top: 0px;
+  left: 0px;
+  z-index: 30000000;
+  visibility: hidden;
+`;
 
 const PumpkinKey = styled(GenericPumpkinKey)`
   position: absolute;

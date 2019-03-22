@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import VideoPlayer from 'react-player';
-interface Props {}
+interface Props {
+  closeVideoGallery: () => void;
+}
 
 interface State {
   isFullscreen: boolean;
@@ -23,38 +25,51 @@ export default class VideoGallery extends Component<Props, State> {
   render() {
     return (
       <Container>
-        <TransparentBackground />
+        <TransparentBackground onClick={this.props.closeVideoGallery} />
         {this.state.isFullscreen ? (
-          <VideoPlayer url={this.state.videoSrc} className="video-player" />
+          <VideoPlayer
+            url={this.state.videoSrc}
+            className="video-player"
+            playing
+          />
         ) : (
           <ThumbnailGrid>
-            <ThumbnailVideo
-              gc="1/2"
-              thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg"
-              onClick={() => this.playVideo('https://vimeo.com/325666928')}>
-              <PlayButton>
-                <img src={PLAY_ICON} />
-              </PlayButton>
-            </ThumbnailVideo>
-            <ThumbnailVideo
-              gc="2/3"
-              thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg"
-              onClick={() => this.playVideo('https://vimeo.com/325667088')}>
-              <PlayButton>
-                <img src={PLAY_ICON} />
-              </PlayButton>
-            </ThumbnailVideo>
+            <ThumbnailRow>
+              <ThumbnailVideo
+                thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg"
+                onClick={() => this.playVideo('https://vimeo.com/325666928')}>
+                <PlayButton>
+                  <img src={PLAY_ICON} />
+                </PlayButton>
+              </ThumbnailVideo>
+              <ThumbnailVideo
+                thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg"
+                onClick={() => this.playVideo('https://vimeo.com/325667088')}>
+                <PlayButton>
+                  <img src={PLAY_ICON} />
+                </PlayButton>
+              </ThumbnailVideo>
+            </ThumbnailRow>
           </ThumbnailGrid>
         )}
+        <ExitButton onClick={this.props.closeVideoGallery}>&times;</ExitButton>
       </Container>
     );
   }
 }
 
-// <VideoPlayer
-//           className="video-player"
-//           url={'https://vimeo.com/325666928'}
-//         />
+const ExitButton = styled.span`
+  cursor: pointer;
+  font-size: 48px;
+  font-weight: 300;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  letter-spacing: 0px;
+  margin: 0px;
+  padding: 0px;
+`;
 
 const PlayButton = styled.div`
   width: 100px;
@@ -75,15 +90,11 @@ const PlayButton = styled.div`
 `;
 
 const ThumbnailVideo = styled.div`
+  width: 30vw;
+  height: 20vw;
   cursor: pointer;
-  width: 100%;
-  height: 100%;
   border: 1px solid white;
-  grid-row: 1/2;
-  ${props =>
-    css`
-      grid-column: ${props.gc};
-    `};
+
   z-index: 11;
   background-color: black;
   box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.75);
@@ -98,12 +109,24 @@ const ThumbnailVideo = styled.div`
   `}
 `;
 
+const ThumbnailRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  > div:first-of-type {
+    margin-right: 5vw;
+  }
+`;
+
 const ThumbnailGrid = styled.div`
-  display: grid;
-  grid-template-columns: 30vw 30vw;
-  grid-template-rows: 20vw;
-  grid-gap: 5vw;
-  padding: 10px 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 50px;
   z-index: 10;
 `;
 

@@ -3,6 +3,9 @@ import styled, { css } from 'styled-components';
 
 interface Props {
   openVideoGallery: () => void;
+  openPhotoGallery: () => void;
+  isVideoGalleryFocused: boolean;
+  isPhotoGalleryFocused: boolean;
 }
 
 interface State {}
@@ -11,10 +14,14 @@ export default class Footer extends Component<Props, State> {
   render() {
     return (
       <Container>
-        <GalleryButton focus>
+        <GalleryButton
+          onClick={this.props.openPhotoGallery}
+          focus={this.props.isPhotoGalleryFocused}>
           <span>Photo Gallery</span>
         </GalleryButton>
-        <GalleryButton onClick={this.props.openVideoGallery}>
+        <GalleryButton
+          onClick={this.props.openVideoGallery}
+          focus={this.props.isVideoGalleryFocused}>
           <span>Video Gallery</span>
         </GalleryButton>
       </Container>

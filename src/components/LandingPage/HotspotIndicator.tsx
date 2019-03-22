@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+import { Target } from './targets';
 
 interface Props {
   x: number;
   y: number;
   text: string;
+  onClick: () => void;
 }
 
 interface State {
@@ -40,11 +42,21 @@ export default class HotspotIndicator extends Component<Props, State> {
       <g
         transform={`translate(${x}, ${y})`}
         viewBox={`0 0 ${this.state.width} ${this.state.height}`}>
-        <polygon points={trianglePoints} fill="white" />
-        <rect width={`${this.state.width}px`} height="50px" fill="white" />
+        <polygon
+          points={trianglePoints}
+          fill="white"
+          onClick={this.props.onClick}
+        />
+        <rect
+          width={`${this.state.width}px`}
+          height="50px"
+          fill="white"
+          onClick={this.props.onClick}
+        />
         <Text
           x="30px"
           y={`${-1 + this.state.height + this.state.height / 3}px`}
+          onClick={this.props.onClick}
           ref={text => {
             this.text = text;
           }}>
@@ -64,7 +76,7 @@ const Text = styled.text`
   user-select: none;
   height: 14px;
   color: #4d575a;
-  opacity: 0.8;
+  opacity: 0.65;
   font-family: 'Bodoni Sans';
   font-size: 24px;
   font-weight: bold;

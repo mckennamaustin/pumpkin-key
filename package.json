@@ -53,6 +53,7 @@
     "randomstring": "^1.1.5",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-loader-spinner": "^2.3.0",
     "react-player": "^1.9.3",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",

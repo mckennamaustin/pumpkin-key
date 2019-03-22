@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import bowser from 'bowser';
 import clamp from '../../utils/clamp';
 import { default as GenericBackButton } from './BackButton';
-
+import Loader from 'react-loader-spinner';
 const Bowser = bowser.getParser(window.navigator.userAgent);
 const Browser = Bowser.getBrowserName();
 
@@ -13,7 +13,9 @@ interface Props {
   goBack: () => void;
 }
 
-interface State {}
+interface State {
+  isLoading: boolean;
+}
 
 function positionFromEvent(event: any): { clientX: number; clientY: number } {
   let { clientX, clientY } = event;
@@ -42,6 +44,10 @@ export default class Panorama extends Component<Props, State> {
   private _phi: number;
   private _theta: number;
 
+  state = {
+    isLoading: true
+  };
+
   componentDidMount = () => {
     this._fov = 60;
     this._isInteracting = false;
@@ -51,11 +57,15 @@ export default class Panorama extends Component<Props, State> {
       0.01,
       10000
     );
+
     const scene = new THREE.Scene();
+    const loader = new THREE.TextureLoader();
     const mesh = new THREE.Mesh(
       new THREE.SphereGeometry(500, 60, 40),
       new THREE.MeshBasicMaterial({
-        map: THREE.ImageUtils.loadTexture(this.props.src),
+        map: loader.load(this.props.src, () => {
+          this.setState({ isLoading: false });
+        }),
         side: THREE.DoubleSide
       })
     );
@@ -180,6 +190,9 @@ export default class Panorama extends Component<Props, State> {
     return (
       <Container>
         <BackButton onClick={this.props.goBack} />
+        {this.state.isLoading && (
+          <Loader type="Oval" color="white" height={100} width={100} />
+        )}
         <Canvas
           ref={canvas => {
             this._canvas = canvas;
@@ -194,6 +207,16 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: black;
+  div:nth-of-type(1) {
+    z-index: 10;
+  }
 `;
 
 const BackButton = styled(GenericBackButton)`
@@ -206,15 +229,22 @@ const BackButton = styled(GenericBackButton)`
   padding: 10px 20px;
   border: 1px solid white;
   outline: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Bodoni Sans';
+  font-weight: bold;
+  font-size: 24px;
 
   cursor: pointer;
   &:hover {
     background-color: rgb(100, 100, 100);
   }
+  z-index: 10;
 `;
 
 const Canvas = styled.canvas`
   width: 100%;
   height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
 `;
