@@ -49,13 +49,13 @@ export default class PhotoGallery extends Component<Props, State> {
 
         <PhotoDisplay>
           <Chevron
-            src={'/chevronLeft.svg'}
+            src={'chevronLeft.svg'}
             left
             onClick={() => this.moveIndex(-1)}
           />
           <Photo src={assets[this.state.index]} />
           <Chevron
-            src="/chevronRight.svg"
+            src="chevronRight.svg"
             right
             onClick={() => this.moveIndex(1)}
           />
