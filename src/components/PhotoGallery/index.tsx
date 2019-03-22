@@ -128,6 +128,8 @@ const PhotoDisplay = styled.div`
   width: 70vw;
   height: 75vh;
 
+  background-color: black;
+
   position: relative;
 `;
 

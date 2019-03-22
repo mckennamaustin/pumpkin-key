@@ -32,6 +32,8 @@ function positionFromEvent(event: any): { clientX: number; clientY: number } {
   return { clientX, clientY };
 }
 
+const DAMPENING_FACTOR = 0.9;
+
 export default class Panorama extends Component<Props, State> {
   private _canvas: HTMLCanvasElement;
   private _renderer: THREE.WebGLRenderer;
@@ -159,7 +161,7 @@ export default class Panorama extends Component<Props, State> {
     this._ldMesh = ldMesh;
 
     this._rotateDelta = new THREE.Vector2(0, 0);
-    this._rotationSpeed = 0.25;
+    this._rotationSpeed = 0.08;
     this._phi = Math.PI / 2;
     this._theta = 1.7 * Math.PI;
     this.acquireListeners();
@@ -207,17 +209,11 @@ export default class Panorama extends Component<Props, State> {
 
     if (this._isInteracting) {
       this._rotateEnd = new THREE.Vector2(clientX, clientY);
-      this._rotateDelta
+      const delta = new THREE.Vector2()
         .subVectors(this._rotateEnd, this._rotateStart)
         .multiplyScalar(this._rotationSpeed);
+      this._rotateDelta = this._rotateDelta.add(delta);
 
-      const deltaTheta =
-        (2 * Math.PI * this._rotateDelta.x) / window.innerWidth;
-      const deltaPhi = (2 * Math.PI * this._rotateDelta.y) / window.innerHeight;
-
-      this._phi -= deltaPhi;
-      this._theta -= deltaTheta;
-      this._phi = clamp(this._phi, 0.55, 2.43);
       this._rotateStart.copy(this._rotateEnd);
     }
   };
@@ -247,6 +243,16 @@ export default class Panorama extends Component<Props, State> {
 
   animate = (): void => {
     if (this._shouldAnimate) {
+      const deltaTheta =
+        (2 * Math.PI * this._rotateDelta.x) / window.innerWidth;
+      const deltaPhi = (2 * Math.PI * this._rotateDelta.y) / window.innerHeight;
+
+      this._phi -= deltaPhi;
+      this._theta -= deltaTheta;
+      this._phi = clamp(this._phi, 0.55, 2.43);
+      this._rotateDelta.x *= DAMPENING_FACTOR;
+      this._rotateDelta.y *= DAMPENING_FACTOR;
+
       this._renderer.setSize(window.innerWidth, window.innerHeight);
       const phi = this._phi;
       const theta = this._theta;
@@ -300,6 +306,7 @@ const Container = styled.div`
   background-color: black;
   div:nth-of-type(1) {
     z-index: 10;
+    transition: all 500ms ease-in-out;
   }
 `;
 
