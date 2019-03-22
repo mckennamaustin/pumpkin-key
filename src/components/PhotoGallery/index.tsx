@@ -49,13 +49,13 @@ export default class PhotoGallery extends Component<Props, State> {
 
         <PhotoDisplay>
           <Chevron
-            src={'chevronLeft.svg'}
+            src={'https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg'}
             left
             onClick={() => this.moveIndex(-1)}
           />
           <Photo src={assets[this.state.index]} />
           <Chevron
-            src="chevronRight.svg"
+            src="https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg"
             right
             onClick={() => this.moveIndex(1)}
           />

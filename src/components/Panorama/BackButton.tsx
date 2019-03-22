@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const BackButton: React.SFC<{}> = props => (
   <Button {...props}>
-    <img src="/chevronLeft.svg" />
+    <img src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg" />
     Back
   </Button>
 );
