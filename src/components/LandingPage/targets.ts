@@ -47,6 +47,7 @@ export function preload() {
   if (!isPreloaded) {
     targets.forEach(target => {
       const img = new Image();
+      img.crossOrigin = 'Anonymous';
       img.src = target.src;
     });
 
