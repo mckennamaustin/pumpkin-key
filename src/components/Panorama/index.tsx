@@ -44,7 +44,8 @@ export default class Panorama extends Component<Props, State> {
   private _rotationSpeed: number;
   private _phi: number;
   private _theta: number;
-
+  private _animationLoop: number;
+  private _shouldAnimate: boolean;
   state = {
     isLoading: true
   };
@@ -55,6 +56,7 @@ export default class Panorama extends Component<Props, State> {
   };
 
   componentDidMount = () => {
+    this._shouldAnimate = true;
     this._fov = 60;
     this._isInteracting = false;
     const camera = new THREE.PerspectiveCamera(
@@ -97,6 +99,7 @@ export default class Panorama extends Component<Props, State> {
   };
 
   componentWillUnmount = (): void => {
+    cancelAnimationFrame(this._animationLoop);
     this.releaseListeners();
 
     this._scene.remove(this._mesh);
@@ -173,21 +176,23 @@ export default class Panorama extends Component<Props, State> {
   };
 
   animate = (): void => {
-    this._renderer.setSize(window.innerWidth, window.innerHeight);
-    const phi = this._phi;
-    const theta = this._theta;
+    if (this._shouldAnimate) {
+      this._renderer.setSize(window.innerWidth, window.innerHeight);
+      const phi = this._phi;
+      const theta = this._theta;
 
-    const x = Math.sin(phi) * Math.cos(theta);
-    const y = Math.cos(phi);
-    const z = Math.sin(phi) * Math.sin(theta);
+      const x = Math.sin(phi) * Math.cos(theta);
+      const y = Math.cos(phi);
+      const z = Math.sin(phi) * Math.sin(theta);
 
-    const target = new THREE.Vector3(x, y, z);
-    this._camera.lookAt(target);
-    this._camera.updateMatrix();
+      const target = new THREE.Vector3(x, y, z);
+      this._camera.lookAt(target);
+      this._camera.updateMatrix();
 
-    this._renderer.render(this._scene, this._camera);
+      this._renderer.render(this._scene, this._camera);
 
-    requestAnimationFrame(this.animate);
+      this._animationLoop = requestAnimationFrame(this.animate);
+    }
   };
 
   render() {
