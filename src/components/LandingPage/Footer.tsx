@@ -47,6 +47,8 @@ const GalleryButton = styled.button`
     text-transform: uppercase;
     padding: 5px 0px;
     text-align: center;
+    font-weight: 400;
+
     ${props =>
       props.focus &&
       css`

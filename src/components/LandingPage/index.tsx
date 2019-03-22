@@ -12,6 +12,7 @@ import Footer from './Footer';
 import VideoGallery from '../VideoGallery';
 import PhotoGallery from '../PhotoGallery';
 import Renderer from '../../state/renderer';
+import { SageTourInternal } from '../../../packages/sage-tour';
 
 interface Props {}
 
@@ -92,6 +93,7 @@ export default class LandingPage extends Component<Props, State> {
   private transformGroup: SVGGElement;
   private svg: SVGElement;
   private canvasContainer: HTMLDivElement;
+  private tour: SageTourInternal;
 
   state = {
     width: 0,
@@ -117,7 +119,9 @@ export default class LandingPage extends Component<Props, State> {
     // this.tour = new SageTourInternal(
     //   this.canvasContainer,
     //   panoramaGraph,
-    //   () => {},
+    //   () => {
+    //     this.tour.controller().setFOV(60);
+    //   },
     //   opts
     // );
   };
@@ -134,6 +138,7 @@ export default class LandingPage extends Component<Props, State> {
 
   activatePanorama = (target: Target): void => {
     this.setState({ isPanoramaActive: true, activePanorama: target });
+    //this.tour.changePanorama(target.id);
   };
 
   deactivatePanorama = (): void => {
@@ -185,8 +190,13 @@ export default class LandingPage extends Component<Props, State> {
         key="ev-container">
         {this.state.isPanoramaActive ? (
           <Panorama
+            src={`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${
+              this.state.activePanorama.id
+            }`}
+            sdSrc={`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${
+              this.state.activePanorama.id
+            }`}
             goBack={this.deactivatePanorama}
-            src={this.state.activePanorama.src}
           />
         ) : (
           <>
@@ -215,14 +225,6 @@ export default class LandingPage extends Component<Props, State> {
                   y={target.tl[1]}
                   onClick={() => this.activatePanorama(target)}
                 />
-                // <rect
-                //   x={target.tl[0]}
-                //   y={target.tl[1]}
-                //   width={target.br[0] - target.tl[0]}
-                //   height={target.br[1] - target.tl[1]}
-                //   style={{ fill: 'black', fillOpacity: 0.0 }}
-                //   onClick={() => this.activatePanorama(target)}
-                // />
               ))}
             </svg>
           </>
@@ -245,6 +247,7 @@ export default class LandingPage extends Component<Props, State> {
           ref={container => {
             this.canvasContainer = container;
           }}
+          visible={this.state.isPanoramaActive}
         />
       </Container>
     );
@@ -259,6 +262,12 @@ const Canvas = styled.div`
   left: 0px;
   z-index: 30000000;
   visibility: hidden;
+
+  ${props =>
+    props.visible &&
+    css`
+      .visibility: visible;
+    `};
 `;
 
 const PumpkinKey = styled(GenericPumpkinKey)`

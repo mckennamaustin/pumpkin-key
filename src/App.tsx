@@ -7,13 +7,31 @@ import Loading from './components/Loading';
 
 interface Props {}
 
-interface State {}
+interface State {
+  isLoading: boolean;
+}
 
 class App extends Component<Props, State> {
+  state = {
+    isLoading: true
+  };
+
   componentDidMount() {}
+  endLoad = () => {
+    this.setState({ isLoading: false });
+  };
 
   render() {
-    return [<GlobalStyle key={0} />, <LandingPage />];
+    return [
+      <GlobalStyle key={0} />,
+      <>
+        {this.state.isLoading ? (
+          <Loading endLoad={this.endLoad} />
+        ) : (
+          <LandingPage />
+        )}
+      </>
+    ];
   }
 }
 

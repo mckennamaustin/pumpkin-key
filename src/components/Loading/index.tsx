@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import Loader from 'react-loader-spinner';
 
-interface Props {}
+interface Props {
+  endLoad: () => void;
+}
 
 interface State {
   loadPercent: number;
@@ -19,12 +21,8 @@ export default class Loading extends Component<Props, State> {
 
   load = () => {
     const img = new Image();
-    img.crossOrigin = 'Anonymous';
-    img.onprogress = ev => {
-      console.log(ev);
-    };
     img.onload = () => {
-      console.log('loaded');
+      this.props.endLoad();
     };
     img.src = 'https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg';
   };

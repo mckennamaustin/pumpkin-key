@@ -11,7 +11,7 @@ uniform mat4 u_modelView;
 void main()	
 {
   v_position = normalize(vec3(u_model * vec4(a_position, 0.0)));
-  
+  v_position.x *= -1.0;
   vec3 transformed = vec3(a_position);
 
   vec4 mvPosition = u_modelView * vec4( transformed, 1.0 );

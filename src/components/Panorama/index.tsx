@@ -6,15 +6,18 @@ import clamp from '../../utils/clamp';
 import { default as GenericBackButton } from './BackButton';
 import Loader from 'react-loader-spinner';
 import { preload } from '../LandingPage/targets';
+import { DoubleSide } from 'three';
 const Bowser = bowser.getParser(window.navigator.userAgent);
 const Browser = Bowser.getBrowserName();
 
 interface Props {
   src: string;
+  sdSrc: string;
   goBack: () => void;
 }
 
 interface State {
+  loadSize: number;
   isLoading: boolean;
 }
 
@@ -35,6 +38,7 @@ export default class Panorama extends Component<Props, State> {
   private _camera: THREE.PerspectiveCamera;
   private _scene: THREE.Scene;
   private _mesh: THREE.Mesh;
+  private _ldMesh: THREE.Mesh;
   private _fov: number;
   private _isInteracting: boolean;
   private _rotateStart: THREE.Vector2;
@@ -46,8 +50,11 @@ export default class Panorama extends Component<Props, State> {
   private _theta: number;
   private _animationLoop: number;
   private _shouldAnimate: boolean;
+  private _count: number;
+  private _sdCount: number;
   state = {
-    isLoading: true
+    isLoading: true,
+    loadSize: 100
   };
 
   postLoad = () => {
@@ -55,7 +62,29 @@ export default class Panorama extends Component<Props, State> {
     this.setState({ isLoading: false });
   };
 
+  increaseCount = () => {
+    this._count++;
+
+    if (this._count >= 6) {
+      this._mesh.visible = true;
+      setTimeout(() => {
+        this._ldMesh.visible = false;
+        this.setState({ isLoading: false });
+      }, 500);
+    }
+  };
+
+  increaseSDCount = () => {
+    this._sdCount++;
+
+    if (this._sdCount >= 6) {
+      this.setState({ loadSize: 50 });
+    }
+  };
+
   componentDidMount = () => {
+    this._count = 0;
+    this._sdCount = 0;
     this._shouldAnimate = true;
     this._fov = 60;
     this._isInteracting = false;
@@ -67,18 +96,56 @@ export default class Panorama extends Component<Props, State> {
     );
 
     const scene = new THREE.Scene();
+
     const loader = new THREE.TextureLoader();
-    const mesh = new THREE.Mesh(
-      new THREE.SphereGeometry(500, 60, 40),
+    const spx = loader.load(`${this.props.sdSrc}-px.jpg`, this.increaseSDCount);
+    const snx = loader.load(`${this.props.sdSrc}-nx.jpg`, this.increaseSDCount);
+    const spy = loader.load(`${this.props.sdSrc}-py.jpg`, this.increaseSDCount);
+    const sny = loader.load(`${this.props.sdSrc}-ny.jpg`, this.increaseSDCount);
+    const spz = loader.load(`${this.props.sdSrc}-pz.jpg`, this.increaseSDCount);
+    const snz = loader.load(`${this.props.sdSrc}-nz.jpg`, this.increaseSDCount);
+    const px = loader.load(`${this.props.src}-px.jpg`, this.increaseCount);
+    const nx = loader.load(`${this.props.src}-nx.jpg`, this.increaseCount);
+    const py = loader.load(`${this.props.src}-py.jpg`, this.increaseCount);
+    const ny = loader.load(`${this.props.src}-ny.jpg`, this.increaseCount);
+    const pz = loader.load(`${this.props.src}-pz.jpg`, this.increaseCount);
+    const nz = loader.load(`${this.props.src}-nz.jpg`, this.increaseCount);
+
+    const materials = [
       new THREE.MeshBasicMaterial({
-        map: loader.load(this.props.src, this.postLoad),
+        map: px,
         side: THREE.DoubleSide
-      })
+      }),
+      new THREE.MeshBasicMaterial({ map: nx, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: py, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: ny, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: pz, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: nz, side: THREE.DoubleSide })
+    ];
+
+    const sdMaterials = [
+      new THREE.MeshBasicMaterial({
+        map: spx,
+        side: THREE.DoubleSide
+      }),
+      new THREE.MeshBasicMaterial({ map: snx, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: spy, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: sny, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: spz, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ map: snz, side: THREE.DoubleSide })
+    ];
+
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 20), materials);
+    const ldMesh = new THREE.Mesh(
+      new THREE.BoxGeometry(15, 15, 15),
+      sdMaterials
     );
+    mesh.visible = false;
     mesh.scale.x = -1;
+    ldMesh.scale.x = -1;
 
     scene.add(mesh);
-
+    scene.add(ldMesh);
     const renderer = new THREE.WebGLRenderer({
       canvas: this._canvas,
       antialias: true
@@ -89,6 +156,7 @@ export default class Panorama extends Component<Props, State> {
     this._camera = camera;
     this._scene = scene;
     this._mesh = mesh;
+    this._ldMesh = ldMesh;
 
     this._rotateDelta = new THREE.Vector2(0, 0);
     this._rotationSpeed = 0.25;
@@ -103,8 +171,10 @@ export default class Panorama extends Component<Props, State> {
     this.releaseListeners();
 
     this._scene.remove(this._mesh);
+    this._scene.remove(this._ldMesh);
     this._renderer.dispose();
     this._mesh = null;
+    this._ldMesh = null;
     this._scene = null;
     this._camera = null;
     this._renderer = null;
@@ -200,7 +270,12 @@ export default class Panorama extends Component<Props, State> {
       <Container>
         <BackButton onClick={this.props.goBack} />
         {this.state.isLoading && (
-          <Loader type="Oval" color="white" height={100} width={100} />
+          <Loader
+            type="Oval"
+            color="white"
+            width={this.state.loadSize}
+            height={this.state.loadSize}
+          />
         )}
         <Canvas
           ref={canvas => {

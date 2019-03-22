@@ -8,7 +8,7 @@ import { TRANSITION } from '../../constants/events';
 import clamp from '../../utils/clamp';
 
 export const MIN_FOV = 10;
-export const MAX_FOV = 50;
+export const MAX_FOV = 70;
 
 export default class TourController {
   private _phi: number;
