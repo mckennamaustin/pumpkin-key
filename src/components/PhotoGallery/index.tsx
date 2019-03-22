@@ -17,17 +17,20 @@ const assets = [
   'https://s3.amazonaws.com/sage.pumpkin-key/gallery/4.jpg'
 ];
 
-//preload
-assets.forEach(src => {
-  new Image().src = src;
-});
-
 const MIN_INDEX = 0;
 const MAX_INDEX = assets.length;
 
 export default class PhotoGallery extends Component<Props, State> {
   state = {
     index: 0
+  };
+
+  componentDidMount = () => {
+    assets.forEach((src, index) => {
+      if (index !== 0) {
+        new Image().src = src;
+      }
+    });
   };
 
   moveIndex = delta => {

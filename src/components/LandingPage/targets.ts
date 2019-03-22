@@ -3,25 +3,25 @@ const targets: Target[] = [
     name: 'marina',
     tl: [900, 1500],
     br: [1520, 1642],
-    src: 'https://s3.amazonaws.com/sage.pumpkin-key/dockRight.jpg'
+    src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-dockRight.jpg'
   },
   {
     name: 'beachfront',
     tl: [1500, 1500],
     br: [2310, 1466],
-    src: 'https://s3.amazonaws.com/sage.pumpkin-key/beach1.jpg'
+    src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-beach1.jpg'
   },
   {
     name: 'Guest House 1',
     tl: [1100, 1200],
     br: [1774, 1338],
-    src: 'https://s3.amazonaws.com/sage.pumpkin-key/overCaretaker.jpg'
+    src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-overCaretaker.jpg'
   },
   {
     name: 'Guest House 2',
     tl: [1340, 1260],
     br: [1774, 1338],
-    src: 'https://s3.amazonaws.com/sage.pumpkin-key/betweenCaretaker.jpg'
+    src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-betweenCaretaker.jpg'
   },
 
   {

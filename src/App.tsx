@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import LandingPage from './components/LandingPage';
 import Panorama from './components/Panorama';
+import Loading from './components/Loading';
 
 interface Props {}
 
