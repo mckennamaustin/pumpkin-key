@@ -5,6 +5,7 @@ import bowser from 'bowser';
 import clamp from '../../utils/clamp';
 import { default as GenericBackButton } from './BackButton';
 import Loader from 'react-loader-spinner';
+import { preload } from '../LandingPage/targets';
 const Bowser = bowser.getParser(window.navigator.userAgent);
 const Browser = Bowser.getBrowserName();
 
@@ -48,6 +49,11 @@ export default class Panorama extends Component<Props, State> {
     isLoading: true
   };
 
+  postLoad = () => {
+    preload();
+    this.setState({ isLoading: false });
+  };
+
   componentDidMount = () => {
     this._fov = 60;
     this._isInteracting = false;
@@ -63,9 +69,7 @@ export default class Panorama extends Component<Props, State> {
     const mesh = new THREE.Mesh(
       new THREE.SphereGeometry(500, 60, 40),
       new THREE.MeshBasicMaterial({
-        map: loader.load(this.props.src, () => {
-          this.setState({ isLoading: false });
-        }),
+        map: loader.load(this.props.src, this.postLoad),
         side: THREE.DoubleSide
       })
     );

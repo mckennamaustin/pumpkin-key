@@ -1,4 +1,4 @@
-export default [
+const targets: Target[] = [
   {
     name: 'marina',
     tl: [900, 1500],
@@ -31,7 +31,7 @@ export default [
     src: 'https://s3.amazonaws.com/sage.pumpkin-key/dock.jpg'
   }
 ];
-
+export default targets;
 export type Vector2 = number[];
 
 export interface Target {
@@ -39,4 +39,17 @@ export interface Target {
   tl: Vector2;
   br: Vector2;
   src: string;
+}
+
+let isPreloaded: boolean = false;
+
+export function preload() {
+  if (!isPreloaded) {
+    targets.forEach(target => {
+      const img = new Image();
+      img.src = target.src;
+    });
+
+    isPreloaded = true;
+  }
 }
