@@ -41,7 +41,7 @@ export interface Target {
   src: string;
 }
 
-let isPreloaded: boolean = false;
+let isPreloaded: boolean = true;
 
 export function preload() {
   if (!isPreloaded) {
