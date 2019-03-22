@@ -46,6 +46,7 @@ export default class Panorama extends Component<Props, State> {
   private _rotateStart: THREE.Vector2;
   private _rotateEnd: THREE.Vector2;
   private _rotateDelta: THREE.Vector2;
+  private _isDampingEnabled: boolean;
 
   private _rotationSpeed: number;
   private _phi: number;
@@ -72,6 +73,7 @@ export default class Panorama extends Component<Props, State> {
       setTimeout(() => {
         this._ldMesh.visible = false;
         this.setState({ isLoading: false });
+        this._isDampingEnabled = true;
       }, 500);
     }
   };
@@ -85,6 +87,7 @@ export default class Panorama extends Component<Props, State> {
   };
 
   componentDidMount = () => {
+    this._isDampingEnabled = false;
     this._count = 0;
     this._sdCount = 0;
     this._shouldAnimate = true;
@@ -208,11 +211,17 @@ export default class Panorama extends Component<Props, State> {
     const { clientX, clientY } = positionFromEvent(event);
 
     if (this._isInteracting) {
+      const rotationSpeed = this._isDampingEnabled ? this._rotationSpeed : 0.25;
+
       this._rotateEnd = new THREE.Vector2(clientX, clientY);
       const delta = new THREE.Vector2()
         .subVectors(this._rotateEnd, this._rotateStart)
-        .multiplyScalar(this._rotationSpeed);
-      this._rotateDelta = this._rotateDelta.add(delta);
+        .multiplyScalar(rotationSpeed);
+      if (this._isDampingEnabled) {
+        this._rotateDelta = this._rotateDelta.add(delta);
+      } else {
+        this._rotateDelta.copy(delta);
+      }
 
       this._rotateStart.copy(this._rotateEnd);
     }
@@ -250,8 +259,14 @@ export default class Panorama extends Component<Props, State> {
       this._phi -= deltaPhi;
       this._theta -= deltaTheta;
       this._phi = clamp(this._phi, 0.55, 2.43);
-      this._rotateDelta.x *= DAMPENING_FACTOR;
-      this._rotateDelta.y *= DAMPENING_FACTOR;
+
+      if (this._isDampingEnabled) {
+        this._rotateDelta.x *= DAMPENING_FACTOR;
+        this._rotateDelta.y *= DAMPENING_FACTOR;
+      } else {
+        this._rotateDelta.x = 0;
+        this._rotateDelta.y = 0;
+      }
 
       this._renderer.setSize(window.innerWidth, window.innerHeight);
       const phi = this._phi;
