@@ -14,8 +14,22 @@ const Button = styled.button`
   justify-content: flex-start;
   align-items: center;
 
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: 'Bodoni Sans';
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 22px;
+
+  cursor: pointer;
+
   img {
-    width: 8px;
+    height: 22px;
+    width: 12px;
     margin-right: 10px;
   }
 `;

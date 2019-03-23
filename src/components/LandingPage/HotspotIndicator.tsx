@@ -5,7 +5,6 @@ import { Target } from './targets';
 interface Props {
   x: number;
   y: number;
-  text: string;
   onClick: () => void;
 }
 
@@ -15,73 +14,55 @@ interface State {
 }
 
 export default class HotspotIndicator extends Component<Props, State> {
-  private text: SVGTextElement;
-
-  state = {
-    width: 0,
-    height: 0
-  };
-
-  componentDidMount = () => {
-    const { width, height } = this.text.getBBox();
-    this.setState({ width: width + 50, height });
-  };
+  componentDidMount = () => {};
 
   render() {
-    const text = this.props.text;
     const { x, y } = this.props;
 
-    const cx = this.state.width / 2;
-    const height = 49;
-
-    const triangleWidth = 30;
-    const triangleWidthHalf = triangleWidth / 2;
-    const trianglePoints = `${cx - triangleWidthHalf},${height} ${cx},${height +
-      triangleWidthHalf} ${cx + triangleWidthHalf},${height}`;
     return (
-      <g
-        transform={`translate(${x}, ${y})`}
-        viewBox={`0 0 ${this.state.width} ${this.state.height}`}>
-        <polygon
-          points={trianglePoints}
-          fill="white"
+      <g transform={`translate(${x},${y})`}>
+        <Image
+          xlinkHref="/flag.svg"
+          width="70"
+          height="70"
           onClick={this.props.onClick}
         />
-        <rect
-          width={`${this.state.width}px`}
-          height="50px"
-          fill="white"
-          onClick={this.props.onClick}
-        />
-        <Text
-          x="30px"
-          y={`${-1 + this.state.height + this.state.height / 3}px`}
-          onClick={this.props.onClick}
-          ref={text => {
-            this.text = text;
-          }}>
-          {text}
-        </Text>
       </g>
     );
   }
 }
 
-const Rect = styled.rect`
+const Image = styled.image`
   cursor: pointer;
-`;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+  }
 
-const Text = styled.text`
-  cursor: pointer;
-  user-select: none;
-  height: 14px;
-  color: #4d575a;
-  opacity: 0.65;
-  font-family: 'Bodoni Sans';
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  line-height: 14px;
-  text-align: center;
-  text-transform: uppercase;
+  transition: opacity 200ms ease-in-out;
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
 `;

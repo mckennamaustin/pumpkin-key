@@ -1,7 +1,7 @@
 const targets: Target[] = [
   {
     name: 'marina',
-    tl: [900, 1500],
+    tl: [1000, 1600],
     br: [1520, 1642],
     src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-dockRight.jpg',
     id: 3

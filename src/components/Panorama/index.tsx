@@ -55,6 +55,8 @@ export default class Panorama extends Component<Props, State> {
   private _shouldAnimate: boolean;
   private _count: number;
   private _sdCount: number;
+  private _rotationMultiplier: number;
+
   state = {
     isLoading: true,
     loadSize: 100
@@ -87,6 +89,7 @@ export default class Panorama extends Component<Props, State> {
   };
 
   componentDidMount = () => {
+    this._rotationMultiplier = 0;
     this._isDampingEnabled = false;
     this._count = 0;
     this._sdCount = 0;
@@ -164,7 +167,7 @@ export default class Panorama extends Component<Props, State> {
     this._ldMesh = ldMesh;
 
     this._rotateDelta = new THREE.Vector2(0, 0);
-    this._rotationSpeed = 0.08;
+    this._rotationSpeed = 0.04;
     this._phi = Math.PI / 2;
     this._theta = 1.7 * Math.PI;
     this.acquireListeners();
@@ -227,6 +230,14 @@ export default class Panorama extends Component<Props, State> {
     }
   };
 
+  startRotating = (multiplier: number) => {
+    this._rotationMultiplier = multiplier;
+  };
+
+  stopRotating = () => {
+    this._rotationMultiplier = 0;
+  };
+
   handleMouseDown = (event: any): void => {
     this._isInteracting = true;
     const { clientX, clientY } = positionFromEvent(event);
@@ -268,6 +279,8 @@ export default class Panorama extends Component<Props, State> {
         this._rotateDelta.y = 0;
       }
 
+      this._theta += this._rotationMultiplier * 0.05;
+
       this._renderer.setSize(window.innerWidth, window.innerHeight);
       const phi = this._phi;
       const theta = this._theta;
@@ -298,6 +311,23 @@ export default class Panorama extends Component<Props, State> {
             height={this.state.loadSize}
           />
         )}
+        <Chevron
+          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"
+          left
+          onMouseDown={() => this.startRotating(-1)}
+          onMouseUp={this.stopRotating}
+          onMouseOut={this.stopRotating}
+          draggable={false}
+        />
+        <Chevron
+          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg"
+          right
+          onMouseDown={() => this.startRotating(1)}
+          onMouseUp={() => this.stopRotating()}
+          onMouseOut={this.stopRotating}
+          draggable={false}
+        />
+        <Label>Guest House 1</Label>
         <Canvas
           ref={canvas => {
             this._canvas = canvas;
@@ -307,6 +337,42 @@ export default class Panorama extends Component<Props, State> {
     );
   }
 }
+
+const Label = styled.span`
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: 'Bodoni Sans';
+  font-size: 22px;
+  letter-spacing: 5.5px;
+  line-height: 27px;
+  text-align: right;
+
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 2;
+`;
+
+const Chevron = styled.img`
+  user-select: none;
+  z-index: 2;
+  width: 75px;
+  height: 75px;
+  opacity: 0.5;
+  position: fixed;
+  top: 50%;
+
+  ${props =>
+    props.left &&
+    css`
+      left: 0px;
+    `};
+  ${props =>
+    props.right &&
+    css`
+      right: 0px;
+    `};
+`;
 
 const Container = styled.div`
   width: 100vw;
@@ -330,19 +396,6 @@ const BackButton = styled(GenericBackButton)`
   top: 10px;
   left: 10px;
 
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  border: 1px solid white;
-  outline: none;
-  font-family: 'Bodoni Sans';
-  font-weight: bold;
-  font-size: 24px;
-
-  cursor: pointer;
-  &:hover {
-    background-color: rgb(100, 100, 100);
-  }
   z-index: 10;
 `;
 

@@ -220,7 +220,6 @@ export default class LandingPage extends Component<Props, State> {
               <rect width="100%" height="100%" fill="black" opacity="0.15" />
               {targets.map(target => (
                 <HotspotIndicator
-                  text={target.name}
                   x={target.tl[0]}
                   y={target.tl[1]}
                   onClick={() => this.activatePanorama(target)}
@@ -281,10 +280,6 @@ const Container = styled.div`
   height: 100vh;
 
   overflow: hidden;
-
-  rect {
-    cursor: pointer;
-  }
 `;
 
 const TransparentBackground = styled.div`
