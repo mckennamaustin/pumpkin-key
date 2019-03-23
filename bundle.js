@@ -132,7 +132,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   top: 0px;
   left: 0px;
   z-index: 1;
-`;class A extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{})}render(){const{x:e,y:t}=this.props;return i.a.createElement("g",{transform:`translate(${e},${t})`},i.a.createElement(L,{xlinkHref:"/flag.svg",width:"70",height:"70",onClick:this.props.onClick}))}}const L=a.c.image`
+`;class A extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{})}render(){const{x:e,y:t}=this.props;return i.a.createElement("g",{transform:`translate(${e},${t})`},i.a.createElement(L,{xlinkHref:"https://s3.amazonaws.com/sage.pumpkin-key/flag.svg",width:"70",height:"70",onClick:this.props.onClick}))}}const L=a.c.image`
   cursor: pointer;
   opacity: 0.8;
   &:hover {
