@@ -22,7 +22,7 @@ export default class HotspotIndicator extends Component<Props, State> {
     return (
       <g transform={`translate(${x},${y})`}>
         <Image
-          xlinkHref="/flag.svg"
+          xlinkHref="https://s3.amazonaws.com/sage.pumpkin-key/flag.svg"
           width="70"
           height="70"
           onClick={this.props.onClick}
