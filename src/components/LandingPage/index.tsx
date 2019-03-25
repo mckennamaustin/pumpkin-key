@@ -190,6 +190,7 @@ export default class LandingPage extends Component<Props, State> {
         key="ev-container">
         {this.state.isPanoramaActive ? (
           <Panorama
+            name={this.state.activePanorama.name}
             src={`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${
               this.state.activePanorama.id
             }`}
@@ -242,12 +243,6 @@ export default class LandingPage extends Component<Props, State> {
             openPhotoGallery={this.openPhotoGallery}
           />
         )}
-        <Canvas
-          ref={container => {
-            this.canvasContainer = container;
-          }}
-          visible={this.state.isPanoramaActive}
-        />
       </Container>
     );
   }

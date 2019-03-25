@@ -11,6 +11,7 @@ const Bowser = bowser.getParser(window.navigator.userAgent);
 const Browser = Bowser.getBrowserName();
 
 interface Props {
+  name: string;
   src: string;
   sdSrc: string;
   goBack: () => void;
@@ -55,7 +56,8 @@ export default class Panorama extends Component<Props, State> {
   private _shouldAnimate: boolean;
   private _count: number;
   private _sdCount: number;
-  private _rotationMultiplier: number;
+  private _yawMultiplier: number;
+  private _pitchMultiplier: number;
 
   state = {
     isLoading: true,
@@ -89,7 +91,8 @@ export default class Panorama extends Component<Props, State> {
   };
 
   componentDidMount = () => {
-    this._rotationMultiplier = 0;
+    this._pitchMultiplier = 0;
+    this._yawMultiplier = 0;
     this._isDampingEnabled = false;
     this._count = 0;
     this._sdCount = 0;
@@ -230,12 +233,14 @@ export default class Panorama extends Component<Props, State> {
     }
   };
 
-  startRotating = (multiplier: number) => {
-    this._rotationMultiplier = multiplier;
+  startRotating = (yawMultiplier: number, pitchMultiplier: number = 0) => {
+    this._yawMultiplier = yawMultiplier;
+    this._pitchMultiplier = pitchMultiplier;
   };
 
   stopRotating = () => {
-    this._rotationMultiplier = 0;
+    this._yawMultiplier = 0;
+    this._pitchMultiplier = 0;
   };
 
   handleMouseDown = (event: any): void => {
@@ -269,6 +274,8 @@ export default class Panorama extends Component<Props, State> {
 
       this._phi -= deltaPhi;
       this._theta -= deltaTheta;
+      this._theta += this._yawMultiplier * 0.05;
+      this._phi -= this._pitchMultiplier * 0.05;
       this._phi = clamp(this._phi, 0.55, 2.43);
 
       if (this._isDampingEnabled) {
@@ -278,8 +285,6 @@ export default class Panorama extends Component<Props, State> {
         this._rotateDelta.x = 0;
         this._rotateDelta.y = 0;
       }
-
-      this._theta += this._rotationMultiplier * 0.05;
 
       this._renderer.setSize(window.innerWidth, window.innerHeight);
       const phi = this._phi;
@@ -313,6 +318,22 @@ export default class Panorama extends Component<Props, State> {
         )}
         <Chevron
           src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"
+          bottom
+          onMouseDown={() => this.startRotating(0, -1)}
+          onMouseUp={this.stopRotating}
+          onMouseOut={this.stopRotating}
+          draggable={false}
+        />
+        <Chevron
+          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"
+          top
+          onMouseDown={() => this.startRotating(0, 1)}
+          onMouseUp={() => this.stopRotating()}
+          onMouseOut={this.stopRotating}
+          draggable={false}
+        />
+        <Chevron
+          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"
           left
           onMouseDown={() => this.startRotating(-1)}
           onMouseUp={this.stopRotating}
@@ -327,7 +348,7 @@ export default class Panorama extends Component<Props, State> {
           onMouseOut={this.stopRotating}
           draggable={false}
         />
-        <Label>Guest House 1</Label>
+        <Label>{this.props.name}</Label>
         <Canvas
           ref={canvas => {
             this._canvas = canvas;
@@ -360,18 +381,45 @@ const Chevron = styled.img`
   height: 75px;
   opacity: 0.5;
   position: fixed;
-  top: 50%;
-
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
   ${props =>
     props.left &&
     css`
       left: 0px;
+      top: 50%;
     `};
   ${props =>
     props.right &&
     css`
       right: 0px;
+      top: 50%;
     `};
+
+  ${props =>
+    props.top &&
+    css`
+      width: 50px;
+      height: 50px;
+
+      top: 0px;
+      left: 50%;
+      transform: rotate(90deg);
+    `}
+
+  ${props =>
+    props.bottom &&
+    css`
+      width: 50px;
+      height: 50px;
+
+      bottom: 0px;
+      left: 50%;
+      transform: rotate(-90deg);
+    `}
 `;
 
 const Container = styled.div`
