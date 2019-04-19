@@ -14,6 +14,7 @@ interface Props {
   name: string;
   src: string;
   sdSrc: string;
+  initialTheta: number;
   goBack: () => void;
 }
 
@@ -105,6 +106,7 @@ export default class Panorama extends Component<Props, State> {
       0.01,
       10000
     );
+    this._theta = this.props.initialTheta;
 
     const scene = new THREE.Scene();
 
@@ -172,7 +174,6 @@ export default class Panorama extends Component<Props, State> {
     this._rotateDelta = new THREE.Vector2(0, 0);
     this._rotationSpeed = 0.04;
     this._phi = Math.PI / 2;
-    this._theta = 1.7 * Math.PI;
     this.acquireListeners();
     this.animate();
   };
@@ -277,7 +278,6 @@ export default class Panorama extends Component<Props, State> {
       this._theta += this._yawMultiplier * 0.05;
       this._phi -= this._pitchMultiplier * 0.05;
       this._phi = clamp(this._phi, 0.55, 2.43);
-
       if (this._isDampingEnabled) {
         this._rotateDelta.x *= DAMPENING_FACTOR;
         this._rotateDelta.y *= DAMPENING_FACTOR;
@@ -300,6 +300,7 @@ export default class Panorama extends Component<Props, State> {
 
       this._renderer.render(this._scene, this._camera);
 
+      this._theta = theta;
       this._animationLoop = requestAnimationFrame(this.animate);
     }
   };

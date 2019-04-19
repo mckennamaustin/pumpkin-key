@@ -197,6 +197,7 @@ export default class LandingPage extends Component<Props, State> {
             sdSrc={`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${
               this.state.activePanorama.id
             }`}
+            initialTheta={this.state.activePanorama.initialTheta}
             goBack={this.deactivatePanorama}
           />
         ) : (
@@ -204,8 +205,8 @@ export default class LandingPage extends Component<Props, State> {
             <PumpkinKey />
             <svg
               viewBox={` 0 0 ${WIDTH} ${HEIGHT}`}
-              width={`${this.state.width}px`}
-              height={`${this.state.height}px`}
+              width={`100%`}
+              height={`100%`}
               key="ev-svg"
               ref={svg => {
                 this.svg = svg;
@@ -216,7 +217,6 @@ export default class LandingPage extends Component<Props, State> {
                 xlinkHref="https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg"
                 width="100%"
                 height="100%"
-                y="120px"
               />
               <rect width="100%" height="100%" fill="black" opacity="0.15" />
               {targets.map(target => (

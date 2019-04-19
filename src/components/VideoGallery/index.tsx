@@ -38,13 +38,15 @@ export default class VideoGallery extends Component<Props, State> {
               <ThumbnailVideo
                 thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg"
                 onClick={() => this.playVideo('https://vimeo.com/325666928')}>
+                <ThumbnailLabel>Island Overview</ThumbnailLabel>
                 <PlayButton>
                   <img src={PLAY_ICON} />
                 </PlayButton>
               </ThumbnailVideo>
               <ThumbnailVideo
                 thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg"
-                onClick={() => this.playVideo('https://vimeo.com/325667088')}>
+                onClick={() => this.playVideo('https://vimeo.com/331278088')}>
+                <ThumbnailLabel>Perimeter Tour</ThumbnailLabel>
                 <PlayButton>
                   <img src={PLAY_ICON} />
                 </PlayButton>
@@ -57,6 +59,23 @@ export default class VideoGallery extends Component<Props, State> {
     );
   }
 }
+
+const ThumbnailLabel = styled.span`
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 0px;
+  text-transform: uppercase;
+
+  font-family: 'Bodoni Sans';
+  font-size: 22px;
+  letter-spacing: 5px;
+  width: 100%;
+  text-align: center;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+`;
 
 const ExitButton = styled.span`
   cursor: pointer;
@@ -103,7 +122,7 @@ const ThumbnailVideo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  position: relative;
   ${props => css`
     background-image: url(${props.thumbnail});
   `}
