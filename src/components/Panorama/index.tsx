@@ -300,6 +300,8 @@ export default class Panorama extends Component<Props, State> {
 
       this._renderer.render(this._scene, this._camera);
 
+      console.log(this._theta);
+
       this._theta = theta;
       this._animationLoop = requestAnimationFrame(this.animate);
     }

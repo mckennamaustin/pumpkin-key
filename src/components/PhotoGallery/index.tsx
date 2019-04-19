@@ -9,14 +9,10 @@ interface State {
   index: number;
 }
 
-const assets = [
-  'https://s3.amazonaws.com/sage.pumpkin-key/gallery/0.jpg',
-  'https://s3.amazonaws.com/sage.pumpkin-key/gallery/1.jpg',
-  'https://s3.amazonaws.com/sage.pumpkin-key/gallery/2.jpg',
-  'https://s3.amazonaws.com/sage.pumpkin-key/gallery/3.jpg',
-  'https://s3.amazonaws.com/sage.pumpkin-key/gallery/4.jpg'
-];
-
+let assets = [];
+for (let i = 0; i < 40; i++) {
+  assets.push(`https://s3.amazonaws.com/sage.pumpkin-key/gallery/${i}.jpg`);
+}
 const MIN_INDEX = 0;
 const MAX_INDEX = assets.length;
 
@@ -125,11 +121,15 @@ const Photo = styled.img`
 
 const PhotoDisplay = styled.div`
   z-index: 10;
-  width: 70vw;
-  height: 75vh;
+  width: 60vw;
 
   background-color: black;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   position: relative;
 `;
 

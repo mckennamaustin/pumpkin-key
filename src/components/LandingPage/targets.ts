@@ -12,7 +12,7 @@ const targets: Target[] = [
     br: [2310, 1466],
     src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-beach1.jpg',
     id: 0,
-    initialTheta: 7.581626828627349
+    initialTheta: 6.169
   },
   {
     name: 'Caretake House Aerial',
@@ -20,7 +20,7 @@ const targets: Target[] = [
     br: [1774, 1338],
     src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-overCaretaker.jpg',
     id: 4,
-    initialTheta: 11.4
+    initialTheta: 10.828
   },
   {
     name: 'Caretaker House',
@@ -37,7 +37,7 @@ const targets: Target[] = [
     br: [1828, 1068],
     src: 'https://s3.amazonaws.com/sage.pumpkin-key/dock.jpg',
     id: 5,
-    initialTheta: 7.581626828627349
+    initialTheta: 6.716
   }
 ];
 export default targets;
