@@ -76,7 +76,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
     width: 12px;
     margin-right: 10px;
   }
-`;var p=e=>i.a.createElement(d,Object.assign({},e),i.a.createElement("img",{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"}),"Back"),m=n(74),v=n.n(m);const g=[{name:"marina",tl:[1050,1550],br:[1520,1642],src:"https://s3.amazonaws.com/sage.pumpkin-key/small-dockRight.jpg",id:3},{name:"beachfront",tl:[1600,1600],br:[2310,1466],src:"https://s3.amazonaws.com/sage.pumpkin-key/small-beach1.jpg",id:0},{name:"Guest House",tl:[1200,1250],br:[1774,1338],src:"https://s3.amazonaws.com/sage.pumpkin-key/small-overCaretaker.jpg",id:4},{name:"Caretaker House",tl:[1400,1300],br:[1774,1338],src:"https://s3.amazonaws.com/sage.pumpkin-key/small-betweenCaretaker.jpg",id:2},{name:"dock",tl:[1320,1450],br:[1828,1068],src:"https://s3.amazonaws.com/sage.pumpkin-key/dock.jpg",id:5}];var y=g;let b=!0;const x=f.a.getParser(window.navigator.userAgent).getBrowserName();function w(e){let{clientX:t,clientY:n}=e;return e.touches&&e.touches[0]&&(t=e.touches[0].clientX,n=e.touches[0].clientY),{clientX:t,clientY:n}}const _=.9;class M extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0,loadSize:100},this.postLoad=(()=>{b||(g.forEach(e=>{const t=new Image;t.crossOrigin="Anonymous",t.src=e.src}),b=!0),this.setState({isLoading:!1})}),this.increaseCount=(()=>{this._count++,this._count>=6&&(this._mesh.visible=!0,setTimeout(()=>{this._ldMesh.visible=!1,this.setState({isLoading:!1}),this._isDampingEnabled=!0},500))}),this.increaseSDCount=(()=>{this._sdCount++,this._sdCount>=6&&this.setState({loadSize:50})}),this.componentDidMount=(()=>{this._pitchMultiplier=0,this._yawMultiplier=0,this._isDampingEnabled=!1,this._count=0,this._sdCount=0,this._shouldAnimate=!0,this._fov=60,this._isInteracting=!1;const e=new l.PerspectiveCamera(this._fov,window.innerWidth/window.innerHeight,.01,1e4),t=new l.Scene,n=new l.TextureLoader,r=n.load(`${this.props.sdSrc}-px.jpg`,this.increaseSDCount),i=n.load(`${this.props.sdSrc}-nx.jpg`,this.increaseSDCount),o=n.load(`${this.props.sdSrc}-py.jpg`,this.increaseSDCount),a=n.load(`${this.props.sdSrc}-ny.jpg`,this.increaseSDCount),s=n.load(`${this.props.sdSrc}-pz.jpg`,this.increaseSDCount),u=n.load(`${this.props.sdSrc}-nz.jpg`,this.increaseSDCount),c=n.load(`${this.props.src}-px.jpg`,this.increaseCount),f=n.load(`${this.props.src}-nx.jpg`,this.increaseCount),h=n.load(`${this.props.src}-py.jpg`,this.increaseCount),d=n.load(`${this.props.src}-ny.jpg`,this.increaseCount),p=n.load(`${this.props.src}-pz.jpg`,this.increaseCount),m=n.load(`${this.props.src}-nz.jpg`,this.increaseCount),v=[new l.MeshBasicMaterial({map:c,side:l.DoubleSide}),new l.MeshBasicMaterial({map:f,side:l.DoubleSide}),new l.MeshBasicMaterial({map:h,side:l.DoubleSide}),new l.MeshBasicMaterial({map:d,side:l.DoubleSide}),new l.MeshBasicMaterial({map:p,side:l.DoubleSide}),new l.MeshBasicMaterial({map:m,side:l.DoubleSide})],g=[new l.MeshBasicMaterial({map:r,side:l.DoubleSide}),new l.MeshBasicMaterial({map:i,side:l.DoubleSide}),new l.MeshBasicMaterial({map:o,side:l.DoubleSide}),new l.MeshBasicMaterial({map:a,side:l.DoubleSide}),new l.MeshBasicMaterial({map:s,side:l.DoubleSide}),new l.MeshBasicMaterial({map:u,side:l.DoubleSide})],y=new l.Mesh(new l.BoxGeometry(20,20,20),v),b=new l.Mesh(new l.BoxGeometry(15,15,15),g);y.visible=!1,y.scale.x=-1,b.scale.x=-1,t.add(y),t.add(b);const x=new l.WebGLRenderer({canvas:this._canvas,antialias:!0});x.setSize(window.innerWidth,window.innerHeight),this._renderer=x,this._camera=e,this._scene=t,this._mesh=y,this._ldMesh=b,this._rotateDelta=new l.Vector2(0,0),this._rotationSpeed=.04,this._phi=Math.PI/2,this._theta=1.7*Math.PI,this.acquireListeners(),this.animate()}),this.componentWillUnmount=(()=>{cancelAnimationFrame(this._animationLoop),this.releaseListeners(),this._scene.remove(this._mesh),this._scene.remove(this._ldMesh),this._renderer.dispose(),this._mesh=null,this._ldMesh=null,this._scene=null,this._camera=null,this._renderer=null}),this.acquireListeners=(()=>{document.addEventListener("wheel",this.handleScrollWheel,!1),document.addEventListener("mousedown",this.handleMouseDown,!1),document.addEventListener("mousemove",this.handleMouseMove,!1),document.addEventListener("mouseup",this.handleMouseUp,!1),document.addEventListener("mouseleave",this.handleMouseUp,!1),document.addEventListener("mouseout",this.handleMouseUp,!1)}),this.releaseListeners=(()=>{document.removeEventListener("wheel",this.handleScrollWheel),document.removeEventListener("mousedown",this.handleMouseDown),document.removeEventListener("mousemove",this.handleMouseMove),document.removeEventListener("mouseup",this.handleMouseUp),document.removeEventListener("mouseleave",this.handleMouseUp),document.removeEventListener("mouseout",this.handleMouseUp)}),this.handleMouseUp=(()=>{this._isInteracting=!1}),this.handleMouseMove=(e=>{const{clientX:t,clientY:n}=w(e);if(this._isInteracting){const e=this._isDampingEnabled?this._rotationSpeed:.25;this._rotateEnd=new l.Vector2(t,n);const r=(new l.Vector2).subVectors(this._rotateEnd,this._rotateStart).multiplyScalar(e);this._isDampingEnabled?this._rotateDelta=this._rotateDelta.add(r):this._rotateDelta.copy(r),this._rotateStart.copy(this._rotateEnd)}}),this.startRotating=((e,t=0)=>{this._yawMultiplier=e,this._pitchMultiplier=t}),this.stopRotating=(()=>{this._yawMultiplier=0,this._pitchMultiplier=0}),this.handleMouseDown=(e=>{this._isInteracting=!0;const{clientX:t,clientY:n}=w(e);this._rotateStart=new l.Vector2(t,n)}),this.handleScrollWheel=(e=>{let t=this._fov,n=e.deltaY;x.toLowerCase(),t=h(t+=n*=.5,30,90),this._camera.fov=t,this._camera.updateProjectionMatrix(),this._fov=t}),this.animate=(()=>{if(this._shouldAnimate){const e=2*Math.PI*this._rotateDelta.x/window.innerWidth,t=2*Math.PI*this._rotateDelta.y/window.innerHeight;this._phi-=t,this._theta-=e,this._theta+=.05*this._yawMultiplier,this._phi-=.05*this._pitchMultiplier,this._phi=h(this._phi,.55,2.43),this._isDampingEnabled?(this._rotateDelta.x*=_,this._rotateDelta.y*=_):(this._rotateDelta.x=0,this._rotateDelta.y=0),this._renderer.setSize(window.innerWidth,window.innerHeight);const n=this._phi,r=this._theta,i=Math.sin(n)*Math.cos(r),o=Math.cos(n),a=Math.sin(n)*Math.sin(r),s=new l.Vector3(i,o,a);this._camera.lookAt(s),this._camera.updateMatrix(),this._renderer.render(this._scene,this._camera),this._animationLoop=requestAnimationFrame(this.animate)}})}render(){return i.a.createElement(T,null,i.a.createElement(P,{onClick:this.props.goBack}),this.state.isLoading&&i.a.createElement(v.a,{type:"Oval",color:"white",width:this.state.loadSize,height:this.state.loadSize}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",bottom:!0,onMouseDown:()=>this.startRotating(0,-1),onMouseUp:this.stopRotating,onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",top:!0,onMouseDown:()=>this.startRotating(0,1),onMouseUp:()=>this.stopRotating(),onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",left:!0,onMouseDown:()=>this.startRotating(-1),onMouseUp:this.stopRotating,onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg",right:!0,onMouseDown:()=>this.startRotating(1),onMouseUp:()=>this.stopRotating(),onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(S,null,this.props.name),i.a.createElement(C,{ref:e=>{this._canvas=e}}))}}const S=a.c.span`
+`;var p=e=>i.a.createElement(d,Object.assign({},e),i.a.createElement("img",{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"}),"Back"),m=n(74),v=n.n(m);const g=[{name:"beachfront",tl:[1600,1400],br:[2310,1466],src:"https://s3.amazonaws.com/sage.pumpkin-key/small-beach1.jpg",id:0,initialTheta:6.169},{name:"Caretake House Aerial",tl:[1200,1150],br:[1774,1338],src:"https://s3.amazonaws.com/sage.pumpkin-key/small-overCaretaker.jpg",id:4,initialTheta:10.828},{name:"Caretaker House",tl:[1400,1200],br:[1774,1338],src:"https://s3.amazonaws.com/sage.pumpkin-key/small-betweenCaretaker.jpg",id:2,initialTheta:9.302589718158902},{name:"marina",tl:[1300,1310],br:[1828,1068],src:"https://s3.amazonaws.com/sage.pumpkin-key/dock.jpg",id:5,initialTheta:6.716}];var y=g;let b=!0;const x=f.a.getParser(window.navigator.userAgent).getBrowserName();function w(e){let{clientX:t,clientY:n}=e;return e.touches&&e.touches[0]&&(t=e.touches[0].clientX,n=e.touches[0].clientY),{clientX:t,clientY:n}}const _=.9;class M extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0,loadSize:100},this.postLoad=(()=>{b||(g.forEach(e=>{const t=new Image;t.crossOrigin="Anonymous",t.src=e.src}),b=!0),this.setState({isLoading:!1})}),this.increaseCount=(()=>{this._count++,this._count>=6&&(this._mesh.visible=!0,setTimeout(()=>{this._ldMesh.visible=!1,this.setState({isLoading:!1}),this._isDampingEnabled=!0},500))}),this.increaseSDCount=(()=>{this._sdCount++,this._sdCount>=6&&this.setState({loadSize:50})}),this.componentDidMount=(()=>{this._pitchMultiplier=0,this._yawMultiplier=0,this._isDampingEnabled=!1,this._count=0,this._sdCount=0,this._shouldAnimate=!0,this._fov=60,this._isInteracting=!1;const e=new l.PerspectiveCamera(this._fov,window.innerWidth/window.innerHeight,.01,1e4);this._theta=this.props.initialTheta;const t=new l.Scene,n=new l.TextureLoader,r=n.load(`${this.props.sdSrc}-px.jpg`,this.increaseSDCount),i=n.load(`${this.props.sdSrc}-nx.jpg`,this.increaseSDCount),o=n.load(`${this.props.sdSrc}-py.jpg`,this.increaseSDCount),a=n.load(`${this.props.sdSrc}-ny.jpg`,this.increaseSDCount),s=n.load(`${this.props.sdSrc}-pz.jpg`,this.increaseSDCount),u=n.load(`${this.props.sdSrc}-nz.jpg`,this.increaseSDCount),c=n.load(`${this.props.src}-px.jpg`,this.increaseCount),f=n.load(`${this.props.src}-nx.jpg`,this.increaseCount),h=n.load(`${this.props.src}-py.jpg`,this.increaseCount),d=n.load(`${this.props.src}-ny.jpg`,this.increaseCount),p=n.load(`${this.props.src}-pz.jpg`,this.increaseCount),m=n.load(`${this.props.src}-nz.jpg`,this.increaseCount),v=[new l.MeshBasicMaterial({map:c,side:l.DoubleSide}),new l.MeshBasicMaterial({map:f,side:l.DoubleSide}),new l.MeshBasicMaterial({map:h,side:l.DoubleSide}),new l.MeshBasicMaterial({map:d,side:l.DoubleSide}),new l.MeshBasicMaterial({map:p,side:l.DoubleSide}),new l.MeshBasicMaterial({map:m,side:l.DoubleSide})],g=[new l.MeshBasicMaterial({map:r,side:l.DoubleSide}),new l.MeshBasicMaterial({map:i,side:l.DoubleSide}),new l.MeshBasicMaterial({map:o,side:l.DoubleSide}),new l.MeshBasicMaterial({map:a,side:l.DoubleSide}),new l.MeshBasicMaterial({map:s,side:l.DoubleSide}),new l.MeshBasicMaterial({map:u,side:l.DoubleSide})],y=new l.Mesh(new l.BoxGeometry(20,20,20),v),b=new l.Mesh(new l.BoxGeometry(15,15,15),g);y.visible=!1,y.scale.x=-1,b.scale.x=-1,t.add(y),t.add(b);const x=new l.WebGLRenderer({canvas:this._canvas,antialias:!0});x.setSize(window.innerWidth,window.innerHeight),this._renderer=x,this._camera=e,this._scene=t,this._mesh=y,this._ldMesh=b,this._rotateDelta=new l.Vector2(0,0),this._rotationSpeed=.04,this._phi=Math.PI/2,this.acquireListeners(),this.animate()}),this.componentWillUnmount=(()=>{cancelAnimationFrame(this._animationLoop),this.releaseListeners(),this._scene.remove(this._mesh),this._scene.remove(this._ldMesh),this._renderer.dispose(),this._mesh=null,this._ldMesh=null,this._scene=null,this._camera=null,this._renderer=null}),this.acquireListeners=(()=>{document.addEventListener("wheel",this.handleScrollWheel,!1),document.addEventListener("mousedown",this.handleMouseDown,!1),document.addEventListener("mousemove",this.handleMouseMove,!1),document.addEventListener("mouseup",this.handleMouseUp,!1),document.addEventListener("mouseleave",this.handleMouseUp,!1),document.addEventListener("mouseout",this.handleMouseUp,!1)}),this.releaseListeners=(()=>{document.removeEventListener("wheel",this.handleScrollWheel),document.removeEventListener("mousedown",this.handleMouseDown),document.removeEventListener("mousemove",this.handleMouseMove),document.removeEventListener("mouseup",this.handleMouseUp),document.removeEventListener("mouseleave",this.handleMouseUp),document.removeEventListener("mouseout",this.handleMouseUp)}),this.handleMouseUp=(()=>{this._isInteracting=!1}),this.handleMouseMove=(e=>{const{clientX:t,clientY:n}=w(e);if(this._isInteracting){const e=this._isDampingEnabled?this._rotationSpeed:.25;this._rotateEnd=new l.Vector2(t,n);const r=(new l.Vector2).subVectors(this._rotateEnd,this._rotateStart).multiplyScalar(e);this._isDampingEnabled?this._rotateDelta=this._rotateDelta.add(r):this._rotateDelta.copy(r),this._rotateStart.copy(this._rotateEnd)}}),this.startRotating=((e,t=0)=>{this._yawMultiplier=e,this._pitchMultiplier=t}),this.stopRotating=(()=>{this._yawMultiplier=0,this._pitchMultiplier=0}),this.handleMouseDown=(e=>{this._isInteracting=!0;const{clientX:t,clientY:n}=w(e);this._rotateStart=new l.Vector2(t,n)}),this.handleScrollWheel=(e=>{let t=this._fov,n=e.deltaY;x.toLowerCase(),t=h(t+=n*=.5,30,90),this._camera.fov=t,this._camera.updateProjectionMatrix(),this._fov=t}),this.animate=(()=>{if(this._shouldAnimate){const e=2*Math.PI*this._rotateDelta.x/window.innerWidth,t=2*Math.PI*this._rotateDelta.y/window.innerHeight;this._phi-=t,this._theta-=e,this._theta+=.05*this._yawMultiplier,this._phi-=.05*this._pitchMultiplier,this._phi=h(this._phi,.55,2.43),this._isDampingEnabled?(this._rotateDelta.x*=_,this._rotateDelta.y*=_):(this._rotateDelta.x=0,this._rotateDelta.y=0),this._renderer.setSize(window.innerWidth,window.innerHeight);const n=this._phi,r=this._theta,i=Math.sin(n)*Math.cos(r),o=Math.cos(n),a=Math.sin(n)*Math.sin(r),s=new l.Vector3(i,o,a);this._camera.lookAt(s),this._camera.updateMatrix(),this._renderer.render(this._scene,this._camera),console.log(this._theta),this._theta=r,this._animationLoop=requestAnimationFrame(this.animate)}})}render(){return i.a.createElement(T,null,i.a.createElement(P,{onClick:this.props.goBack}),this.state.isLoading&&i.a.createElement(v.a,{type:"Oval",color:"white",width:this.state.loadSize,height:this.state.loadSize}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",bottom:!0,onMouseDown:()=>this.startRotating(0,-1),onMouseUp:this.stopRotating,onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",top:!0,onMouseDown:()=>this.startRotating(0,1),onMouseUp:()=>this.stopRotating(),onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",left:!0,onMouseDown:()=>this.startRotating(-1),onMouseUp:this.stopRotating,onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(E,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg",right:!0,onMouseDown:()=>this.startRotating(1),onMouseUp:()=>this.stopRotating(),onMouseOut:this.stopRotating,draggable:!1}),i.a.createElement(S,null,this.props.name),i.a.createElement(C,{ref:e=>{this._canvas=e}}))}}const S=a.c.span`
   text-transform: uppercase;
   color: #ffffff;
   font-family: 'Bodoni Sans';
@@ -236,7 +236,22 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   flex-direction: row;
   justify-content: center;
   align-items: center;
-`;var I=n(159),N=n.n(I);const D="data:image/png;base64,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";class F extends r.Component{constructor(){super(...arguments),this.state={isFullscreen:!1,videoSrc:""},this.playVideo=(e=>{this.setState({isFullscreen:!0,videoSrc:e})})}render(){return i.a.createElement(H,null,i.a.createElement(V,{onClick:this.props.closeVideoGallery}),this.state.isFullscreen?i.a.createElement(N.a,{url:this.state.videoSrc,className:"video-player",playing:!0}):i.a.createElement(G,null,i.a.createElement(U,null,i.a.createElement(B,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/325666928")},i.a.createElement(z,null,i.a.createElement("img",{src:D}))),i.a.createElement(B,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/325667088")},i.a.createElement(z,null,i.a.createElement("img",{src:D}))))),i.a.createElement(j,{onClick:this.props.closeVideoGallery},"×"))}}const j=a.c.span`
+`;var I=n(159),N=n.n(I);const D="data:image/png;base64,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";class F extends r.Component{constructor(){super(...arguments),this.state={isFullscreen:!1,videoSrc:""},this.playVideo=(e=>{this.setState({isFullscreen:!0,videoSrc:e})})}render(){return i.a.createElement(V,null,i.a.createElement(W,{onClick:this.props.closeVideoGallery}),this.state.isFullscreen?i.a.createElement(N.a,{url:this.state.videoSrc,className:"video-player",playing:!0}):i.a.createElement(H,null,i.a.createElement(G,null,i.a.createElement(U,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/325666928")},i.a.createElement(j,null,"Island Overview"),i.a.createElement(B,null,i.a.createElement("img",{src:D}))),i.a.createElement(U,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/331278088")},i.a.createElement(j,null,"Perimeter Tour"),i.a.createElement(B,null,i.a.createElement("img",{src:D}))))),i.a.createElement(z,{onClick:this.props.closeVideoGallery},"×"))}}const j=a.c.span`
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 0px;
+  text-transform: uppercase;
+
+  font-family: 'Bodoni Sans';
+  font-size: 22px;
+  letter-spacing: 5px;
+  width: 100%;
+  text-align: center;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+`,z=a.c.span`
   cursor: pointer;
   font-size: 48px;
   font-weight: 300;
@@ -247,7 +262,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   letter-spacing: 0px;
   margin: 0px;
   padding: 0px;
-`,z=a.c.div`
+`,B=a.c.div`
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -263,7 +278,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
     left: 5px;
     width: 50%;
   }
-`,B=a.c.div`
+`,U=a.c.div`
   width: 30vw;
   height: 20vw;
   cursor: pointer;
@@ -277,11 +292,11 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  position: relative;
   ${e=>a.b`
     background-image: url(${e.thumbnail});
   `}
-`,U=a.c.div`
+`,G=a.c.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -290,7 +305,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   > div:first-of-type {
     margin-right: 5vw;
   }
-`,G=a.c.div`
+`,H=a.c.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -298,7 +313,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   align-items: center;
   padding: 50px 50px;
   z-index: 10;
-`,H=a.c.div`
+`,V=a.c.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -314,7 +329,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
     height: 75% !important;
     z-index: 11;
   }
-`,V=a.c.div`
+`,W=a.c.div`
   width: 100%;
   height: 100%;
 
@@ -322,7 +337,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: fixed;
   top: 0px;
   left: 0px;
-`,W=["https://s3.amazonaws.com/sage.pumpkin-key/gallery/0.jpg","https://s3.amazonaws.com/sage.pumpkin-key/gallery/1.jpg","https://s3.amazonaws.com/sage.pumpkin-key/gallery/2.jpg","https://s3.amazonaws.com/sage.pumpkin-key/gallery/3.jpg","https://s3.amazonaws.com/sage.pumpkin-key/gallery/4.jpg"],q=W.length;class X extends r.Component{constructor(){super(...arguments),this.state={index:0},this.componentDidMount=(()=>{W.forEach((e,t)=>{0!==t&&((new Image).src=e)})}),this.moveIndex=(e=>{let t=this.state.index+e;t<0?t=q-1:t>q&&(t=0),this.setState({index:t})})}render(){return i.a.createElement(Q,null,i.a.createElement(Z,{onClick:this.props.closePhotoGallery}),i.a.createElement(K,null,i.a.createElement(J,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",left:!0,onClick:()=>this.moveIndex(-1)}),i.a.createElement($,{src:W[this.state.index]}),i.a.createElement(J,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg",right:!0,onClick:()=>this.moveIndex(1)})),i.a.createElement(Y,{onClick:this.props.closePhotoGallery},"×"))}}const Y=a.c.span`
+`;let q=[];for(let e=0;e<40;e++)q.push(`https://s3.amazonaws.com/sage.pumpkin-key/gallery/${e}.jpg`);const X=q.length;class Y extends r.Component{constructor(){super(...arguments),this.state={index:0},this.componentDidMount=(()=>{q.forEach((e,t)=>{0!==t&&((new Image).src=e)})}),this.moveIndex=(e=>{let t=this.state.index+e;t<0?t=X-1:t>X&&(t=0),this.setState({index:t})})}render(){return i.a.createElement(ee,null,i.a.createElement($,{onClick:this.props.closePhotoGallery}),i.a.createElement(Q,null,i.a.createElement(Z,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg",left:!0,onClick:()=>this.moveIndex(-1)}),i.a.createElement(K,{src:q[this.state.index]}),i.a.createElement(Z,{src:"https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg",right:!0,onClick:()=>this.moveIndex(1)})),i.a.createElement(J,{onClick:this.props.closePhotoGallery},"×"))}}const J=a.c.span`
   cursor: pointer;
   font-size: 48px;
   font-weight: 300;
@@ -333,7 +348,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   letter-spacing: 0px;
   margin: 0px;
   padding: 0px;
-`,J=a.c.img`
+`,Z=a.c.img`
   width: 45px;
   height: 45px;
   cursor: pointer;
@@ -354,7 +369,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   }
 
   transition: all 200ms ease-in-out;
-`,Z=a.c.div`
+`,$=a.c.div`
   width: 100%;
   height: 100%;
 
@@ -362,17 +377,21 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: fixed;
   top: 0px;
   left: 0px;
-`,$=a.c.img`
+`,K=a.c.img`
   width: 100%;
-`,K=a.c.div`
+`,Q=a.c.div`
   z-index: 10;
-  width: 70vw;
-  height: 75vh;
+  width: 60vw;
 
   background-color: black;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   position: relative;
-`,Q=a.c.div`
+`,ee=a.c.div`
   width: 100vw;
   height: calc(100vh - 100px);
 
@@ -384,7 +403,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`,ee=3300,te=2175,ne=ee/2,re=te/2,ie=1;class oe extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:ie,isShowingVideoGallery:!1,isShowingPhotoGallery:!1},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.makeTransform=(()=>{const e=ne,t=re;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})})}render(){return i.a.createElement(se,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(M,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,goBack:this.deactivatePanorama}):i.a.createElement(i.a.Fragment,null,i.a.createElement(ae,null),i.a.createElement("svg",{viewBox:` 0 0 ${ee} ${te}`,width:`${this.state.width}px`,height:`${this.state.height}px`,key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice"},i.a.createElement("image",{key:"ev-image",xlinkHref:"https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg",width:"100%",height:"100%",y:"120px"}),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.15"}),y.map(e=>i.a.createElement(A,{x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),this.state.isShowingVideoGallery&&i.a.createElement(F,{closeVideoGallery:this.closeVideoGallery}),this.state.isShowingPhotoGallery&&i.a.createElement(X,{closePhotoGallery:this.closePhotoGallery}),!this.state.isPanoramaActive&&i.a.createElement(k,{isPhotoGalleryFocused:this.state.isShowingPhotoGallery,isVideoGalleryFocused:this.state.isShowingVideoGallery,openVideoGallery:this.openVideoGallery,openPhotoGallery:this.openPhotoGallery}))}}a.c.div`
+`,te=3300,ne=2175,re=te/2,ie=ne/2,oe=1;class ae extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:oe,isShowingVideoGallery:!1,isShowingPhotoGallery:!1},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.makeTransform=(()=>{const e=re,t=ie;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})})}render(){return i.a.createElement(ue,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(M,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,initialTheta:this.state.activePanorama.initialTheta,goBack:this.deactivatePanorama}):i.a.createElement(i.a.Fragment,null,i.a.createElement(se,null),i.a.createElement("svg",{viewBox:` 0 0 ${te} ${ne}`,width:"100%",height:"100%",key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice"},i.a.createElement("image",{key:"ev-image",xlinkHref:"https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg",width:"100%",height:"100%"}),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.15"}),y.map(e=>i.a.createElement(A,{x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),this.state.isShowingVideoGallery&&i.a.createElement(F,{closeVideoGallery:this.closeVideoGallery}),this.state.isShowingPhotoGallery&&i.a.createElement(Y,{closePhotoGallery:this.closePhotoGallery}),!this.state.isPanoramaActive&&i.a.createElement(k,{isPhotoGalleryFocused:this.state.isShowingPhotoGallery,isVideoGalleryFocused:this.state.isShowingVideoGallery,openVideoGallery:this.openVideoGallery,openPhotoGallery:this.openPhotoGallery}))}}a.c.div`
   width: 100vw;
   height: 100vh;
   position: fixed !important;
@@ -396,12 +415,12 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   ${e=>e.visible&&a.b`
       .visibility: visible;
     `};
-`;const ae=Object(a.c)(u)`
+`;const se=Object(a.c)(u)`
   position: absolute;
   top: -10px;
   left: 50%;
   transform: translate(-50%, 0%);
-`,se=a.c.div`
+`,ue=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -412,12 +431,12 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
 
   background-color: red;
   z-index: 1000000;
-`;class ue extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=new Image;e.onload=(()=>{this.props.endLoad()}),e.src="https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg"})}render(){return i.a.createElement(fe,null,i.a.createElement(ce,null),i.a.createElement(le,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const le=a.c.span`
+`;class le extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=new Image;e.onload=(()=>{this.props.endLoad()}),e.src="https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg"})}render(){return i.a.createElement(he,null,i.a.createElement(fe,null),i.a.createElement(ce,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const ce=a.c.span`
   font-family: 'Bodoni Sans';
   color: white;
   font-size: 42px;
   margin-bottom: 30px;
-`,ce=a.c.div`
+`,fe=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -427,7 +446,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   z-index: 1;
 
   background-color: rgba(0, 0, 0, 0.5);
-`,fe=a.c.div`
+`,he=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -442,7 +461,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   > :not(:nth-child(1)) {
     z-index: 2;
   }
-`;const he=a.a`
+`;const de=a.a`
 * {
   font-family: sans-serif;
 }
@@ -491,4 +510,4 @@ html, body {
 
   font-family: 'Bodoni Sans'
 }
-`;var de=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement(he,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(ue,{endLoad:this.endLoad}):i.a.createElement(oe,null))]}};Object(o.render)(i.a.createElement(de,null),document.getElementById("root"))}]);
+`;var pe=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement(de,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(le,{endLoad:this.endLoad}):i.a.createElement(ae,null))]}};Object(o.render)(i.a.createElement(pe,null),document.getElementById("root"))}]);
