@@ -31,6 +31,7 @@ interface State {
   isShowingPhotoGallery: boolean;
   mode: string;
   developmentOption: string;
+  isShowingInstructions: boolean;
 }
 
 const WIDTH = 3300;
@@ -111,7 +112,8 @@ export default class LandingPage extends Component<Props, State> {
     isShowingVideoGallery: false,
     isShowingPhotoGallery: false,
     mode: 'exploring-island',
-    developmentOption: 'development-island'
+    developmentOption: 'development-island',
+    isShowingInstructions: true
   };
 
   componentDidMount = (): void => {
@@ -142,6 +144,10 @@ export default class LandingPage extends Component<Props, State> {
     const { clientWidth, clientHeight } = this.container;
 
     this.setState({ width: clientWidth, height: clientHeight });
+  };
+
+  public closeInstructions = () => {
+    this.setState({ isShowingInstructions: false });
   };
 
   activatePanorama = (target: Target): void => {
@@ -233,6 +239,8 @@ export default class LandingPage extends Component<Props, State> {
             }`}
             initialTheta={this.state.activePanorama.initialTheta}
             goBack={this.deactivatePanorama}
+            isShowingInstructions={this.state.isShowingInstructions}
+            closeInstructions={this.closeInstructions}
           />
         ) : (
           <>
