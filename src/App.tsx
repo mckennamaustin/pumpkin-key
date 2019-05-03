@@ -36,6 +36,8 @@ class App extends Component<Props, State> {
 }
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 * {
   font-family: sans-serif;
 }
@@ -78,11 +80,14 @@ html, body {
   background: #f7f8fc;
   background-size: cover;
 
-  * { 
-    overflow: hidden;
+  overflow-x: hidden;
+  * {
+    overflow-x: hidden;
   }
+  overflow-y: auto;
+  font-family: 'Bodoni Sans';
 
-  font-family: 'Bodoni Sans'
+  background-color: black;
 }
 `;
 

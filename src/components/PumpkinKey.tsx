@@ -2,21 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PumpkinKey: React.SFC<{}> = props => (
-  <Header {...props}>Pumpkin Key</Header>
+  <Img
+    src='https://s3.amazonaws.com/sage.pumpkin-key/PUMPKINKEY-logo%401.5x.svg'
+    alt='Pumpkin Key'
+    {...props}
+  />
 );
-
-const Header = styled.h1`
-  width: auto;
-  height: auto;
-  color: white;
-  text-transform: uppercase;
-  height: auto;
-  width: auto;
-  color: #ffffff;
-  font-family: 'Bodoni Sans';
-  font-size: 64px;
-  font-weight: 300;
-  letter-spacing: 24.38px;
+const Img = styled.img`
+  height: 20.45px;
+  width: 264.66px;
 `;
 
 export default PumpkinKey;

@@ -13,6 +13,9 @@ import VideoGallery from '../VideoGallery';
 import PhotoGallery from '../PhotoGallery';
 import Renderer from '../../state/renderer';
 import { SageTourInternal } from '../../../packages/sage-tour';
+import Option from './Option';
+import IslandOverview from '../IslandOverview';
+import DevelopmentOptions from '../DevelopmentOptions';
 
 interface Props {}
 
@@ -25,6 +28,8 @@ interface State {
   zoomDelta: number;
   isShowingVideoGallery: boolean;
   isShowingPhotoGallery: boolean;
+  mode: string;
+  developmentOption: string;
 }
 
 const WIDTH = 3300;
@@ -103,7 +108,9 @@ export default class LandingPage extends Component<Props, State> {
     zoomDelta: 0.0,
     zoom: MIN_ZOOM,
     isShowingVideoGallery: false,
-    isShowingPhotoGallery: false
+    isShowingPhotoGallery: false,
+    mode: 'exploring-island',
+    developmentOption: 'development-island'
   };
 
   componentDidMount = (): void => {
@@ -145,6 +152,10 @@ export default class LandingPage extends Component<Props, State> {
     this.setState({ isPanoramaActive: false, activePanorama: undefined });
   };
 
+  public resetMode = () => {
+    this.setState({ mode: 'exploring-island' });
+  };
+
   makeTransform = (): string => {
     const cx = CX;
     const cy = CY;
@@ -181,13 +192,35 @@ export default class LandingPage extends Component<Props, State> {
     });
   };
 
+  activateMode = (mode: string) => {
+    this.setState({ mode });
+  };
+
+  handleOptionChange = (option: string) => {
+    this.setState({ developmentOption: option });
+  };
+
   render() {
+    let imageSource =
+      'https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg';
+    if (this.state.mode === 'development-options') {
+      imageSource = {
+        'development-island':
+          'https://s3.amazonaws.com/sage.pumpkin-key/developmentIsland.jpg',
+        'private-island':
+          'https://s3.amazonaws.com/sage.pumpkin-key/privateIsland.jpg',
+        'residential-island':
+          'https://s3.amazonaws.com/sage.pumpkin-key/residentialIsland.jpg'
+      }[this.state.developmentOption];
+    }
+
     return (
       <Container
         ref={container => {
           this.container = container;
         }}
-        key="ev-container">
+        key='ev-container'
+      >
         {this.state.isPanoramaActive ? (
           <Panorama
             name={this.state.activePanorama.name}
@@ -203,50 +236,103 @@ export default class LandingPage extends Component<Props, State> {
         ) : (
           <>
             <PumpkinKey />
+            <OptionsMenu>
+              <Option
+                text='Explore the Island'
+                isActive={this.state.mode === 'exploring-island'}
+                onClick={() => this.activateMode('exploring-island')}
+              />
+              <Option
+                text='Island Overview'
+                isActive={this.state.mode === 'island-overview'}
+                onClick={() => this.activateMode('island-overview')}
+              />
+              <Option
+                text='Photo Gallery'
+                isActive={this.state.mode === 'photo-gallery'}
+                onClick={() => this.activateMode('photo-gallery')}
+              />
+              <Option
+                text='Video Gallery'
+                isActive={this.state.mode === 'video-gallery'}
+                onClick={() => this.activateMode('video-gallery')}
+              />
+              <Option
+                text='Development Options'
+                isActive={this.state.mode === 'development-options'}
+                onClick={() => this.activateMode('development-options')}
+              />
+            </OptionsMenu>
             <svg
               viewBox={` 0 0 ${WIDTH} ${HEIGHT}`}
-              width={`100%`}
-              height={`100%`}
-              key="ev-svg"
+              key='ev-svg'
               ref={svg => {
                 this.svg = svg;
               }}
-              preserveAspectRatio="xMidYMid slice">
+              preserveAspectRatio='xMidYMid slice'
+              style={{
+                width: '100%',
+                height: '105vh',
+                backgroundColor: 'black'
+              }}
+            >
               <image
-                key="ev-image"
-                xlinkHref="https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg"
-                width="100%"
-                height="100%"
+                key='ev-image'
+                xlinkHref={imageSource}
+                width='100%'
+                height='100%'
               />
-              <rect width="100%" height="100%" fill="black" opacity="0.15" />
-              {targets.map(target => (
-                <HotspotIndicator
-                  x={target.tl[0]}
-                  y={target.tl[1]}
-                  onClick={() => this.activatePanorama(target)}
-                />
-              ))}
+              <rect width='100%' height='100%' fill='black' opacity='0.2' />
+              {this.state.mode !== 'development-options' &&
+                targets.map(target => (
+                  <HotspotIndicator
+                    x={target.tl[0]}
+                    y={target.tl[1]}
+                    onClick={() => this.activatePanorama(target)}
+                  />
+                ))}
             </svg>
           </>
         )}
-        {this.state.isShowingVideoGallery && (
-          <VideoGallery closeVideoGallery={this.closeVideoGallery} />
+        {this.state.mode === 'video-gallery' && (
+          <VideoGallery closeVideoGallery={this.resetMode} />
         )}
-        {this.state.isShowingPhotoGallery && (
-          <PhotoGallery closePhotoGallery={this.closePhotoGallery} />
+        {this.state.mode === 'photo-gallery' && (
+          <PhotoGallery closePhotoGallery={this.resetMode} />
         )}
-        {!this.state.isPanoramaActive && (
+        {this.state.mode === 'island-overview' && (
+          <IslandOverview closeOverview={this.resetMode} />
+        )}
+        {this.state.mode === 'development-options' && (
+          <DevelopmentOptions
+            option={this.state.developmentOption}
+            receiveOptionChange={this.handleOptionChange}
+          />
+        )}
+        {/* {!this.state.isPanoramaActive && (
           <Footer
             isPhotoGalleryFocused={this.state.isShowingPhotoGallery}
             isVideoGalleryFocused={this.state.isShowingVideoGallery}
             openVideoGallery={this.openVideoGallery}
             openPhotoGallery={this.openPhotoGallery}
           />
-        )}
+        )} */}
       </Container>
     );
   }
 }
+
+const OptionsMenu = styled.div`
+  position: absolute;
+  top: 20%;
+  right: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0px 15px;
+`;
 
 const Canvas = styled.div`
   width: 100vw;
@@ -266,13 +352,15 @@ const Canvas = styled.div`
 
 const PumpkinKey = styled(GenericPumpkinKey)`
   position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  top: 25px;
+  left: 30px;
 `;
+
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
+  margin-bottom: -10px;
+  min-height: 100vh;
 
   overflow: hidden;
 `;

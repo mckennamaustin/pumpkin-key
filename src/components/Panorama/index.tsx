@@ -91,6 +91,15 @@ export default class Panorama extends Component<Props, State> {
     }
   };
 
+  private resize = (width: number, height: number): void => {
+    this._renderer.setSize(width * 2, height * 2);
+
+    this._renderer.domElement.style.width = `${width}px`;
+    this._renderer.domElement.style.height = `${height}px`;
+    this._canvas.width = width * 2;
+    this._canvas.height = height * 2;
+  };
+
   componentDidMount = () => {
     this._pitchMultiplier = 0;
     this._yawMultiplier = 0;
@@ -109,6 +118,10 @@ export default class Panorama extends Component<Props, State> {
     this._theta = this.props.initialTheta;
 
     const scene = new THREE.Scene();
+    const renderer = new THREE.WebGLRenderer({
+      canvas: this._canvas,
+      antialias: true
+    });
 
     const loader = new THREE.TextureLoader();
     const spx = loader.load(`${this.props.sdSrc}-px.jpg`, this.increaseSDCount);
@@ -123,6 +136,9 @@ export default class Panorama extends Component<Props, State> {
     const ny = loader.load(`${this.props.src}-ny.jpg`, this.increaseCount);
     const pz = loader.load(`${this.props.src}-pz.jpg`, this.increaseCount);
     const nz = loader.load(`${this.props.src}-nz.jpg`, this.increaseCount);
+    [px, nx, py, ny, pz, nz].forEach(texture => {
+      texture.anisotropy = renderer.getMaxAnisotropy();
+    });
 
     const materials = [
       new THREE.MeshBasicMaterial({
@@ -159,11 +175,6 @@ export default class Panorama extends Component<Props, State> {
 
     scene.add(mesh);
     scene.add(ldMesh);
-    const renderer = new THREE.WebGLRenderer({
-      canvas: this._canvas,
-      antialias: true
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
 
     this._renderer = renderer;
     this._camera = camera;
@@ -174,6 +185,7 @@ export default class Panorama extends Component<Props, State> {
     this._rotateDelta = new THREE.Vector2(0, 0);
     this._rotationSpeed = 0.04;
     this._phi = Math.PI / 2;
+    this.resize(window.innerWidth, window.innerHeight);
     this.acquireListeners();
     this.animate();
   };
@@ -199,6 +211,14 @@ export default class Panorama extends Component<Props, State> {
     document.addEventListener('mouseup', this.handleMouseUp, false);
     document.addEventListener('mouseleave', this.handleMouseUp, false);
     document.addEventListener('mouseout', this.handleMouseUp, false);
+    document.addEventListener('touchstart', this.handleMouseDown, false);
+    document.addEventListener('touchend', this.handleMouseUp, false);
+    document.addEventListener('touchmove', this.handleMouseMove, false);
+    window.addEventListener('resize', this.dispatchResize, false);
+  };
+
+  private dispatchResize = () => {
+    this.resize(window.innerWidth, window.innerHeight);
   };
 
   releaseListeners = (): void => {
@@ -208,6 +228,13 @@ export default class Panorama extends Component<Props, State> {
     document.removeEventListener('mouseup', this.handleMouseUp);
     document.removeEventListener('mouseleave', this.handleMouseUp);
     document.removeEventListener('mouseout', this.handleMouseUp);
+
+    document.removeEventListener('touchstart', this.handleMouseDown);
+    document.removeEventListener('touchend', this.handleMouseUp);
+    document.removeEventListener('touchmove', this.handleMouseMove);
+
+    document.removeEventListener('resize', this.dispatchResize);
+    window.removeEventListener('resize', this.dispatchResize);
   };
 
   handleMouseUp = (): void => {
@@ -286,7 +313,6 @@ export default class Panorama extends Component<Props, State> {
         this._rotateDelta.y = 0;
       }
 
-      this._renderer.setSize(window.innerWidth, window.innerHeight);
       const phi = this._phi;
       const theta = this._theta;
 
@@ -300,8 +326,6 @@ export default class Panorama extends Component<Props, State> {
 
       this._renderer.render(this._scene, this._camera);
 
-      console.log(this._theta);
-
       this._theta = theta;
       this._animationLoop = requestAnimationFrame(this.animate);
     }
@@ -313,42 +337,54 @@ export default class Panorama extends Component<Props, State> {
         <BackButton onClick={this.props.goBack} />
         {this.state.isLoading && (
           <Loader
-            type="Oval"
-            color="white"
+            type='Oval'
+            color='white'
             width={this.state.loadSize}
             height={this.state.loadSize}
           />
         )}
         <Chevron
-          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"
+          src='https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg'
           bottom
           onMouseDown={() => this.startRotating(0, -1)}
           onMouseUp={this.stopRotating}
           onMouseOut={this.stopRotating}
+          onTouchStart={() => this.startRotating(0, -1)}
+          onTouchEnd={() => this.stopRotating()}
+          onTouchOut={() => this.stopRotating()}
           draggable={false}
         />
         <Chevron
-          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"
+          src='https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg'
           top
           onMouseDown={() => this.startRotating(0, 1)}
           onMouseUp={() => this.stopRotating()}
+          onTouchStart={() => this.startRotating(0, 1)}
+          onTouchEnd={() => this.stopRotating()}
           onMouseOut={this.stopRotating}
+          onTouchOut={() => this.stopRotating()}
           draggable={false}
         />
         <Chevron
-          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg"
+          src='https://s3.amazonaws.com/sage.pumpkin-key/chevronLeft.svg'
           left
           onMouseDown={() => this.startRotating(-1)}
           onMouseUp={this.stopRotating}
           onMouseOut={this.stopRotating}
+          onTouchStart={() => this.startRotating(-1)}
+          onTouchEnd={() => this.stopRotating()}
+          onTouchOut={() => this.stopRotating()}
           draggable={false}
         />
         <Chevron
-          src="https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg"
+          src='https://s3.amazonaws.com/sage.pumpkin-key/chevronRight.svg'
           right
           onMouseDown={() => this.startRotating(1)}
           onMouseUp={() => this.stopRotating()}
           onMouseOut={this.stopRotating}
+          onTouchStart={() => this.startRotating(1)}
+          onTouchEnd={() => this.stopRotating()}
+          onTouchOut={() => this.stopRotating()}
           draggable={false}
         />
         <Label>{this.props.name}</Label>
@@ -410,6 +446,7 @@ const Chevron = styled.img`
 
       top: 0px;
       left: 50%;
+      margin-left: -25px;
       transform: rotate(90deg);
     `}
 
@@ -421,6 +458,8 @@ const Chevron = styled.img`
 
       bottom: 0px;
       left: 50%;
+
+      margin-left: -25px;
       transform: rotate(-90deg);
     `}
 `;
@@ -451,8 +490,6 @@ const BackButton = styled(GenericBackButton)`
 `;
 
 const Canvas = styled.canvas`
-  width: 100%;
-  height: 100%;
   position: fixed;
   top: 0px;
   left: 0px;

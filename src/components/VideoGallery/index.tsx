@@ -29,32 +29,41 @@ export default class VideoGallery extends Component<Props, State> {
         {this.state.isFullscreen ? (
           <VideoPlayer
             url={this.state.videoSrc}
-            className="video-player"
+            className='video-player'
             playing
           />
         ) : (
           <ThumbnailGrid>
+            <ExitButton onClick={this.props.closeVideoGallery}>
+              &times;
+            </ExitButton>
+
             <ThumbnailRow>
               <ThumbnailVideo
-                thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg"
-                onClick={() => this.playVideo('https://vimeo.com/325666928')}>
-                <ThumbnailLabel>Island Overview</ThumbnailLabel>
-                <PlayButton>
-                  <img src={PLAY_ICON} />
-                </PlayButton>
+                thumbnail='https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg'
+                onClick={() => this.playVideo('https://vimeo.com/325666928')}
+              >
+                <Transparent>
+                  <ThumbnailLabel>Island Overview</ThumbnailLabel>
+                  <PlayButton>
+                    <img src={PLAY_ICON} />
+                  </PlayButton>
+                </Transparent>
               </ThumbnailVideo>
               <ThumbnailVideo
-                thumbnail="https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg"
-                onClick={() => this.playVideo('https://vimeo.com/331278088')}>
-                <ThumbnailLabel>Perimeter Tour</ThumbnailLabel>
-                <PlayButton>
-                  <img src={PLAY_ICON} />
-                </PlayButton>
+                thumbnail='https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg'
+                onClick={() => this.playVideo('https://vimeo.com/331278088')}
+              >
+                <Transparent>
+                  <ThumbnailLabel>Perimeter Tour</ThumbnailLabel>
+                  <PlayButton>
+                    <img src={PLAY_ICON} />
+                  </PlayButton>
+                </Transparent>
               </ThumbnailVideo>
             </ThumbnailRow>
           </ThumbnailGrid>
         )}
-        <ExitButton onClick={this.props.closeVideoGallery}>&times;</ExitButton>
       </Container>
     );
   }
@@ -62,19 +71,23 @@ export default class VideoGallery extends Component<Props, State> {
 
 const ThumbnailLabel = styled.span`
   color: white;
-  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px 0px;
   text-transform: uppercase;
 
   font-family: 'Bodoni Sans';
-  font-size: 22px;
-  letter-spacing: 5px;
   width: 100%;
   text-align: center;
 
   position: absolute;
   top: 0px;
   left: 0px;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 15px;
+  text-align: left;
+  margin-left: 10px;
 `;
 
 const ExitButton = styled.span`
@@ -83,7 +96,7 @@ const ExitButton = styled.span`
   font-weight: 300;
   color: white;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 20px;
   letter-spacing: 0px;
   margin: 0px;
@@ -108,9 +121,21 @@ const PlayButton = styled.div`
   }
 `;
 
+const Transparent = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
+
 const ThumbnailVideo = styled.div`
-  width: 30vw;
-  height: 20vw;
+  height: 50vw;
+  width: 50vw;
   cursor: pointer;
   border: 1px solid white;
 
@@ -126,6 +151,17 @@ const ThumbnailVideo = styled.div`
   ${props => css`
     background-image: url(${props.thumbnail});
   `}
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 768px) {
+    width: 30vw;
+    height: 20vw;
+
+    &:first-of-type {
+      margin-right: 25px;
+    }
+  }
 `;
 
 const ThumbnailRow = styled.div`
@@ -134,8 +170,15 @@ const ThumbnailRow = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  > div:first-of-type {
-    margin-right: 5vw;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    > div:first-of-type {
+      margin-bottom: 25px;
+    }
   }
 `;
 

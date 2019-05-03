@@ -20,11 +20,24 @@ export default class Loading extends Component<Props, State> {
   };
 
   load = () => {
-    const img = new Image();
-    img.onload = () => {
+    const images: string[] = [
+      'https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg',
+      'https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg'
+    ];
+
+    const promises = images.map(src => {
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => {
+          resolve();
+        };
+        img.src = src;
+      });
+    });
+
+    Promise.all(promises).then(() => {
       this.props.endLoad();
-    };
-    img.src = 'https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg';
+    });
   };
 
   render() {
@@ -32,7 +45,7 @@ export default class Loading extends Component<Props, State> {
       <Container>
         <TransparentBackground />
         <Span>LOADING...</Span>
-        <Loader type="Circles" color="white" height="100" width="100" />
+        <Loader type='Circles' color='white' height='100' width='100' />
       </Container>
     );
   }
