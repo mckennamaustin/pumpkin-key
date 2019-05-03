@@ -5,48 +5,89 @@ import { Target } from './targets';
 interface Props {
   x: number;
   y: number;
+  name: string;
   onClick: () => void;
 }
 
 interface State {
-  width: number;
-  height: number;
+  isHovering: boolean;
 }
 
 export default class HotspotIndicator extends Component<Props, State> {
+  state = {
+    isHovering: false
+  };
   componentDidMount = () => {};
+
+  startHover = () => {
+    this.setState({ isHovering: true });
+  };
+
+  stopHover = () => {
+    this.setState({ isHovering: false });
+  };
 
   render() {
     const { x, y } = this.props;
 
     return (
       <g transform={`translate(${x},${y})`}>
-        {/* <rect
-          x='-115px'
-          y='-120px'
-          width='300px'
-          height='100px'
-          fill='#003F3A'
-        />
-        <text
-          x='0px'
-          y='-70px'
-          fill='white'
-          fontSize='24px'
-          fontFamily='Bodoni Sans'
-        >
-          Hi
-        </text> */}
+        {this.state.isHovering && (
+          <g>
+            <rect
+              x='-215px'
+              y='-120px'
+              width='500px'
+              height='100px'
+              fill='#003F3A'
+            />
+            <rect
+              x='-200px'
+              y='-105px'
+              width='470px'
+              height='70px'
+              fill='#003F3A'
+              stroke='white'
+              strokeWidth='2'
+            />
+            <svg width='500px' height='100px' x='-215px' y='-120px'>
+              <Text
+                x='50%'
+                y='60%'
+                alignmentBaseline='middle'
+                textAnchor='middle'
+              >
+                {this.props.name}
+              </Text>
+            </svg>
+            {/* <Text fill='white'>Beachfront</Text> */}
+          </g>
+        )}
+
         <Image
           xlinkHref='https://s3.amazonaws.com/sage.pumpkin-key/zoom.png'
           width='74'
           height='74'
           onClick={this.props.onClick}
+          onMouseOver={this.startHover}
+          onMouseOut={this.stopHover}
+          onMouseLeave={this.stopHover}
         />
       </g>
     );
   }
 }
+
+const Text = styled.text`
+  font-family: 'Bodoni Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 32px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  letter-spacing: 2.61px;
+  color: white;
+  fill: white;
+`;
 
 const Details = styled.rect`
   height: 41px;

@@ -176,11 +176,20 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   top: 0px;
   left: 0px;
   z-index: 1;
-`;class N extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{})}render(){const{x:e,y:t}=this.props;return i.a.createElement("g",{transform:`translate(${e},${t})`},i.a.createElement(D,{xlinkHref:"https://s3.amazonaws.com/sage.pumpkin-key/zoom.png",width:"74",height:"74",onClick:this.props.onClick}))}}a.c.rect`
+`;class N extends r.Component{constructor(){super(...arguments),this.state={isHovering:!1},this.componentDidMount=(()=>{}),this.startHover=(()=>{this.setState({isHovering:!0})}),this.stopHover=(()=>{this.setState({isHovering:!1})})}render(){const{x:e,y:t}=this.props;return i.a.createElement("g",{transform:`translate(${e},${t})`},this.state.isHovering&&i.a.createElement("g",null,i.a.createElement("rect",{x:"-215px",y:"-120px",width:"500px",height:"100px",fill:"#003F3A"}),i.a.createElement("rect",{x:"-200px",y:"-105px",width:"470px",height:"70px",fill:"#003F3A",stroke:"white",strokeWidth:"2"}),i.a.createElement("svg",{width:"500px",height:"100px",x:"-215px",y:"-120px"},i.a.createElement(D,{x:"50%",y:"60%",alignmentBaseline:"middle",textAnchor:"middle"},this.props.name))),i.a.createElement(j,{xlinkHref:"https://s3.amazonaws.com/sage.pumpkin-key/zoom.png",width:"74",height:"74",onClick:this.props.onClick,onMouseOver:this.startHover,onMouseOut:this.stopHover,onMouseLeave:this.stopHover}))}}const D=a.c.text`
+  font-family: 'Bodoni Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 32px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  letter-spacing: 2.61px;
+  color: white;
+  fill: white;
+`,j=(a.c.rect`
   height: 41px;
   width: 136px;
   background-color: #003f3a;
-`;const D=a.c.image`
+`,a.c.image`
   cursor: pointer;
   opacity: 1;
   &:hover {
@@ -213,7 +222,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       transform: translate3d(4px, 0, 0);
     }
   }
-`;var j=n(160),F=n.n(j);const z="data:image/png;base64,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";class U extends r.Component{constructor(){super(...arguments),this.state={isFullscreen:!1,videoSrc:""},this.playVideo=(e=>{this.setState({isFullscreen:!0,videoSrc:e})})}render(){return i.a.createElement(Y,null,i.a.createElement(J,{onClick:this.props.closeVideoGallery}),this.state.isFullscreen?i.a.createElement(F.a,{url:this.state.videoSrc,className:"video-player",playing:!0}):i.a.createElement(X,null,i.a.createElement(G,{onClick:this.props.closeVideoGallery},"×"),i.a.createElement(q,null,i.a.createElement(W,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/325666928")},i.a.createElement(V,null,i.a.createElement(B,null,"Island Overview"),i.a.createElement(H,null,i.a.createElement("img",{src:z})))),i.a.createElement(W,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/331278088")},i.a.createElement(V,null,i.a.createElement(B,null,"Perimeter Tour"),i.a.createElement(H,null,i.a.createElement("img",{src:z})))))))}}const B=a.c.span`
+`);var F=n(160),z=n.n(F);const U="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAI80lEQVR4nO2d32ocyRXGf9+wF8te5iJPEPIA+yy5DeQir7EsuQiLWZbFLIlxJK/s1QZ7HdsYY4QRwTjBGGPEYoQwGyGMCUYYIYQQzq4Qw5xc9Iwolaqqq7p7RjPj+cC4u6vqVM3p09/5038kw1hg/Ohd9AI+FCwUPSEsFD0hLBQ9IWQp2gb2O4x/YaxgfIrxybgXNm9QVtRh/MfMfisJM3sLfCfpLvASMRj3IucBuYr+n5l9Iml05AT4CbgBXEccjG2Fc4JcRf9iZh87ih7h2My2gK+BdfW03/0S5wNZiraB/SLpYzNjSB+MlD7c7gMPzGxJ0jPE0ZjXPXPItmggqGg4VfYA2AXWgSuIjTGteSZRpOgzh8LKBugD74DrwArwX0S/sxXPKIo4GiDA02e7OlZP5TCvSLoPvP2QI5Qijj7d96zZP+79fww8Bm4C9xHvO1z/zKAxdZxpPu8cRxY9Oj4ADoHnwGfAFuKk5dpnCo2cYbRbXvuRmd0CViU9/1D4O5s6gHNxdJ1ikzLNtqkSntvAa/U01/zdKmFpqWiAnyW9Aq4By/Ns3Y0SlmCfgCMEUnG3L+IZ8BXwFLHX7OdML4qdYUqRJRYe6XtgZuuSlszsqXqaG4fZOurwIw6oj7Uz8NrMHki6jHjTVtg0oLUzBKK04LdH4uxY20DSARWd3KJKeGaWw1sp+rQ9otA2cBTel/TCzP4O3FFPM8nfxZlhXVaY6hPr7+4nrP3IzJ4ClyU9mbWEp3XCkrLmjIwxKic0nirDfA+sS/rSzLbU088Fv/fC0JlF5yAzzDvTlriC9iQtm9ldSZvTzt+dO0O/zW0POcpRu2/x/lh3vDPvCfCTmd2U9LdpvqXWSVEJ4kpPUYnbP3RicmFmx8CmpMvAOmLqbqk1vsMC+bVpfzsHDQtYfTNbB74ZFqwOsyccM4oVDeG0+tyQwpCv9CTWzLkLrAHXEM+LBY0BndWjTwVmWmFuBBPad+dKRCt9YM/MloFrknYv0mE2Du9SWZ973G3zt/1xpfWS4FLDV8Q2cNXM7gBvL6Ik22mZNKasXOV1kVEmZPep4u+bwINJPxLR6J5hsE+GpZ6bPGDJKTmjMf58uf7AzE5vqUn63MxeqqeJ0ElnjxvkoIvUPNQf4lSVOPYeuGVmK5I2xp3St74L3qYGXUopOUrNVLJ7bAdYpVL6zrj4u5FFd+Wwziykw8pfaL6aaOhY0ibVAz/fjsO6Gz9A08SqU+FbCa3kxNoN4/EB8CPwBfBvMzvoysIbFZWgNoY9Oz6jtJqcv8NCVo5MMzuU9IjqLv3jLiy8qKgE560vxJFnJsiMn+uO++1d948YyBvggaS/ILajCspAcfUuFo7lKq5hDSO9voZONlNuH9gHrlA9uPmuiYVfeHhXx6U5J2qcoeYIqh5LfgHcMLMH6mm3ZL5WCUtTyxlnBtgUKSMYYdh+SKXwryng707r0aWOrS57TPWLZYv+2NDaGsTaod9xANwBPsu5YZz3+lsg7nXbYooK7YcW7ipv9M9vT/X35/LXEhufgm8Qbv9h268k/VHSp0lBQ2QpOnVJuT+2zmpKYu26deSejJjMkvH+CXX67kDe42uN3pz1Feqf7brt0X5IcaGT5sOXG7PmlKzUukOyHAzM7IjqKdjfA5vRhbqymsTRo4WVOLRQouPu54aAOVGKK9tviyk9JdPpd0RV+Vsys3slWeNHOZ1KwqvUokMWHFJMzAnG5ObG6LHfUcfZw74/SroCPDKz3dLUPEvRJT84NC5HVkzhscwz5BBTJyg0LvR7vPlGr/R9a2arkt4g+qI8NM1StK+A0PE65xfi4JByUw4sFBrG2v3j/jr9ebx1DYC3ktaAr9TTTvCHF6BI0S7qHE7MqnIjET+08sO+kMyYlcailRB9Ud0QuC/pB+CfiOOkIjJRzNH+8dFCY9sjxCjAb0txe2ieHEqLzePThJltSfoTHZdIoZCjY/s+X+ZkYu64VL/Y1RDi6NiaY/2GMk5UFf2vArcRR004uA7ZFg3pkK6UHuou6xBKeDlD1gDYkXTPzFbU0/Y4FDxCNkenPHTs0q3j51LEKKw0DpfUl3TdzJaAiTz628gZpi7junEucpyl29f9392uc8xOv31Jz4AvzezFJF9GasTROZYdQp0llig+dRWNjjnyj6lKm1eBNcThOGkihMbhXQixqMJvS42rC+Hq5AVO5o6qjO5h29tRbVDkDEvaSx2bf/lnZG3nZDky+mb2TtId4JKZ7U/qiaQYsqkD8sqcsfGR0Op0O2Wxufw/lLlHlXCsmNmGemqUMneNbOpIWVVu9hfj+ty5a+ji2MyeSFqiyujGEg83RRFH58SsbUK43ETHc6LHVAX4P1N9z+lwGr90UxxH+4WgOmW4+7G22LgaC+5L2jSzu8CyetqbJgv2UUwddd4/5tT8mDc3yYj4hz0z+17SqqStaX/1DRpSR52SUtYakueOqZF1ZNXLQJepPtc5M99nKqreQb2yYyl5yDJdmaG5nL6HZrZB9Xry2jRycB0aRR3u/uhYnUX7/J57dVB98GpF0kNE0dNB04RiZ5ibofnjQn19B+uciMEwHl6WdAN4Mws8nEKRRdclDk1jaGd7dI/unqqPorzOXd+0o8iiY8fqwjG/LZTgWPVM8hrVhwgfzboF+2hUvXORk6BkWPNL4HMzey5pfxadXR0aFf5jEUZqXCCyOAFeDlPm2+pprj+FXBx1+NsxJKzYvYW0NE88nELrMmkdpXjtJ8AysGrVy5Sd3MqfBbQqKgXqwLFK3gHVBwQvAS8QJ9NclxgHGjvDnBrFsLL2zMyuAQ/nnYdTKKKOEOdGLHwgaZvqHt3DLh6pmnV0TR19qz4q9T3wDbA3a59NGxeKqMPnY9eqzWwXWBuGaxvzGAu3QXH1LsDHo0/LXwWeLP40SBhtnOGJpFdmdknS43nN6LpCrkW/t+FL98CJpFeS/mFmf1VPU/MlrmlGrjO8L+kPVG8gfWdmP0jauuhnJWYJuS90/trMfqPqQ6yvZ+V7oNOEPEUv0BqLv9A5ISwUPSEsFD0hLBQ9Ifwf1wB3Abn18l4AAAAASUVORK5CYII=";class B extends r.Component{constructor(){super(...arguments),this.state={isFullscreen:!1,videoSrc:""},this.playVideo=(e=>{this.setState({isFullscreen:!0,videoSrc:e})})}render(){return i.a.createElement(J,null,i.a.createElement(Z,{onClick:this.props.closeVideoGallery}),this.state.isFullscreen?i.a.createElement(z.a,{url:this.state.videoSrc,className:"video-player",playing:!0}):i.a.createElement(Y,null,i.a.createElement(H,{onClick:this.props.closeVideoGallery},"×"),i.a.createElement(X,null,i.a.createElement(q,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/325666928")},i.a.createElement(W,null,i.a.createElement(G,null,"Island Overview"),i.a.createElement(V,null,i.a.createElement("img",{src:U})))),i.a.createElement(q,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/331278088")},i.a.createElement(W,null,i.a.createElement(G,null,"Perimeter Tour"),i.a.createElement(V,null,i.a.createElement("img",{src:U})))))))}}const G=a.c.span`
   color: white;
   padding: 10px 0px;
   text-transform: uppercase;
@@ -232,7 +241,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   line-height: 15px;
   text-align: left;
   margin-left: 10px;
-`,G=a.c.span`
+`,H=a.c.span`
   cursor: pointer;
   font-size: 48px;
   font-weight: 300;
@@ -243,7 +252,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   letter-spacing: 0px;
   margin: 0px;
   padding: 0px;
-`,H=a.c.div`
+`,V=a.c.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -259,7 +268,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
     left: 2px;
     width: 50%;
   }
-`,V=a.c.div`
+`,W=a.c.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
@@ -269,7 +278,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   justify-content: center;
   align-items: center;
   position: relative;
-`,W=a.c.div`
+`,q=a.c.div`
   height: 50vw;
   width: 50vw;
   cursor: pointer;
@@ -286,6 +295,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: relative;
   ${e=>a.b`
     background-image: url(${e.thumbnail});
+    background-size: cover;
   `}
 
   background-color: rgba(0, 0, 0, 0.6);
@@ -298,7 +308,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       margin-right: 25px;
     }
   }
-`,q=a.c.div`
+`,X=a.c.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -314,7 +324,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       margin-bottom: 25px;
     }
   }
-`,X=a.c.div`
+`,Y=a.c.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -322,7 +332,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   align-items: center;
   padding: 50px 50px;
   z-index: 10;
-`,Y=a.c.div`
+`,J=a.c.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -338,7 +348,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
     height: 75% !important;
     z-index: 11;
   }
-`,J=a.c.div`
+`,Z=a.c.div`
   width: 100%;
   height: 100%;
 
@@ -346,7 +356,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: fixed;
   top: 0px;
   left: 0px;
-`;var Z=n(161),K=n.n(Z);let Q=[];for(let e=0;e<40;e++)Q.push({src:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/${e}.jpg`,thumbnail:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/thumb/${e}.jpg`});class $ extends r.Component{constructor(){super(...arguments),this.state={activeIndex:0,isFullscreen:!1}}render(){return i.a.createElement(ee,{onClick:()=>this.props.closePhotoGallery},i.a.createElement(te,null,i.a.createElement(K.a,{index:0,isFullscreen:window.innerWidth<=768,images:Q,updateFullscreen:()=>{},indexChange:()=>{},exitCarousel:this.props.closePhotoGallery})))}}const ee=a.c.div`
+`;var K=n(161),Q=n.n(K);let $=[];for(let e=0;e<40;e++)$.push({src:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/${e}.jpg`,thumbnail:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/thumb/${e}.jpg`});class ee extends r.Component{constructor(){super(...arguments),this.state={activeIndex:0,isFullscreen:!1}}render(){return i.a.createElement(te,{onClick:()=>this.props.closePhotoGallery},i.a.createElement(ne,null,i.a.createElement(Q.a,{index:0,isFullscreen:window.innerWidth<=768,images:$,updateFullscreen:()=>{},indexChange:()=>{},exitCarousel:this.props.closePhotoGallery})))}}const te=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -360,10 +370,10 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   align-items: center;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.5);
-`,te=a.c.div`
+`,ne=a.c.div`
   width: 80%;
   height: 90%;
-`,ne=a.c.div`
+`,re=a.c.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -387,7 +397,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       opacity: 1;
     }
   }
-`,re=a.c.span`
+`,ie=a.c.span`
   color: #ffffff;
   font-family: 'Bodoni Sans', sans-serif;
   font-size: 1em;
@@ -400,7 +410,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       opacity: 1;
     `}
   text-transform: uppercase;
-`,ie=a.c.div`
+`,oe=a.c.div`
   box-sizing: border-box;
   height: 1px;
   width: 35px;
@@ -411,7 +421,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       border: 1.5px solid white;
       opacity: 1;
     `}
-`;var oe=e=>i.a.createElement(ne,{onClick:e.onClick},i.a.createElement(re,{bold:e.isActive},e.text),i.a.createElement(ie,{bold:e.isActive}));class ae extends r.Component{render(){return i.a.createElement(ce,{onClick:this.props.closeOverview},i.a.createElement(me,null,i.a.createElement(de,null,"Island Overview"),i.a.createElement(se,{onClick:this.props.closeOverview},"×"),i.a.createElement(pe,{src:"https://s3.amazonaws.com/sage.pumpkin-key/islandOverview.jpg"}),i.a.createElement(ue,null,i.a.createElement(fe,null,i.a.createElement(he,null,"About Pumpkin Key"),i.a.createElement(le,null,"A short 3-minute ride via private boat from Ocean Reef Club, spectacular Pumpkin Key is a completely private oasis just moments from Key Largo. ",i.a.createElement("br",null),i.a.createElement("br",null)," A 26 acres of natural paradise ready for development located in Card Sound Bay and protected on all sides, Pumpkin Key is a year-round retreat. The existing 20-slip marina is big enough to accommodate the largest of yachts, allowing you to sail in uninterrupted from other destinations in the Caribbean and eastern US. ",i.a.createElement("br",null),i.a.createElement("br",null),"With idyllic waters, the extremely private white-sand beach offers swimming, sun bathing and plenty of space to enjoy games and fun with family and friends. This island paradise offers families an opportunity to enjoy the best that the Florida Keys have to offer: Sport Fishing, Snorkeling, Scuba Diving, Watersports, Tennis, Golf, and relaxation. ",i.a.createElement("br",null),i.a.createElement("br",null),"Fueled by an underground generator, fiber optics, and fresh water plumbing, Pumpkin Key has massive potential for development. The existing 3-bedroom home and Caretaker’s and Dockmaster’s apartments offer an excellent foundation on which to build.")),i.a.createElement(fe,null,i.a.createElement(he,null,"Ocean Reef Club"),i.a.createElement(le,null,"At the tip of Key Largo, Ocean Reef Club is a members-only golf club and community with world-class dining, beaches, and amenities. ",i.a.createElement("br",null),i.a.createElement("br",null),"The invitation-only club features two challenging 18-hole golf courses as well. With over a dozen restaurants and lounges to enjoy, you’ll find gastronomy to excite your palate as you take in the spectacular views. ",i.a.createElement("br",null),i.a.createElement("br",null)," 10 Minutes via helicopter from Miami and accessible via private airport and marina, Ocean Reef Club features 2,500 lush tropical acres for your family to enjoy.")))))}}const se=a.c.span`
+`;var ae=e=>i.a.createElement(re,{onClick:e.onClick},i.a.createElement(ie,{bold:e.isActive},e.text),i.a.createElement(oe,{bold:e.isActive}));class se extends r.Component{render(){return i.a.createElement(fe,{onClick:this.props.closeOverview},i.a.createElement(ve,{onClick:e=>e.stopPropagation()},i.a.createElement(pe,null,"Island Overview"),i.a.createElement(ue,{onClick:this.props.closeOverview},"×"),i.a.createElement(me,{src:"https://s3.amazonaws.com/sage.pumpkin-key/islandOverview.jpg"}),i.a.createElement(le,null,i.a.createElement(he,null,i.a.createElement(de,null,"About Pumpkin Key"),i.a.createElement(ce,null,"A short 3-minute ride via private boat from Ocean Reef Club, spectacular Pumpkin Key is a completely private oasis just moments from Key Largo. ",i.a.createElement("br",null),i.a.createElement("br",null)," A 26 acres of natural paradise ready for development located in Card Sound Bay and protected on all sides, Pumpkin Key is a year-round retreat. The existing 20-slip marina is big enough to accommodate the largest of yachts, allowing you to sail in uninterrupted from other destinations in the Caribbean and eastern US. ",i.a.createElement("br",null),i.a.createElement("br",null),"With idyllic waters, the extremely private white-sand beach offers swimming, sun bathing and plenty of space to enjoy games and fun with family and friends. This island paradise offers families an opportunity to enjoy the best that the Florida Keys have to offer: Sport Fishing, Snorkeling, Scuba Diving, Watersports, Tennis, Golf, and relaxation. ",i.a.createElement("br",null),i.a.createElement("br",null),"Fueled by an underground generator, fiber optics, and fresh water plumbing, Pumpkin Key has massive potential for development. The existing 3-bedroom home and Caretaker’s and Dockmaster’s apartments offer an excellent foundation on which to build.")),i.a.createElement(he,null,i.a.createElement(de,null,"Ocean Reef Club"),i.a.createElement(ce,null,"At the tip of Key Largo, Ocean Reef Club is a members-only golf club and community with world-class dining, beaches, and amenities. ",i.a.createElement("br",null),i.a.createElement("br",null),"The invitation-only club features two challenging 18-hole golf courses as well. With over a dozen restaurants and lounges to enjoy, you’ll find gastronomy to excite your palate as you take in the spectacular views. ",i.a.createElement("br",null),i.a.createElement("br",null)," 10 Minutes via helicopter from Miami and accessible via private airport and marina, Ocean Reef Club features 2,500 lush tropical acres for your family to enjoy.")))))}}const ue=a.c.span`
   font-weight: 300;
   font-size: 48px;
   margin: 0;
@@ -425,9 +435,9 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   }
 
   position: absolute;
-  top: -7px;
+  top: 21px;
   right: 25px;
-`,ue=a.c.div`
+`,le=a.c.div`
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
@@ -453,7 +463,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       margin-bottom: 20px;
     }
   }
-`,le=a.c.p`
+`,ce=a.c.p`
   font-size: 12px;
   font-weight: 300;
   margin: 0;
@@ -461,7 +471,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   font-family: 'Montserrat', sans-serif;
   line-height: 25px;
   opacity: 0.9;
-`,ce=a.c.div`
+`,fe=a.c.div`
   width: 100vw;
   min-height: 110vh;
 
@@ -475,17 +485,17 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   justify-content: center;
   align-items: center;
   overflow: hidden;
-`,fe=a.c.div`
+`,he=a.c.div`
   color: #003f3a;
 
   font-weight: 500;
-`,he=a.c.h2`
+`,de=a.c.h2`
   font-size: 14px;
   font-weight: bold;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-`,de=a.c.h1`
+`,pe=a.c.h1`
   color: #003f3a;
   font-family: 'Bodoni Sans', sans-serif;
   font-size: 1.4em;
@@ -495,10 +505,10 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   text-transform: uppercase;
   margin: 0;
   padding: 0;
-`,pe=a.c.img`
+`,me=a.c.img`
   width: 100%;
   margin: 20px 0;
-`,me=a.c.div`
+`,ve=a.c.div`
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -514,9 +524,11 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   box-sizing: border-box;
   padding: 10px 30px;
   border-radius: 4px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 
   position: relative;
-`;class ve extends r.Component{render(){return i.a.createElement(be,null,i.a.createElement(ge,null,i.a.createElement(ye,{bold:"private-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("private-island")},"1. Modern Private Island"),i.a.createElement(ye,{bold:"residential-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("residential-island")},"2. Residential Island"),i.a.createElement(ye,{bold:"development-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("development-island")},"3. Development Island")))}}a.c.div`
+`;class ge extends r.Component{render(){return i.a.createElement(xe,null,i.a.createElement(ye,null,i.a.createElement(be,{bold:"private-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("private-island")},"1. Private Estate"),i.a.createElement(be,{bold:"residential-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("residential-island")},"2. Compound"),i.a.createElement(be,{bold:"development-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("development-island")},"3. Residential Community")))}}a.c.div`
   width: 62%;
   opacity: 0.6;
   margin-top: 15px;
@@ -527,11 +539,11 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
-`;const ge=a.c.div`
+`;const ye=a.c.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   @media (max-width: 608px) {
     flex-direction: column;
@@ -541,9 +553,8 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       margin-bottom: 10px;
     }
   }
-`,ye=a.c.span`
+`,be=a.c.span`
   height: 16px;
-  width: 209px;
   color: #ffffff;
   font-family: 'Bodoni Sans', sans-serif;
   font-size: 12px;
@@ -561,7 +572,11 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   &:hover {
     opacity: 1;
   }
-`,be=a.c.div`
+
+  &:not(:last-of-type) {
+    margin-right: 20px;
+  }
+`,xe=a.c.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -574,7 +589,128 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   padding-bottom: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.5);
-`,xe=3300,we=2175,_e=xe/2,Me=we/2,Se=1;class Ee extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:Se,isShowingVideoGallery:!1,isShowingPhotoGallery:!1,mode:"exploring-island",developmentOption:"development-island"},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.resetMode=(()=>{this.setState({mode:"exploring-island"})}),this.makeTransform=(()=>{const e=_e,t=Me;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.activateMode=(e=>{this.setState({mode:e})}),this.handleOptionChange=(e=>{this.setState({developmentOption:e})})}render(){let e="https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg";return"development-options"===this.state.mode&&(e={"development-island":"https://s3.amazonaws.com/sage.pumpkin-key/developmentIsland.jpg","private-island":"https://s3.amazonaws.com/sage.pumpkin-key/privateIsland.jpg","residential-island":"https://s3.amazonaws.com/sage.pumpkin-key/residentialIsland.jpg"}[this.state.developmentOption]),i.a.createElement(Ae,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(A,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,initialTheta:this.state.activePanorama.initialTheta,goBack:this.deactivatePanorama}):i.a.createElement(i.a.Fragment,null,i.a.createElement(Pe,null),i.a.createElement(Te,null,i.a.createElement(oe,{text:"Explore the Island",isActive:"exploring-island"===this.state.mode,onClick:()=>this.activateMode("exploring-island")}),i.a.createElement(oe,{text:"Island Overview",isActive:"island-overview"===this.state.mode,onClick:()=>this.activateMode("island-overview")}),i.a.createElement(oe,{text:"Photo Gallery",isActive:"photo-gallery"===this.state.mode,onClick:()=>this.activateMode("photo-gallery")}),i.a.createElement(oe,{text:"Video Gallery",isActive:"video-gallery"===this.state.mode,onClick:()=>this.activateMode("video-gallery")}),i.a.createElement(oe,{text:"Development Options",isActive:"development-options"===this.state.mode,onClick:()=>this.activateMode("development-options")})),i.a.createElement("svg",{viewBox:` 0 0 ${xe} ${we}`,key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice",style:{width:"100%",height:"105vh",backgroundColor:"black"}},i.a.createElement("image",{key:"ev-image",xlinkHref:e,width:"100%",height:"100%"}),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.2"}),"development-options"!==this.state.mode&&y.map(e=>i.a.createElement(N,{x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),"video-gallery"===this.state.mode&&i.a.createElement(U,{closeVideoGallery:this.resetMode}),"photo-gallery"===this.state.mode&&i.a.createElement($,{closePhotoGallery:this.resetMode}),"island-overview"===this.state.mode&&i.a.createElement(ae,{closeOverview:this.resetMode}),"development-options"===this.state.mode&&i.a.createElement(ve,{option:this.state.developmentOption,receiveOptionChange:this.handleOptionChange}))}}const Te=a.c.div`
+`;class we extends r.Component{render(){return i.a.createElement(_e,{onClick:this.props.closeContact},i.a.createElement(Oe,{onClick:e=>e.stopPropagation()},i.a.createElement(Pe,null,"Contact"),i.a.createElement(Se,{onClick:this.props.closeContact},"×"),i.a.createElement(Ae,null,"To learn more about Pumpkin Key, please provide your details below:"),i.a.createElement(Ce,{onSubmit:e=>e.preventDefault()},i.a.createElement(Te,null,i.a.createElement(ke,null,"First Name: "),i.a.createElement(Le,null)),i.a.createElement(Te,null,i.a.createElement(ke,null,"Last Name: "),i.a.createElement(Le,null)),i.a.createElement(Te,null,i.a.createElement(ke,null,"Phone: "),i.a.createElement(Le,null)),i.a.createElement(Te,null,i.a.createElement(ke,null,"Email: "),i.a.createElement(Le,null)),i.a.createElement(Re,{onClick:this.props.closeContact},"Submit")),i.a.createElement(Ae,null,"Presented by Ocean Sotheby's"),i.a.createElement(Ee,null,i.a.createElement(Ae,{small:!0},"Ocean Sotheby's International Realty"),i.a.createElement(Ae,{small:!0},"81888 Overseas Highway, Islamorada, FL 33036"),i.a.createElement(Ae,{small:!0},"305.712.8888")),i.a.createElement(Me,{src:"https://s3.amazonaws.com/sage.pumpkin-key/sothebys.png"})))}}const _e=a.c.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+`,Me=a.c.img`
+  width: 100%;
+`,Se=a.c.span`
+  font-weight: 300;
+  font-size: 48px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.9;
+  color: #003f3a;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+
+  position: absolute;
+  top: 10px;
+  right: 15px;
+`,Ee=a.c.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 7px;
+`,Te=a.c.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+
+  margin-bottom: 10px;
+`,Pe=a.c.h2`
+  color: #003f3a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  position: relative;
+  top: -10px;
+`,Ae=a.c.span`
+  color: #003f3a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+
+  ${e=>e.small&&a.b`
+      font-size: 8px;
+    `}
+`,Ce=a.c.form`
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`,ke=a.c.label`
+  color: #003f3a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  margin-right: 10px;
+`,Le=a.c.input`
+  flex-grow: 1;
+
+  color: #003f3a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 0.5px solid #003f3a;
+`,Re=a.c.button`
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  color: #003f3a;
+  font-family: 'Bodoni Sans', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.82px;
+  line-height: 14px;
+  text-align: center;
+
+  text-transform: uppercase;
+  border: 0.5px solid #003f3a;
+
+  padding: 4px 8px;
+`,Oe=a.c.div`
+  width: 340px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 40px 40px;
+`,Ie=3300,Ne=2175,De=Ie/2,je=Ne/2,Fe=1;class ze extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:Fe,isShowingVideoGallery:!1,isShowingPhotoGallery:!1,mode:"exploring-island",developmentOption:"development-island"},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.resetMode=(()=>{this.setState({mode:"exploring-island"})}),this.makeTransform=(()=>{const e=De,t=je;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.activateMode=(e=>{this.setState({mode:e})}),this.handleOptionChange=(e=>{this.setState({developmentOption:e})})}render(){let e="https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg";return"development-options"===this.state.mode&&(e={"development-island":"https://s3.amazonaws.com/sage.pumpkin-key/developmentIsland.jpg","private-island":"https://s3.amazonaws.com/sage.pumpkin-key/privateIsland.jpg","residential-island":"https://s3.amazonaws.com/sage.pumpkin-key/residentialIsland.jpg"}[this.state.developmentOption]),i.a.createElement(Ge,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(A,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,initialTheta:this.state.activePanorama.initialTheta,goBack:this.deactivatePanorama}):i.a.createElement(i.a.Fragment,null,i.a.createElement(Be,null),i.a.createElement(Ue,null,i.a.createElement(ae,{text:"Explore the Island",isActive:"exploring-island"===this.state.mode,onClick:()=>this.activateMode("exploring-island")}),i.a.createElement(ae,{text:"Island Overview",isActive:"island-overview"===this.state.mode,onClick:()=>this.activateMode("island-overview")}),i.a.createElement(ae,{text:"Photo Gallery",isActive:"photo-gallery"===this.state.mode,onClick:()=>this.activateMode("photo-gallery")}),i.a.createElement(ae,{text:"Video Gallery",isActive:"video-gallery"===this.state.mode,onClick:()=>this.activateMode("video-gallery")}),i.a.createElement(ae,{text:"Development Options",isActive:"development-options"===this.state.mode,onClick:()=>this.activateMode("development-options")}),i.a.createElement(ae,{text:"Contact",isActive:"contact"===this.state.mode,onClick:()=>this.activateMode("contact")})),i.a.createElement("svg",{viewBox:` 0 0 ${Ie} ${Ne}`,key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice",style:{width:"100%",height:"105vh",backgroundColor:"black"}},i.a.createElement("image",{key:"ev-image",xlinkHref:e,width:"100%",height:"100%"}),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.2"}),"development-options"!==this.state.mode&&y.map(e=>i.a.createElement(N,{name:e.name,x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),"video-gallery"===this.state.mode&&i.a.createElement(B,{closeVideoGallery:this.resetMode}),"photo-gallery"===this.state.mode&&i.a.createElement(ee,{closePhotoGallery:this.resetMode}),"island-overview"===this.state.mode&&i.a.createElement(se,{closeOverview:this.resetMode}),"development-options"===this.state.mode&&i.a.createElement(ge,{option:this.state.developmentOption,receiveOptionChange:this.handleOptionChange}),"contact"===this.state.mode&&i.a.createElement(we,{closeContact:this.resetMode}))}}const Ue=a.c.div`
   position: absolute;
   top: 20%;
   right: 0px;
@@ -584,7 +720,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   justify-content: flex-start;
   align-items: flex-end;
   padding: 0px 15px;
-`,Pe=(a.c.div`
+`,Be=(a.c.div`
   width: 100vw;
   height: 100vh;
   position: fixed !important;
@@ -600,7 +736,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: absolute;
   top: 25px;
   left: 30px;
-`),Ae=a.c.div`
+`),Ge=a.c.div`
   width: 100vw;
   height: fit-content;
   margin-bottom: -10px;
@@ -613,12 +749,12 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
 
   background-color: red;
   z-index: 1000000;
-`;class Ce extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=["https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg","https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg"].map(e=>new Promise(t=>{const n=new Image;n.onload=(()=>{t()}),n.src=e}));Promise.all(e).then(()=>{this.props.endLoad()})})}render(){return i.a.createElement(Re,null,i.a.createElement(Le,null),i.a.createElement(ke,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const ke=a.c.span`
+`;class He extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=["https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg","https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg"].map(e=>new Promise(t=>{const n=new Image;n.onload=(()=>{t()}),n.src=e}));Promise.all(e).then(()=>{this.props.endLoad()})})}render(){return i.a.createElement(qe,null,i.a.createElement(We,null),i.a.createElement(Ve,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const Ve=a.c.span`
   font-family: 'Bodoni Sans';
   color: white;
   font-size: 42px;
   margin-bottom: 30px;
-`,Le=a.c.div`
+`,We=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -628,7 +764,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   z-index: 1;
 
   background-color: rgba(0, 0, 0, 0.5);
-`,Re=a.c.div`
+`,qe=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -643,7 +779,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   > :not(:nth-child(1)) {
     z-index: 2;
   }
-`;const Oe=a.a`
+`;const Xe=a.a`
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 * {
@@ -697,4 +833,4 @@ html, body {
 
   background-color: black;
 }
-`;var Ie=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement(Oe,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(Ce,{endLoad:this.endLoad}):i.a.createElement(Ee,null))]}};Object(o.render)(i.a.createElement(Ie,null),document.getElementById("root"))}]);
+`;var Ye=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement(Xe,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(He,{endLoad:this.endLoad}):i.a.createElement(ze,null))]}};Object(o.render)(i.a.createElement(Ye,null),document.getElementById("root"))}]);

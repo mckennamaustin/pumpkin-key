@@ -9,7 +9,7 @@ export default class IslandOverview extends Component<Props> {
   render() {
     return (
       <WindowContainer onClick={this.props.closeOverview}>
-        <Container>
+        <Container onClick={evt => evt.stopPropagation()}>
           <Title>Island Overview</Title>
           <ExitButton onClick={this.props.closeOverview}>×</ExitButton>
           <Image src='https://s3.amazonaws.com/sage.pumpkin-key/islandOverview.jpg' />
@@ -78,7 +78,7 @@ const ExitButton = styled.span`
   }
 
   position: absolute;
-  top: -7px;
+  top: 21px;
   right: 25px;
 `;
 
@@ -180,6 +180,8 @@ const Container = styled.div`
   box-sizing: border-box;
   padding: 10px 30px;
   border-radius: 4px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 
   position: relative;
 `;

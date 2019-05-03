@@ -150,6 +150,7 @@ const ThumbnailVideo = styled.div`
   position: relative;
   ${props => css`
     background-image: url(${props.thumbnail});
+    background-size: cover;
   `}
 
   background-color: rgba(0, 0, 0, 0.6);

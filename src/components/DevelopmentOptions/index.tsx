@@ -15,19 +15,19 @@ export default class DevelopmentOptions extends Component<Props> {
             bold={this.props.option === 'private-island'}
             onClick={() => this.props.receiveOptionChange('private-island')}
           >
-            1. Modern Private Island
+            1. Private Estate
           </Option>
           <Option
             bold={this.props.option === 'residential-island'}
             onClick={() => this.props.receiveOptionChange('residential-island')}
           >
-            2. Residential Island
+            2. Compound
           </Option>
           <Option
             bold={this.props.option === 'development-island'}
             onClick={() => this.props.receiveOptionChange('development-island')}
           >
-            3. Development Island
+            3. Residential Community
           </Option>
         </OptionContainer>
         {/* <DescriptionContainer>
@@ -68,7 +68,7 @@ const OptionContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   @media (max-width: 608px) {
     flex-direction: column;
@@ -82,7 +82,6 @@ const OptionContainer = styled.div`
 
 const Option = styled.span`
   height: 16px;
-  width: 209px;
   color: #ffffff;
   font-family: 'Bodoni Sans', sans-serif;
   font-size: 12px;
@@ -101,6 +100,10 @@ const Option = styled.span`
   transition: all 250ms ease-in-out;
   &:hover {
     opacity: 1;
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 20px;
   }
 `;
 

@@ -16,6 +16,7 @@ import { SageTourInternal } from '../../../packages/sage-tour';
 import Option from './Option';
 import IslandOverview from '../IslandOverview';
 import DevelopmentOptions from '../DevelopmentOptions';
+import Contact from '../Contact';
 
 interface Props {}
 
@@ -262,6 +263,11 @@ export default class LandingPage extends Component<Props, State> {
                 isActive={this.state.mode === 'development-options'}
                 onClick={() => this.activateMode('development-options')}
               />
+              <Option
+                text='Contact'
+                isActive={this.state.mode === 'contact'}
+                onClick={() => this.activateMode('contact')}
+              />
             </OptionsMenu>
             <svg
               viewBox={` 0 0 ${WIDTH} ${HEIGHT}`}
@@ -286,6 +292,7 @@ export default class LandingPage extends Component<Props, State> {
               {this.state.mode !== 'development-options' &&
                 targets.map(target => (
                   <HotspotIndicator
+                    name={target.name}
                     x={target.tl[0]}
                     y={target.tl[1]}
                     onClick={() => this.activatePanorama(target)}
@@ -308,6 +315,9 @@ export default class LandingPage extends Component<Props, State> {
             option={this.state.developmentOption}
             receiveOptionChange={this.handleOptionChange}
           />
+        )}
+        {this.state.mode === 'contact' && (
+          <Contact closeContact={this.resetMode} />
         )}
         {/* {!this.state.isPanoramaActive && (
           <Footer
