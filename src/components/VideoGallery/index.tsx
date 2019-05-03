@@ -104,8 +104,8 @@ const ExitButton = styled.span`
 `;
 
 const PlayButton = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 5px solid white;
 
@@ -116,7 +116,7 @@ const PlayButton = styled.div`
 
   img {
     position: relative;
-    left: 5px;
+    left: 2px;
     width: 50%;
   }
 `;
