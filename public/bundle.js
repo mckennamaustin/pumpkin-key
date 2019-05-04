@@ -240,7 +240,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   top: 0px;
   left: 0px;
   z-index: 1;
-`;class U extends r.Component{constructor(){super(...arguments),this.state={isHovering:!1},this.componentDidMount=(()=>{}),this.startHover=(()=>{this.setState({isHovering:!0})}),this.stopHover=(()=>{this.setState({isHovering:!1})})}render(){const{x:e,y:t}=this.props;return i.a.createElement("g",{transform:`translate(${e},${t})`},this.state.isHovering&&i.a.createElement("g",null,i.a.createElement("rect",{x:"-215px",y:"-120px",width:"500px",height:"100px",fill:"#003F3A"}),i.a.createElement("rect",{x:"-200px",y:"-105px",width:"470px",height:"70px",fill:"#003F3A",stroke:"white",strokeWidth:"2"}),i.a.createElement("svg",{width:"500px",height:"100px",x:"-215px",y:"-120px"},i.a.createElement(B,{x:"50%",y:"60%",alignmentBaseline:"middle",textAnchor:"middle"},this.props.name))),i.a.createElement(G,{xlinkHref:"https://s3.amazonaws.com/sage.pumpkin-key/zoom.png",width:"74",height:"74",onClick:this.props.onClick,onMouseOver:this.startHover,onMouseOut:this.stopHover,onMouseLeave:this.stopHover}))}}const B=a.c.text`
+`;class U extends r.Component{constructor(){super(...arguments),this.state={isHovering:!1},this.componentDidMount=(()=>{}),this.startHover=(()=>{this.setState({isHovering:!0})}),this.stopHover=(()=>{this.setState({isHovering:!1})})}render(){const{x:e,y:t}=this.props;return i.a.createElement("g",{transform:`translate(${e},${t})`},this.state.isHovering&&i.a.createElement("g",null,i.a.createElement("rect",{x:"-215px",y:"-120px",width:"500px",height:"100px",fill:"#003F3A"}),i.a.createElement("rect",{x:"-200px",y:"-105px",width:"470px",height:"70px",fill:"#003F3A",stroke:"white",strokeWidth:"2"}),i.a.createElement("svg",{width:"500px",height:"100px",x:"-215px",y:"-120px"},i.a.createElement(B,{x:"50%",y:"60%",alignmentBaseline:"middle",textAnchor:"middle"},this.props.name))),i.a.createElement(G,{xlinkHref:"https://s3.amazonaws.com/sage.pumpkin-key/zoom.png",width:"74",height:"74",onClick:this.props.onClick,onTouchStart:this.startHover,onTouchEnd:this.stopHover,onMouseOver:this.startHover,onMouseOut:this.stopHover,onMouseLeave:this.stopHover,onContextMenu:e=>e.preventDefault()}))}}const B=a.c.text`
   font-family: 'Bodoni Sans', sans-serif;
   text-transform: uppercase;
   font-size: 32px;
@@ -249,11 +249,13 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   letter-spacing: 2.61px;
   color: white;
   fill: white;
+  user-select: none;
 `,G=(a.c.rect`
   height: 41px;
   width: 136px;
   background-color: #003f3a;
 `,a.c.image`
+  user-select: none;
   cursor: pointer;
   opacity: 1;
   &:hover {

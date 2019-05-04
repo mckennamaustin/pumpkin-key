@@ -69,9 +69,12 @@ export default class HotspotIndicator extends Component<Props, State> {
           width='74'
           height='74'
           onClick={this.props.onClick}
+          onTouchStart={this.startHover}
+          onTouchEnd={this.stopHover}
           onMouseOver={this.startHover}
           onMouseOut={this.stopHover}
           onMouseLeave={this.stopHover}
+          onContextMenu={evt => evt.preventDefault()}
         />
       </g>
     );
@@ -87,6 +90,7 @@ const Text = styled.text`
   letter-spacing: 2.61px;
   color: white;
   fill: white;
+  user-select: none;
 `;
 
 const Details = styled.rect`
@@ -96,6 +100,7 @@ const Details = styled.rect`
 `;
 
 const Image = styled.image`
+  user-select: none;
   cursor: pointer;
   opacity: 1;
   &:hover {
