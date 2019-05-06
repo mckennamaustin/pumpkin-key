@@ -4,9 +4,10 @@ import Carousel from 'ev-carousel-pro';
 
 let assets = [];
 for (let i = 0; i < 40; i++) {
+  let j = (i + 12) % 40;
   assets.push({
-    src: `https://s3.amazonaws.com/sage.pumpkin-key/gallery/${i}.jpg`,
-    thumbnail: `https://s3.amazonaws.com/sage.pumpkin-key/gallery/thumb/${i}.jpg`
+    src: `https://s3.amazonaws.com/sage.pumpkin-key/gallery/${j}.jpg`,
+    thumbnail: `https://s3.amazonaws.com/sage.pumpkin-key/gallery/thumb/${j}.jpg`
   });
 }
 

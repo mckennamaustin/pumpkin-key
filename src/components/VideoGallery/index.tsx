@@ -41,7 +41,7 @@ export default class VideoGallery extends Component<Props, State> {
             <ThumbnailRow>
               <ThumbnailVideo
                 thumbnail='https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg'
-                onClick={() => this.playVideo('https://vimeo.com/325666928')}
+                onClick={() => this.playVideo('https://vimeo.com/334439784')}
               >
                 <Transparent>
                   <ThumbnailLabel>Island Overview</ThumbnailLabel>
