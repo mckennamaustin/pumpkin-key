@@ -13,9 +13,9 @@ export default class DevelopmentOptions extends Component<Props> {
   render() {
     return (
       <Container>
-        <DropContainer>
+        {/* <DropContainer>
           <Dropper>▼</Dropper>
-        </DropContainer>
+        </DropContainer> */}
         <OptionContainer>
           <Option
             bold={this.props.option === 'private-island'}
@@ -176,5 +176,5 @@ const Container = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.5);
 
-  transform: translate(0, 75%);
+  _transform: translate(0, 75%);
 `;
