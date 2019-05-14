@@ -7,9 +7,15 @@ interface Props {
 }
 
 export default class DevelopmentOptions extends Component<Props> {
+  state = {
+    isDropped: false
+  };
   render() {
     return (
       <Container>
+        <DropContainer>
+          <Dropper>▼</Dropper>
+        </DropContainer>
         <OptionContainer>
           <Option
             bold={this.props.option === 'private-island'}
@@ -30,24 +36,69 @@ export default class DevelopmentOptions extends Component<Props> {
             3. Residential Community
           </Option>
         </OptionContainer>
-        {/* <DescriptionContainer>
-          <Paragraph>
-            The Ocean Reef Club team has explored two potential development
-            opportunities for the island. Create your own private sanctuary
-            complete with Helicopter Pad and separate guest and staff quarters.
-            Custom design a traditional or more modern home that’s your own
-            private sanctuary complete with helicopter pad and separate guest
-            and staff quarters or develop a prestigious a community of
-            independent homes each with spectacular waterfront views. There is
-            no limit to the development potential of Pumpkin Key. The unique
-            private island offers the opportunity to create a bespoke experience
-            in the Florida Keys.
-          </Paragraph>
-        </DescriptionContainer> */}
+        <DescriptionContainer>
+          {this.props.option === 'private-island' && (
+            <Paragraph>
+              Create your own private sanctuary complete with Helicopter Pad and
+              separate guest and staff quarters
+            </Paragraph>
+          )}
+          {this.props.option === 'residential-island' && (
+            <Paragraph>
+              Design your own private sanctuary with separate guest and staff
+              accommodations spread throughout the island
+            </Paragraph>
+          )}
+          {this.props.option === 'development-island' && (
+            <Paragraph>
+              Develop a collection of prestigious homes each with spectacular
+              waterfront views
+            </Paragraph>
+          )}
+        </DescriptionContainer>
       </Container>
     );
   }
 }
+
+const DropContainer = styled.div`
+  width: 50px;
+  margin-left: -25px;
+  top: -1px;
+  left: 50%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+
+  &:hover {
+    span {
+      opacity: 1;
+    }
+  }
+
+  &,
+  * {
+    cursor: pointer;
+  }
+`;
+const Dropper = styled.span`
+  color: white;
+  font-size: 16px;
+  text-align: center;
+
+  transition: all 250ms ease-in-out;
+  opacity: 0.7;
+  transform: scaleY(0.6);
+`;
 
 const DescriptionContainer = styled.div`
   width: 62%;
@@ -62,6 +113,10 @@ const Paragraph = styled.div`
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
+  text-align: center;
+  @media (max-width: 608px) {
+    text-align: left;
+  }
 `;
 
 const OptionContainer = styled.div`
@@ -114,10 +169,12 @@ const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   left: 0px;
   padding-top: 25px;
   padding-bottom: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.5);
+
+  transform: translate(0, 75%);
 `;

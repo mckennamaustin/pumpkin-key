@@ -288,7 +288,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       transform: translate3d(4px, 0, 0);
     }
   }
-`);var H=n(160),V=n.n(H);const W="data:image/png;base64,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";class q extends r.Component{constructor(){super(...arguments),this.state={isFullscreen:!1,videoSrc:""},this.playVideo=(e=>{this.setState({isFullscreen:!0,videoSrc:e})})}render(){return i.a.createElement(ee,null,i.a.createElement(te,{onClick:this.props.closeVideoGallery}),this.state.isFullscreen?i.a.createElement(V.a,{url:this.state.videoSrc,className:"video-player",playing:!0}):i.a.createElement($,null,i.a.createElement(Y,{onClick:this.props.closeVideoGallery},"×"),i.a.createElement(Q,null,i.a.createElement(K,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/334439784")},i.a.createElement(Z,null,i.a.createElement(X,null,"Island Overview"),i.a.createElement(J,null,i.a.createElement("img",{src:W})))),i.a.createElement(K,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/331278088")},i.a.createElement(Z,null,i.a.createElement(X,null,"Perimeter Tour"),i.a.createElement(J,null,i.a.createElement("img",{src:W})))))))}}const X=a.c.span`
+`);var H=n(160),V=n.n(H);const W="data:image/png;base64,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";class q extends r.Component{constructor(){super(...arguments),this.state={isFullscreen:!1,videoSrc:""},this.playVideo=(e=>{this.setState({isFullscreen:!0,videoSrc:e})})}render(){return i.a.createElement(ee,null,i.a.createElement(te,{onClick:this.props.closeVideoGallery}),this.state.isFullscreen?i.a.createElement(V.a,{url:this.state.videoSrc,className:"video-player",playing:!0}):i.a.createElement($,null,i.a.createElement(Y,{onClick:this.props.closeVideoGallery},"×"),i.a.createElement(Q,null,i.a.createElement(K,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video1Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/336110984")},i.a.createElement(Z,null,i.a.createElement(X,null,"Island Overview"),i.a.createElement(J,null,i.a.createElement("img",{src:W})))),i.a.createElement(K,{thumbnail:"https://s3.amazonaws.com/sage.pumpkin-key/video2Thumbnail.jpeg",onClick:()=>this.playVideo("https://vimeo.com/331278088")},i.a.createElement(Z,null,i.a.createElement(X,null,"Perimeter Tour"),i.a.createElement(J,null,i.a.createElement("img",{src:W})))))))}}const X=a.c.span`
   color: white;
   padding: 10px 0px;
   text-transform: uppercase;
@@ -594,18 +594,58 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   padding-bottom: 60px;
 
   position: relative;
-`;class _e extends r.Component{render(){return i.a.createElement(Ee,null,i.a.createElement(Se,null,i.a.createElement(Me,{bold:"private-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("private-island")},"1. Private Estate"),i.a.createElement(Me,{bold:"residential-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("residential-island")},"2. Compound"),i.a.createElement(Me,{bold:"development-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("development-island")},"3. Residential Community")))}}a.c.div`
+`;class _e extends r.Component{constructor(){super(...arguments),this.state={isDropped:!1}}render(){return i.a.createElement(Ce,null,i.a.createElement(Se,null,i.a.createElement(Me,null,"▼")),i.a.createElement(Pe,null,i.a.createElement(Ae,{bold:"private-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("private-island")},"1. Private Estate"),i.a.createElement(Ae,{bold:"residential-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("residential-island")},"2. Compound"),i.a.createElement(Ae,{bold:"development-island"===this.props.option,onClick:()=>this.props.receiveOptionChange("development-island")},"3. Residential Community")),i.a.createElement(Ee,null,"private-island"===this.props.option&&i.a.createElement(Te,null,"Create your own private sanctuary complete with Helicopter Pad and separate guest and staff quarters"),"residential-island"===this.props.option&&i.a.createElement(Te,null,"Design your own private sanctuary with separate guest and staff accommodations spread throughout the island"),"development-island"===this.props.option&&i.a.createElement(Te,null,"Develop a collection of prestigious homes each with spectacular waterfront views")))}}const Se=a.c.div`
+  width: 50px;
+  margin-left: -25px;
+  top: -1px;
+  left: 50%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+
+  &:hover {
+    span {
+      opacity: 1;
+    }
+  }
+
+  &,
+  * {
+    cursor: pointer;
+  }
+`,Me=a.c.span`
+  color: white;
+  font-size: 16px;
+  text-align: center;
+
+  transition: all 250ms ease-in-out;
+  opacity: 0.7;
+  transform: scaleY(0.6);
+`,Ee=a.c.div`
   width: 62%;
   opacity: 0.6;
   margin-top: 15px;
-`,a.c.div`
+`,Te=a.c.div`
   flex-grow: 1;
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
-`;const Se=a.c.div`
+  text-align: center;
+  @media (max-width: 608px) {
+    text-align: left;
+  }
+`,Pe=a.c.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -619,7 +659,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
       margin-bottom: 10px;
     }
   }
-`,Me=a.c.span`
+`,Ae=a.c.span`
   height: 16px;
   color: #ffffff;
   font-family: 'Bodoni Sans', sans-serif;
@@ -642,20 +682,22 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   &:not(:last-of-type) {
     margin-right: 20px;
   }
-`,Ee=a.c.div`
+`,Ce=a.c.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   left: 0px;
   padding-top: 25px;
   padding-bottom: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.5);
-`;class Te extends r.Component{render(){return i.a.createElement(Pe,{onClick:this.props.closeContact},i.a.createElement(Fe,{onClick:e=>e.stopPropagation()},i.a.createElement(Oe,null,"Contact"),i.a.createElement(Ce,{onClick:this.props.closeContact},"×"),i.a.createElement(Re,null,"To learn more about Pumpkin Key, please provide your details below:"),i.a.createElement(Ie,{onSubmit:e=>e.preventDefault()},i.a.createElement(Le,null,i.a.createElement(Ne,null,"First Name: "),i.a.createElement(De,null)),i.a.createElement(Le,null,i.a.createElement(Ne,null,"Last Name: "),i.a.createElement(De,null)),i.a.createElement(Le,null,i.a.createElement(Ne,null,"Phone: "),i.a.createElement(De,null)),i.a.createElement(Le,null,i.a.createElement(Ne,null,"Email: "),i.a.createElement(De,null)),i.a.createElement(je,{onClick:this.props.closeContact},"Submit")),i.a.createElement(Re,null,"Presented by Ocean Sotheby's"),i.a.createElement(ke,null,i.a.createElement(Re,{small:!0},"Ocean Sotheby's International Realty"),i.a.createElement(Re,{small:!0},"81888 Overseas Highway, Islamorada, FL 33036"),i.a.createElement(Re,{small:!0},"305.712.8888")),i.a.createElement(Ae,{src:"https://s3.amazonaws.com/sage.pumpkin-key/sothebys.png"})))}}const Pe=a.c.div`
+
+  transform: translate(0, 75%);
+`;class ke extends r.Component{render(){return i.a.createElement(Le,{onClick:this.props.closeContact},i.a.createElement(Ge,{onClick:e=>e.stopPropagation()},i.a.createElement(De,null,"Contact"),i.a.createElement(Re,{onClick:this.props.closeContact},"×"),i.a.createElement(je,null,"To learn more about Pumpkin Key, please provide your details below:"),i.a.createElement(Fe,{onSubmit:e=>e.preventDefault()},i.a.createElement(Ne,null,i.a.createElement(ze,null,"First Name: "),i.a.createElement(Ue,null)),i.a.createElement(Ne,null,i.a.createElement(ze,null,"Last Name: "),i.a.createElement(Ue,null)),i.a.createElement(Ne,null,i.a.createElement(ze,null,"Phone: "),i.a.createElement(Ue,null)),i.a.createElement(Ne,null,i.a.createElement(ze,null,"Email: "),i.a.createElement(Ue,null)),i.a.createElement(Be,{onClick:this.props.closeContact},"Submit")),i.a.createElement(je,null,"Presented by Ocean Sotheby's"),i.a.createElement(Ie,null,i.a.createElement(je,{small:!0},"Ocean Sotheby's International Realty"),i.a.createElement(je,{small:!0},"81888 Overseas Highway, Islamorada, FL 33036"),i.a.createElement(je,{small:!0},"305.712.8888")),i.a.createElement(Oe,{src:"https://s3.amazonaws.com/sage.pumpkin-key/sothebys.png"})))}}const Le=a.c.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -663,9 +705,9 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: fixed;
   top: 0px;
   left: 0px;
-`,Ae=a.c.img`
+`,Oe=a.c.img`
   width: 100%;
-`,Ce=a.c.span`
+`,Re=a.c.span`
   font-weight: 300;
   font-size: 48px;
   margin: 0;
@@ -681,14 +723,14 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: absolute;
   top: 10px;
   right: 15px;
-`,ke=a.c.div`
+`,Ie=a.c.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 7px;
-`,Le=a.c.div`
+`,Ne=a.c.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -696,7 +738,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   width: 100%;
 
   margin-bottom: 10px;
-`,Oe=a.c.h2`
+`,De=a.c.h2`
   color: #003f3a;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -706,7 +748,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   margin-bottom: 10px;
   position: relative;
   top: -10px;
-`,Re=a.c.span`
+`,je=a.c.span`
   color: #003f3a;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -715,7 +757,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   ${e=>e.small&&a.b`
       font-size: 8px;
     `}
-`,Ie=a.c.form`
+`,Fe=a.c.form`
   width: 95%;
   display: flex;
   flex-direction: column;
@@ -723,13 +765,13 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   align-items: flex-start;
   margin-top: 10px;
   margin-bottom: 10px;
-`,Ne=a.c.label`
+`,ze=a.c.label`
   color: #003f3a;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 500;
   margin-right: 10px;
-`,De=a.c.input`
+`,Ue=a.c.input`
   flex-grow: 1;
 
   color: #003f3a;
@@ -741,7 +783,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   border: none;
   background-color: transparent;
   border-bottom: 0.5px solid #003f3a;
-`,je=a.c.button`
+`,Be=a.c.button`
   cursor: pointer;
   margin-top: 10px;
   border: none;
@@ -760,7 +802,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   border: 0.5px solid #003f3a;
 
   padding: 4px 8px;
-`,Fe=a.c.div`
+`,Ge=a.c.div`
   width: 340px;
   height: auto;
   position: fixed;
@@ -776,7 +818,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   align-items: flex-start;
   box-sizing: border-box;
   padding: 40px 40px;
-`,ze=3300,Ue=2175,Be=ze/2,Ge=Ue/2,He=1;class Ve extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:He,isShowingVideoGallery:!1,isShowingPhotoGallery:!1,mode:"exploring-island",developmentOption:"development-island",isShowingInstructions:!0},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.closeInstructions=(()=>{this.setState({isShowingInstructions:!1})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.resetMode=(()=>{this.setState({mode:"exploring-island"})}),this.makeTransform=(()=>{const e=Be,t=Ge;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.activateMode=(e=>{this.setState({mode:e})}),this.handleOptionChange=(e=>{this.setState({developmentOption:e})})}render(){let e="https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg";return"development-options"===this.state.mode&&(e={"development-island":"https://s3.amazonaws.com/sage.pumpkin-key/developmentIsland.jpg","private-island":"https://s3.amazonaws.com/sage.pumpkin-key/privateIsland.jpg","residential-island":"https://s3.amazonaws.com/sage.pumpkin-key/residentialIsland.jpg"}[this.state.developmentOption]),i.a.createElement(Xe,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(I,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,initialTheta:this.state.activePanorama.initialTheta,goBack:this.deactivatePanorama,isShowingInstructions:this.state.isShowingInstructions,closeInstructions:this.closeInstructions}):i.a.createElement(i.a.Fragment,null,i.a.createElement(qe,null),i.a.createElement(We,null,i.a.createElement(fe,{text:"Explore the Island",isActive:"exploring-island"===this.state.mode,onClick:()=>this.activateMode("exploring-island")}),i.a.createElement(fe,{text:"Island Overview",isActive:"island-overview"===this.state.mode,onClick:()=>this.activateMode("island-overview")}),i.a.createElement(fe,{text:"Photo Gallery",isActive:"photo-gallery"===this.state.mode,onClick:()=>this.activateMode("photo-gallery")}),i.a.createElement(fe,{text:"Video Gallery",isActive:"video-gallery"===this.state.mode,onClick:()=>this.activateMode("video-gallery")}),i.a.createElement(fe,{text:"Development Options",isActive:"development-options"===this.state.mode,onClick:()=>this.activateMode("development-options")}),i.a.createElement(fe,{text:"Contact",isActive:"contact"===this.state.mode,onClick:()=>this.activateMode("contact")})),i.a.createElement("svg",{viewBox:` 0 0 ${ze} ${Ue}`,key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice",style:{width:"100%",height:"105vh",backgroundColor:"black"}},i.a.createElement("image",{key:"ev-image",xlinkHref:e,width:"100%",height:"100%"}),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.2"}),"development-options"!==this.state.mode&&y.map(e=>i.a.createElement(U,{name:e.name,x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),"video-gallery"===this.state.mode&&i.a.createElement(q,{closeVideoGallery:this.resetMode}),"photo-gallery"===this.state.mode&&i.a.createElement(oe,{closePhotoGallery:this.resetMode}),"island-overview"===this.state.mode&&i.a.createElement(he,{closeOverview:this.resetMode}),"development-options"===this.state.mode&&i.a.createElement(_e,{option:this.state.developmentOption,receiveOptionChange:this.handleOptionChange}),"contact"===this.state.mode&&i.a.createElement(Te,{closeContact:this.resetMode}))}}const We=a.c.div`
+`,He=3300,Ve=2175,We=He/2,qe=Ve/2,Xe=1;class Ye extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:Xe,isShowingVideoGallery:!1,isShowingPhotoGallery:!1,mode:"exploring-island",developmentOption:"development-island",isShowingInstructions:!0},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.closeInstructions=(()=>{this.setState({isShowingInstructions:!1})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.resetMode=(()=>{this.setState({mode:"exploring-island"})}),this.makeTransform=(()=>{const e=We,t=qe;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.activateMode=(e=>{this.setState({mode:e})}),this.handleOptionChange=(e=>{this.setState({developmentOption:e})})}render(){let e="https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg";return"development-options"===this.state.mode&&(e={"development-island":"https://s3.amazonaws.com/sage.pumpkin-key/developmentIsland.jpg","private-island":"https://s3.amazonaws.com/sage.pumpkin-key/privateIsland.jpg","residential-island":"https://s3.amazonaws.com/sage.pumpkin-key/residentialIsland.jpg"}[this.state.developmentOption]),i.a.createElement(Ke,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(I,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,initialTheta:this.state.activePanorama.initialTheta,goBack:this.deactivatePanorama,isShowingInstructions:this.state.isShowingInstructions,closeInstructions:this.closeInstructions}):i.a.createElement(i.a.Fragment,null,i.a.createElement(Ze,null),i.a.createElement(Je,null,i.a.createElement(fe,{text:"Explore the Island",isActive:"exploring-island"===this.state.mode,onClick:()=>this.activateMode("exploring-island")}),i.a.createElement(fe,{text:"Island Overview",isActive:"island-overview"===this.state.mode,onClick:()=>this.activateMode("island-overview")}),i.a.createElement(fe,{text:"Photo Gallery",isActive:"photo-gallery"===this.state.mode,onClick:()=>this.activateMode("photo-gallery")}),i.a.createElement(fe,{text:"Video Gallery",isActive:"video-gallery"===this.state.mode,onClick:()=>this.activateMode("video-gallery")}),i.a.createElement(fe,{text:"Development Options",isActive:"development-options"===this.state.mode,onClick:()=>this.activateMode("development-options")}),i.a.createElement(fe,{text:"Contact",isActive:"contact"===this.state.mode,onClick:()=>this.activateMode("contact")})),i.a.createElement("svg",{viewBox:` 0 0 ${He} ${Ve}`,key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice",style:{width:"100%",height:"105vh",backgroundColor:"black"}},i.a.createElement("g",null,i.a.createElement("image",{key:"ev-image",xlinkHref:e,width:"100%",height:"100%"})),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.2"}),"development-options"!==this.state.mode&&y.map(e=>i.a.createElement(U,{name:e.name,x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),"video-gallery"===this.state.mode&&i.a.createElement(q,{closeVideoGallery:this.resetMode}),"photo-gallery"===this.state.mode&&i.a.createElement(oe,{closePhotoGallery:this.resetMode}),"island-overview"===this.state.mode&&i.a.createElement(he,{closeOverview:this.resetMode}),"development-options"===this.state.mode&&i.a.createElement(_e,{option:this.state.developmentOption,receiveOptionChange:this.handleOptionChange}),"contact"===this.state.mode&&i.a.createElement(ke,{closeContact:this.resetMode}))}}const Je=a.c.div`
   position: absolute;
   top: 20%;
   right: 0px;
@@ -786,7 +828,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   justify-content: flex-start;
   align-items: flex-end;
   padding: 0px 15px;
-`,qe=(a.c.div`
+`,Ze=(a.c.div`
   width: 100vw;
   height: 100vh;
   position: fixed !important;
@@ -802,7 +844,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: absolute;
   top: 25px;
   left: 30px;
-`),Xe=a.c.div`
+`),Ke=a.c.div`
   width: 100vw;
   height: fit-content;
   margin-bottom: -10px;
@@ -815,12 +857,12 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
 
   background-color: red;
   z-index: 1000000;
-`;class Ye extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=["https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg","https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg"].map(e=>new Promise(t=>{const n=new Image;n.onload=(()=>{t()}),n.src=e}));Promise.all(e).then(()=>{this.props.endLoad()})})}render(){return i.a.createElement(Ke,null,i.a.createElement(Ze,null),i.a.createElement(Je,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const Je=a.c.span`
+`;class Qe extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=["https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg","https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg"].map(e=>new Promise(t=>{const n=new Image;n.onload=(()=>{t()}),n.src=e}));Promise.all(e).then(()=>{this.props.endLoad()})})}render(){return i.a.createElement(tt,null,i.a.createElement(et,null),i.a.createElement($e,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const $e=a.c.span`
   font-family: 'Bodoni Sans';
   color: white;
   font-size: 42px;
   margin-bottom: 30px;
-`,Ze=a.c.div`
+`,et=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -830,7 +872,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   z-index: 1;
 
   background-color: rgba(0, 0, 0, 0.5);
-`,Ke=a.c.div`
+`,tt=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -845,7 +887,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   > :not(:nth-child(1)) {
     z-index: 2;
   }
-`;const Qe=a.a`
+`;const nt=a.a`
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 * {
@@ -899,4 +941,4 @@ html, body {
 
   background-color: black;
 }
-`;var $e=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement(Qe,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(Ye,{endLoad:this.endLoad}):i.a.createElement(Ve,null))]}};Object(o.render)(i.a.createElement($e,null),document.getElementById("root"))}]);
+`;var rt=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement(nt,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(Qe,{endLoad:this.endLoad}):i.a.createElement(Ye,null))]}};Object(o.render)(i.a.createElement(rt,null),document.getElementById("root"))}]);

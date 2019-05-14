@@ -290,12 +290,14 @@ export default class LandingPage extends Component<Props, State> {
                 backgroundColor: 'black'
               }}
             >
-              <image
-                key='ev-image'
-                xlinkHref={imageSource}
-                width='100%'
-                height='100%'
-              />
+              <g>
+                <image
+                  key='ev-image'
+                  xlinkHref={imageSource}
+                  width='100%'
+                  height='100%'
+                />
+              </g>
               <rect width='100%' height='100%' fill='black' opacity='0.2' />
               {this.state.mode !== 'development-options' &&
                 targets.map(target => (
