@@ -75,11 +75,11 @@ export default class IslandOverview extends Component<Props, State> {
                 3-bedroom Harbour House and adjacent vacant lot within the Ocean
                 Reef community. This spacious waterfront home on the marina
                 features stunning golf and waterway views with direct access to
-                Card Sound and the ocean beyond <br /> <br />The invitation-only
-                club features two challenging 18-hole golf courses as well. With
-                over a dozen restaurants and lounges to enjoy, you’ll find
-                gastronomy to excite your palate as you take in the spectacular
-                views.
+                Card Sound and the ocean beyond. <br /> <br />
+                The invitation-only club features two challenging 18-hole golf
+                courses as well. With over a dozen restaurants and lounges to
+                enjoy, you’ll find gastronomy to excite your palate as you take
+                in the spectacular views.
                 <br />
                 <br /> 10 Minutes via helicopter from Miami and accessible via
                 private airport and marina, Ocean Reef Club features 2,500 lush
