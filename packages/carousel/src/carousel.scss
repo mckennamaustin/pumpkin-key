@@ -6,6 +6,12 @@
   -o-user-drag: none;
   user-drag: none;
 
+  &:hover {
+    .ev-icon-container {
+      opacity: 1;
+    }
+  }
+
   .exit-button {
     font-weight: 300;
     font-size: 48px;
@@ -143,11 +149,7 @@
 
     position: relative;
 
-    &:hover {
-      .ev-icon-container {
-        opacity: 1;
-      }
-    }
+
   }
 
   .ev-main-image-container {
