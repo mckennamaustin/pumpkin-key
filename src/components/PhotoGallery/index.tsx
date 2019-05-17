@@ -2,14 +2,55 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import Carousel from 'ev-carousel-pro';
 
-let assets = [];
-for (let i = 0; i < 40; i++) {
-  let j = (i + 12) % 40;
-  assets.push({
+const order: number[] = [
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  19,
+  20,
+  21,
+  22,
+  23
+];
+let assets = order.map(j => {
+  return {
     src: `https://s3.amazonaws.com/sage.pumpkin-key/gallery/${j}.jpg`,
     thumbnail: `https://s3.amazonaws.com/sage.pumpkin-key/gallery/thumb/${j}.jpg`
-  });
-}
+  };
+});
 
 interface Props {
   closePhotoGallery: () => void;
@@ -30,7 +71,7 @@ export default class PhotoGallery extends Component<Props, State> {
     let label = '';
     const index = Number(this.state.activeIndex);
     console.log(index);
-    if (index >= 28 && index <= 39) {
+    if (index >= 23) {
       label = 'Harbour House';
     }
 
