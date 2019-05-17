@@ -63,6 +63,7 @@ const WindowContainer = styled.div`
 `;
 
 const Icon = styled.img`
+  margin-top: 20px;
   width: 100%;
 `;
 

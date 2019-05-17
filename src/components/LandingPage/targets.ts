@@ -15,7 +15,7 @@ const targets: Target[] = [
     initialTheta: 6.169
   },
   {
-    name: 'Caretaker House Aerial',
+    name: 'Caretaker Complex Aerial',
     tl: [1200, 1150],
     br: [1774, 1338],
     src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-overCaretaker.jpg',
@@ -23,7 +23,7 @@ const targets: Target[] = [
     initialTheta: 10.828
   },
   {
-    name: 'Caretaker House',
+    name: 'Caretaker Complex',
     tl: [1400, 1200],
     br: [1774, 1338],
     src: 'https://s3.amazonaws.com/sage.pumpkin-key/small-betweenCaretaker.jpg',

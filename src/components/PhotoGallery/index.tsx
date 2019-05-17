@@ -15,13 +15,25 @@ interface Props {
   closePhotoGallery: () => void;
 }
 
-export default class PhotoGallery extends Component<Props> {
+interface State {
+  activeIndex: number;
+  isFullscreen: boolean;
+}
+
+export default class PhotoGallery extends Component<Props, State> {
   state = {
     activeIndex: 0,
     isFullscreen: false
   };
 
   render() {
+    let label = '';
+    const index = Number(this.state.activeIndex);
+    console.log(index);
+    if (index >= 28 && index <= 39) {
+      label = 'Harbour House';
+    }
+
     return (
       <Container onClick={() => this.props.closePhotoGallery}>
         <CarouselWrapper>
@@ -30,8 +42,11 @@ export default class PhotoGallery extends Component<Props> {
             isFullscreen={window.innerWidth <= 768}
             images={assets}
             updateFullscreen={() => {}}
-            indexChange={() => {}}
+            indexChange={index => {
+              this.setState({ activeIndex: index });
+            }}
             exitCarousel={this.props.closePhotoGallery}
+            label={label}
           />
         </CarouselWrapper>
       </Container>

@@ -35,6 +35,10 @@ export default class Carousel extends Component {
     }
 
     this.setState({ index });
+
+    if (this.props.indexChange) {
+      this.props.indexChange(index);
+    }
   };
 
   decrementIndex = () => {
@@ -44,11 +48,18 @@ export default class Carousel extends Component {
     }
 
     this.setState({ index });
+
+    if (this.props.indexChange) {
+      this.props.indexChange(index);
+    }
   };
 
   goToIndex = index => {
     if (index <= this.props.images.length - 1 && index >= 0) {
       this.setState({ index });
+      if (this.props.indexChange) {
+        this.props.indexChange(index);
+      }
     }
   };
 
@@ -96,10 +107,9 @@ export default class Carousel extends Component {
           incrementIndex={this.incrementIndex}
           toggleFullscreen={this.toggleFullscreen}
           exitCarousel={this.props.exitCarousel}
+          label={this.props.label}
         >
-          {this.props.images.map(image => (
-            <MainImage src={image.src} />
-          ))}
+          {[<MainImage src={this.props.images[this.state.index].src} />]}
         </MainReel>
         {this.state.isFullscreen && (
           <ThumbnailIndicator

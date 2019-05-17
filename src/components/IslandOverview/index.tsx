@@ -5,14 +5,36 @@ interface Props {
   closeOverview: () => void;
 }
 
-export default class IslandOverview extends Component<Props> {
+interface State {
+  height: number;
+}
+
+export default class IslandOverview extends Component<Props, State> {
+  private image: HTMLImageElement;
+
+  state = {
+    height: 0
+  };
+
+  componentDidMount() {
+    if (this.image) {
+      this.setState({ height: this.image.clientWidth / 2.8 });
+    }
+  }
+
   render() {
     return (
       <WindowContainer onClick={this.props.closeOverview}>
         <Container onClick={evt => evt.stopPropagation()}>
           <Title>Island Overview</Title>
           <ExitButton onClick={this.props.closeOverview}>×</ExitButton>
-          <Image src='https://s3.amazonaws.com/sage.pumpkin-key/islandOverview.jpg' />
+          <Image
+            ref={image => {
+              this.image = image;
+            }}
+            height={`${this.state.height}px`}
+            src='https://s3.amazonaws.com/sage.pumpkin-key/gallery/24.jpg'
+          />
           <OverviewDetailsContainer>
             <TextContainer>
               <TextHeader>About Pumpkin Key</TextHeader>
@@ -20,12 +42,12 @@ export default class IslandOverview extends Component<Props> {
                 A short 3-minute ride via private boat from Ocean Reef Club,
                 spectacular Pumpkin Key is a completely private oasis just
                 moments from Key Largo. <br />
-                <br /> A 26 acres of natural paradise ready for development
-                located in Card Sound Bay and protected on all sides, Pumpkin
-                Key is a year-round retreat. The existing 20-slip marina is big
-                enough to accommodate the largest of yachts, allowing you to
-                sail in uninterrupted from other destinations in the Caribbean
-                and eastern US. <br />
+                <br />
+                The island is located in Card Sound Bay and protected on all
+                sides, making it an ideal year-round retreat. The existing
+                20-slip marina is big enough to accommodate the largest of
+                yachts, allowing you to sail in uninterrupted from other
+                destinations in the Caribbean and eastern US. <br />
                 <br />
                 With idyllic waters, the extremely private white-sand beach
                 offers swimming, sun bathing and plenty of space to enjoy games
@@ -34,9 +56,10 @@ export default class IslandOverview extends Component<Props> {
                 have to offer: Sport Fishing, Snorkeling, Scuba Diving,
                 Watersports, Tennis, Golf, and relaxation. <br />
                 <br />
-                Fueled by an underground generator, fiber optics, and fresh
-                water plumbing, Pumpkin Key has massive potential for
-                development. The existing 3-bedroom home and Caretaker’s and
+                Fueled by a sub-aqueous crossing that brings self-sufficient
+                electricity, fiber optics, and fresh water from the mainland,
+                Pumpkin Key’s 26 acres of natural paradise has massive potential
+                for development. The existing 3-bedroom home and Caretaker’s and
                 Dockmaster’s apartments offer an excellent foundation on which
                 to build.
               </Paragraph>
@@ -48,10 +71,15 @@ export default class IslandOverview extends Component<Props> {
                 club and community with world-class dining, beaches, and
                 amenities. <br />
                 <br />
-                The invitation-only club features two challenging 18-hole golf
-                courses as well. With over a dozen restaurants and lounges to
-                enjoy, you’ll find gastronomy to excite your palate as you take
-                in the spectacular views. <br />
+                As part of an assemblage, the purchase of Pumpkin Key includes a
+                3-bedroom Harbour House and adjacent vacant lot within the Ocean
+                Reef community. This spacious waterfront home on the marina
+                features stunning golf and waterway views with direct access to
+                Card Sound and the ocean beyond The invitation-only club
+                features two challenging 18-hole golf courses as well. With over
+                a dozen restaurants and lounges to enjoy, you’ll find gastronomy
+                to excite your palate as you take in the spectacular views.
+                <br />
                 <br /> 10 Minutes via helicopter from Miami and accessible via
                 private airport and marina, Ocean Reef Club features 2,500 lush
                 tropical acres for your family to enjoy.
@@ -160,9 +188,22 @@ const Title = styled.h1`
   padding: 0;
 `;
 
-const Image = styled.img`
+const Image = styled.div`
   width: 100%;
+  ${props =>
+    props.height &&
+    css`
+      height: ${props.height};
+    `}
   margin: 20px 0;
+  ${props =>
+    props.src &&
+    css`
+      background-image: url(${props.src});
+    `}
+
+  background-size: 100%;
+  background-position: center;
 `;
 const Container = styled.div`
   background-color: white;

@@ -7,9 +7,9 @@ class MainReel extends Component {
   render() {
     return (
       <div className='ev-main-reel-container'>
-        {React.Children.map(this.props.children, (child, index) => {
+        {React.Children.map(this.props.children, child => {
           let className = undefined;
-          const visible = index !== this.props.index;
+          const visible = false;
           if (visible) {
             className = 'hidden';
           }
@@ -28,6 +28,11 @@ class MainReel extends Component {
           src={CHEVRON_RIGHT}
           onClick={this.props.incrementIndex}
         />
+        {this.props.label && this.props.label.length > 0 && (
+          <div className='ev-carousel-label-container'>
+            <span>{this.props.label}</span>
+          </div>
+        )}
         <span className='exit-button' onClick={this.props.exitCarousel}>
           ×
         </span>
