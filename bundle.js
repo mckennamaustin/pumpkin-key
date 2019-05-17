@@ -422,7 +422,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: fixed;
   top: 0px;
   left: 0px;
-`;var ne=n(161),re=n.n(ne);let ie=[];for(let e=0;e<40;e++){let t=(e+12)%40;ie.push({src:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/${t}.jpg`,thumbnail:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/thumb/${t}.jpg`})}class oe extends r.Component{constructor(){super(...arguments),this.state={activeIndex:0,isFullscreen:!1}}render(){let e="";const t=Number(this.state.activeIndex);return console.log(t),t>=28&&t<=39&&(e="Harbour House"),i.a.createElement(ae,{onClick:()=>this.props.closePhotoGallery},i.a.createElement(se,null,i.a.createElement(re.a,{index:0,isFullscreen:window.innerWidth<=768,images:ie,updateFullscreen:()=>{},indexChange:e=>{this.setState({activeIndex:e})},exitCarousel:this.props.closePhotoGallery,label:e})))}}const ae=a.c.div`
+`;var ne=n(161),re=n.n(ne);let ie=[12,13,14,15,16,17,18,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,0,1,2,3,4,5,6,7,8,9,10,11,19,20,21,22,23].map(e=>({src:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/${e}.jpg`,thumbnail:`https://s3.amazonaws.com/sage.pumpkin-key/gallery/thumb/${e}.jpg`}));class oe extends r.Component{constructor(){super(...arguments),this.state={activeIndex:0,isFullscreen:!1}}render(){let e="";const t=Number(this.state.activeIndex);return console.log(t),t>=23&&(e="Harbour House"),i.a.createElement(ae,{onClick:()=>this.props.closePhotoGallery},i.a.createElement(se,null,i.a.createElement(re.a,{index:0,isFullscreen:window.innerWidth<=768,images:ie,updateFullscreen:()=>{},indexChange:e=>{this.setState({activeIndex:e})},exitCarousel:this.props.closePhotoGallery,label:e})))}}const ae=a.c.div`
   width: 100vw;
   height: 100vh;
 
