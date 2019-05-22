@@ -12,6 +12,23 @@
 
   overflow: hidden;
 
+  .left,
+  .right {
+    z-index: 1000;
+    position: absolute;
+
+  }
+
+  .left {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .right {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
   .ev-thumbnail {
     overflow: hidden;
     background-size: cover;
@@ -23,6 +40,7 @@
     //stransition: left 500ms ease-in-out;
 
     user-select: none;
+
     * {
       user-select: none;
     }

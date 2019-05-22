@@ -121,6 +121,8 @@ export default class Carousel extends Component {
           index={this.state.index}
           goToIndex={this.goToIndex}
           maxIndex={this.props.images.length - 1}
+          decrementIndex={this.decrementIndex}
+          incrementIndex={this.incrementIndex}
         >
           {this.props.images.map(image => (
             <Thumbnail src={image.thumbnail} />

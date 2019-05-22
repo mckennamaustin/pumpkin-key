@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { ringDistance } from './utils/math';
+import Icon from './Icon';
+import { CHEVRON_LEFT, CHEVRON_RIGHT, PLAY, FULLSCREEN } from './base64';
 
 const MARGIN = 10;
 const DRAG_TOLERANCE = 10;
@@ -203,6 +205,16 @@ export default class ThumbnailReel extends Component {
           this.container = container;
         }}
       >
+        <Icon
+          className='left'
+          src={CHEVRON_LEFT}
+          onClick={this.props.decrementIndex}
+        />
+        <Icon
+          className='right'
+          src={CHEVRON_RIGHT}
+          onClick={this.props.incrementIndex}
+        />
         {React.Children.map(children, (child, index) => {
           const left =
             '' +
