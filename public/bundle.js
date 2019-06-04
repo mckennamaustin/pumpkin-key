@@ -706,7 +706,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   background-color: rgba(0, 0, 0, 0.5);
 
   _transform: translate(0, 75%);
-`;class Ae extends r.Component{render(){return i.a.createElement(Ce,{onClick:this.props.closeContact},i.a.createElement(Ue,{onClick:e=>e.stopPropagation()},i.a.createElement(Ie,null,"Contact"),i.a.createElement(Le,{onClick:this.props.closeContact},"×"),i.a.createElement(Ne,null,"To learn more about Pumpkin Key, please provide your details below:"),i.a.createElement(De,{onSubmit:e=>e.preventDefault()},i.a.createElement(Re,null,i.a.createElement(je,null,"First Name: "),i.a.createElement(Fe,null)),i.a.createElement(Re,null,i.a.createElement(je,null,"Last Name: "),i.a.createElement(Fe,null)),i.a.createElement(Re,null,i.a.createElement(je,null,"Phone: "),i.a.createElement(Fe,null)),i.a.createElement(Re,null,i.a.createElement(je,null,"Email: "),i.a.createElement(Fe,null)),i.a.createElement(ze,{onClick:this.props.closeContact},"Submit")),i.a.createElement(Ne,null,"Presented by Ocean Sotheby's"),i.a.createElement(Oe,null,i.a.createElement(Ne,{small:!0},"Ocean Sotheby's International Realty"),i.a.createElement(Ne,{small:!0},"81888 Overseas Highway, Islamorada, FL 33036"),i.a.createElement(Ne,{small:!0},"305.712.8888")),i.a.createElement(ke,{src:"https://s3.amazonaws.com/sage.pumpkin-key/sothebys.png"})))}}const Ce=a.c.div`
+`;class Ae extends r.Component{render(){return i.a.createElement(Ce,{onClick:this.props.closeContact},i.a.createElement(ze,{onClick:e=>e.stopPropagation()},i.a.createElement(Re,null,"Contact"),i.a.createElement(Le,{onClick:this.props.closeContact},"×"),i.a.createElement(Ie,null,"To learn more about Pumpkin Key, please provide your details below:"),i.a.createElement(Ne,{onSubmit:e=>e.preventDefault()},i.a.createElement(Oe,null,i.a.createElement(De,null,"First Name: "),i.a.createElement(je,null)),i.a.createElement(Oe,null,i.a.createElement(De,null,"Last Name: "),i.a.createElement(je,null)),i.a.createElement(Oe,null,i.a.createElement(De,null,"Phone: "),i.a.createElement(je,null)),i.a.createElement(Oe,null,i.a.createElement(De,null,"Email: "),i.a.createElement(je,null)),i.a.createElement(Fe,{onClick:this.props.closeContact},"Submit")),i.a.createElement(ke,{src:"https://s3.amazonaws.com/sage.pumpkin-key/sothebys.png"})))}}const Ce=a.c.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -733,14 +733,14 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: absolute;
   top: 10px;
   right: 15px;
-`,Oe=a.c.div`
+`,Oe=(a.c.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 7px;
-`,Re=a.c.div`
+`,a.c.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -748,7 +748,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   width: 100%;
 
   margin-bottom: 10px;
-`,Ie=a.c.h2`
+`),Re=a.c.h2`
   color: #003f3a;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -758,7 +758,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   margin-bottom: 10px;
   position: relative;
   top: -10px;
-`,Ne=a.c.span`
+`,Ie=a.c.span`
   color: #003f3a;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -767,7 +767,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   ${e=>e.small&&a.b`
       font-size: 8px;
     `}
-`,De=a.c.form`
+`,Ne=a.c.form`
   width: 95%;
   display: flex;
   flex-direction: column;
@@ -775,13 +775,13 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   align-items: flex-start;
   margin-top: 10px;
   margin-bottom: 10px;
-`,je=a.c.label`
+`,De=a.c.label`
   color: #003f3a;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 500;
   margin-right: 10px;
-`,Fe=a.c.input`
+`,je=a.c.input`
   flex-grow: 1;
 
   color: #003f3a;
@@ -793,7 +793,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   border: none;
   background-color: transparent;
   border-bottom: 0.5px solid #003f3a;
-`,ze=a.c.button`
+`,Fe=a.c.button`
   cursor: pointer;
   margin-top: 10px;
   border: none;
@@ -812,7 +812,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   border: 0.5px solid #003f3a;
 
   padding: 4px 8px;
-`,Ue=a.c.div`
+`,ze=a.c.div`
   width: 340px;
   height: auto;
   position: fixed;
@@ -828,7 +828,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   align-items: flex-start;
   box-sizing: border-box;
   padding: 40px 40px;
-`,Be=3300,Ge=2175,He=Be/2,Ve=Ge/2,We=1;class qe extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:We,isShowingVideoGallery:!1,isShowingPhotoGallery:!1,mode:"exploring-island",developmentOption:"development-island",isShowingInstructions:!0},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.closeInstructions=(()=>{this.setState({isShowingInstructions:!1})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.resetMode=(()=>{this.setState({mode:"exploring-island"})}),this.makeTransform=(()=>{const e=He,t=Ve;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.activateMode=(e=>{this.setState({mode:e})}),this.handleOptionChange=(e=>{this.setState({developmentOption:e})})}render(){let e="https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg";return"development-options"===this.state.mode&&(e={"development-island":"https://s3.amazonaws.com/sage.pumpkin-key/developmentIsland.jpg","private-island":"https://s3.amazonaws.com/sage.pumpkin-key/privateIsland.jpg","residential-island":"https://s3.amazonaws.com/sage.pumpkin-key/residentialIsland.jpg"}[this.state.developmentOption]),i.a.createElement(Je,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(I,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,initialTheta:this.state.activePanorama.initialTheta,goBack:this.deactivatePanorama,isShowingInstructions:this.state.isShowingInstructions,closeInstructions:this.closeInstructions}):i.a.createElement(i.a.Fragment,null,i.a.createElement(Ye,null),i.a.createElement(Xe,null,i.a.createElement(fe,{text:"Explore the Island",isActive:"exploring-island"===this.state.mode,onClick:()=>this.activateMode("exploring-island")}),i.a.createElement(fe,{text:"Island Overview",isActive:"island-overview"===this.state.mode,onClick:()=>this.activateMode("island-overview")}),i.a.createElement(fe,{text:"Photo Gallery",isActive:"photo-gallery"===this.state.mode,onClick:()=>this.activateMode("photo-gallery")}),i.a.createElement(fe,{text:"Video Gallery",isActive:"video-gallery"===this.state.mode,onClick:()=>this.activateMode("video-gallery")}),i.a.createElement(fe,{text:"Development Options",isActive:"development-options"===this.state.mode,onClick:()=>this.activateMode("development-options")}),i.a.createElement(fe,{text:"Contact",isActive:"contact"===this.state.mode,onClick:()=>this.activateMode("contact")})),i.a.createElement("svg",{viewBox:` 0 0 ${Be} ${Ge}`,key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice",style:{width:"100%",height:"105vh",backgroundColor:"black"}},i.a.createElement("g",null,i.a.createElement("image",{key:"ev-image",xlinkHref:e,width:"100%",height:"100%"})),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.2"}),"development-options"!==this.state.mode&&y.map(e=>i.a.createElement(U,{name:e.name,x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),"video-gallery"===this.state.mode&&i.a.createElement(q,{closeVideoGallery:this.resetMode}),"photo-gallery"===this.state.mode&&i.a.createElement(oe,{closePhotoGallery:this.resetMode}),"island-overview"===this.state.mode&&i.a.createElement(he,{closeOverview:this.resetMode}),"development-options"===this.state.mode&&i.a.createElement(_e,{option:this.state.developmentOption,receiveOptionChange:this.handleOptionChange}),"contact"===this.state.mode&&i.a.createElement(Ae,{closeContact:this.resetMode}))}}const Xe=a.c.div`
+`,Ue=3300,Be=2175,Ge=Ue/2,He=Be/2,Ve=1;class We extends r.Component{constructor(){super(...arguments),this.state={width:0,height:0,isPanoramaActive:!1,activePanorama:void 0,zoomDelta:0,zoom:Ve,isShowingVideoGallery:!1,isShowingPhotoGallery:!1,mode:"exploring-island",developmentOption:"development-island",isShowingInstructions:!0},this.componentDidMount=(()=>{this.resize(),window.addEventListener("resize",this.resize,!1)}),this.componentWillUnmount=(()=>{window.removeEventListener("resize",this.resize)}),this.resize=(()=>{const{clientWidth:e,clientHeight:t}=this.container;this.setState({width:e,height:t})}),this.closeInstructions=(()=>{this.setState({isShowingInstructions:!1})}),this.activatePanorama=(e=>{this.setState({isPanoramaActive:!0,activePanorama:e})}),this.deactivatePanorama=(()=>{this.setState({isPanoramaActive:!1,activePanorama:void 0})}),this.resetMode=(()=>{this.setState({mode:"exploring-island"})}),this.makeTransform=(()=>{const e=Ge,t=He;return`translate(${e}, ${t}) scale(${this.state.zoom}) translate(${-e}, ${-t}) `}),this.openVideoGallery=(()=>{this.setState({isShowingVideoGallery:!0,isShowingPhotoGallery:!1})}),this.closeVideoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.openPhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!0})}),this.closePhotoGallery=(()=>{this.setState({isShowingVideoGallery:!1,isShowingPhotoGallery:!1})}),this.activateMode=(e=>{this.setState({mode:e})}),this.handleOptionChange=(e=>{this.setState({developmentOption:e})})}render(){let e="https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg";return"development-options"===this.state.mode&&(e={"development-island":"https://s3.amazonaws.com/sage.pumpkin-key/developmentIsland.jpg","private-island":"https://s3.amazonaws.com/sage.pumpkin-key/privateIsland.jpg","residential-island":"https://s3.amazonaws.com/sage.pumpkin-key/residentialIsland.jpg"}[this.state.developmentOption]),i.a.createElement(Ye,{ref:e=>{this.container=e},key:"ev-container"},this.state.isPanoramaActive?i.a.createElement(I,{name:this.state.activePanorama.name,src:`https://s3.amazonaws.com/sage.pumpkin-key/hdPanoramas/0-0-${this.state.activePanorama.id}`,sdSrc:`https://s3.amazonaws.com/sage.pumpkin-key/sdPanoramas/0-0-${this.state.activePanorama.id}`,initialTheta:this.state.activePanorama.initialTheta,goBack:this.deactivatePanorama,isShowingInstructions:this.state.isShowingInstructions,closeInstructions:this.closeInstructions}):i.a.createElement(i.a.Fragment,null,i.a.createElement(Xe,null),i.a.createElement(qe,null,i.a.createElement(fe,{text:"Explore the Island",isActive:"exploring-island"===this.state.mode,onClick:()=>this.activateMode("exploring-island")}),i.a.createElement(fe,{text:"Island Overview",isActive:"island-overview"===this.state.mode,onClick:()=>this.activateMode("island-overview")}),i.a.createElement(fe,{text:"Photo Gallery",isActive:"photo-gallery"===this.state.mode,onClick:()=>this.activateMode("photo-gallery")}),i.a.createElement(fe,{text:"Video Gallery",isActive:"video-gallery"===this.state.mode,onClick:()=>this.activateMode("video-gallery")}),i.a.createElement(fe,{text:"Development Options",isActive:"development-options"===this.state.mode,onClick:()=>this.activateMode("development-options")}),i.a.createElement(fe,{text:"Contact",isActive:"contact"===this.state.mode,onClick:()=>this.activateMode("contact")})),i.a.createElement("svg",{viewBox:` 0 0 ${Ue} ${Be}`,key:"ev-svg",ref:e=>{this.svg=e},preserveAspectRatio:"xMidYMid slice",style:{width:"100%",height:"105vh",backgroundColor:"black"}},i.a.createElement("g",null,i.a.createElement("image",{key:"ev-image",xlinkHref:e,width:"100%",height:"100%"})),i.a.createElement("rect",{width:"100%",height:"100%",fill:"black",opacity:"0.2"}),"development-options"!==this.state.mode&&y.map(e=>i.a.createElement(U,{name:e.name,x:e.tl[0],y:e.tl[1],onClick:()=>this.activatePanorama(e)})))),"video-gallery"===this.state.mode&&i.a.createElement(q,{closeVideoGallery:this.resetMode}),"photo-gallery"===this.state.mode&&i.a.createElement(oe,{closePhotoGallery:this.resetMode}),"island-overview"===this.state.mode&&i.a.createElement(he,{closeOverview:this.resetMode}),"development-options"===this.state.mode&&i.a.createElement(_e,{option:this.state.developmentOption,receiveOptionChange:this.handleOptionChange}),"contact"===this.state.mode&&i.a.createElement(Ae,{closeContact:this.resetMode}))}}const qe=a.c.div`
   position: absolute;
   top: 20%;
   right: 0px;
@@ -838,7 +838,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   justify-content: flex-start;
   align-items: flex-end;
   padding: 0px 15px;
-`,Ye=(a.c.div`
+`,Xe=(a.c.div`
   width: 100vw;
   height: 100vh;
   position: fixed !important;
@@ -854,7 +854,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   position: absolute;
   top: 25px;
   left: 30px;
-`),Je=a.c.div`
+`),Ye=a.c.div`
   width: 100vw;
   height: fit-content;
   margin-bottom: -10px;
@@ -867,12 +867,12 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
 
   background-color: red;
   z-index: 1000000;
-`;class Ze extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=["https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg","https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg"].map(e=>new Promise(t=>{const n=new Image;n.onload=(()=>{t()}),n.src=e}));Promise.all(e).then(()=>{this.props.endLoad()})})}render(){return i.a.createElement($e,null,i.a.createElement(Qe,null),i.a.createElement(Ke,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const Ke=a.c.span`
+`;class Je extends r.Component{constructor(){super(...arguments),this.componentDidMount=(()=>{this.load()}),this.load=(()=>{const e=["https://s3.amazonaws.com/sage.pumpkin-key/overview.jpg","https://s3.amazonaws.com/sage.pumpkin-key/overviewLarge.jpg"].map(e=>new Promise(t=>{const n=new Image;n.onload=(()=>{t()}),n.src=e}));Promise.all(e).then(()=>{this.props.endLoad()})})}render(){return i.a.createElement(Qe,null,i.a.createElement(Ke,null),i.a.createElement(Ze,null,"LOADING..."),i.a.createElement(v.a,{type:"Circles",color:"white",height:"100",width:"100"}))}}const Ze=a.c.span`
   font-family: 'Bodoni Sans';
   color: white;
   font-size: 42px;
   margin-bottom: 30px;
-`,Qe=a.c.div`
+`,Ke=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -882,7 +882,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   z-index: 1;
 
   background-color: rgba(0, 0, 0, 0.5);
-`,$e=a.c.div`
+`,Qe=a.c.div`
   width: 100vw;
   height: 100vh;
 
@@ -897,7 +897,7 @@ Object.defineProperty(t,"__esModule",{value:!0});var n=null,r=!1,i=3,o=-1,a=-1,s
   > :not(:nth-child(1)) {
     z-index: 2;
   }
-`;const et=a.a`
+`;const $e=a.a`
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 * {
@@ -951,4 +951,4 @@ html, body {
 
   background-color: black;
 }
-`;var tt=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement(et,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(Ze,{endLoad:this.endLoad}):i.a.createElement(qe,null))]}};Object(o.render)(i.a.createElement(tt,null),document.getElementById("root"))}]);
+`;var et=class extends r.Component{constructor(){super(...arguments),this.state={isLoading:!0},this.endLoad=(()=>{this.setState({isLoading:!1})})}componentDidMount(){}render(){return[i.a.createElement($e,{key:0}),i.a.createElement(i.a.Fragment,null,this.state.isLoading?i.a.createElement(Je,{endLoad:this.endLoad}):i.a.createElement(We,null))]}};Object(o.render)(i.a.createElement(et,null),document.getElementById("root"))}]);

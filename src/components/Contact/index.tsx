@@ -37,14 +37,7 @@ export default class Contact extends Component<Props> {
               Submit
             </SubmitButton>
           </Form>
-          <NormalText>Presented by Ocean Sotheby's</NormalText>
-          <AddressContainer>
-            <NormalText small>Ocean Sotheby's International Realty</NormalText>
-            <NormalText small>
-              81888 Overseas Highway, Islamorada, FL 33036
-            </NormalText>
-            <NormalText small>305.712.8888</NormalText>
-          </AddressContainer>
+
           <Icon src='https://s3.amazonaws.com/sage.pumpkin-key/sothebys.png' />
         </Container>
       </WindowContainer>
