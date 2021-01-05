@@ -34,7 +34,7 @@
     "@types/lodash": "^4.14.123",
     "@types/react-addons-css-transition-group": "^15.0.5",
     "@types/three": "^0.93.26",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel": "^6.23.0",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-react-transform": "^3.0.0",
